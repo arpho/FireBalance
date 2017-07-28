@@ -1,24 +1,28 @@
-import { UserModel } from '../pages/profile/profile.model';
+import { ProfileModel } from '../pages/profile/profile.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UserService {
-private user: UserModel;
-setUser(user){
-  this.user.name = user.name;
-  this.user.image = user.photoURL;
-}
+  constructor(
+  private user: ProfileModel,
+){}
+  setUser(user){
+    console.log('userMOdel',this.user)
+    this.user.user.name = user.displayName;
+    this.user.user.image = user.photoURL;
+    this.user.user.email = user.email;
+    this.user.user.uid = user.uid;
 
-isUserLogged(){
-  return this.user == null; 
-}
-
-getUser(){
-  return this.user;
-}
-  constructor() { 
-    
   }
+
+  isUserLogged():Boolean{
+    return this.user == null; 
+  }
+
+  getUser():ProfileModel{
+    return this.user;
+  }
+    
 
 
 }

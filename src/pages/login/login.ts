@@ -33,6 +33,7 @@ export class LoginPage {
     public twitterLoginService: TwitterLoginService,
     private afAuth: AngularFireAuth, private fb: Facebook, private platform: Platform,
      afDB: AngularFireDatabase,
+     private User:UserService,
     public loadingCtrl: LoadingController
   ) {
     this.main_page = { component: TabsNavigationPage };
@@ -49,6 +50,7 @@ export class LoginPage {
 
 
     signInWithFacebook() {
+      console.log('UserService',this.User);
     if (this.platform.is('cordova')) {
       console.log('platfrom is cordova');
       return this.fb.login(['email', 'public_profile']).then(res => {
@@ -62,7 +64,7 @@ export class LoginPage {
         .signInWithPopup(new firebase.auth.FacebookAuthProvider())
         .then(res => {
                         console.log('success',res)
-                        var user = res.user;
+                        this.User.setUser(res.user);
                     //    this.UserService.setUser(user);
                      //   console.log('user logged',UserService.isUserLogged());
                       }).catch((error) => { console.log('failed login',error) });

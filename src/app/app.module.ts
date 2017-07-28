@@ -86,6 +86,7 @@ import { ValidatorsModule } from '../components/validators/validators.module';
 
 import { LanguageService } from '../providers/language/language.service';
 import { UserService } from './user.service';
+import { ProfileModel } from '../pages/profile/profile.model'; 
 
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -202,6 +203,7 @@ export const firebaseConfig = {
     FeedService,
     ListingService,
     ProfileService,
+    ProfileModel,
     NotificationsService,
     List1Service,
     List2Service,

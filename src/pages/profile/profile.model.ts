@@ -6,6 +6,7 @@ export class UserModel {
   phone: string;
   name: string;
   website: string;
+  uid:string;
 }
 
 export class ProfilePostModel {
