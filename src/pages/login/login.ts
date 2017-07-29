@@ -65,6 +65,8 @@ export class LoginPage {
         .then(res => {
                         console.log('success',res)
                         this.User.setUser(res.user);
+                        // user is previously logged with FB and we have his data we will let him access the app
+                        this.nav.setRoot(this.main_page.component);
                     //    this.UserService.setUser(user);
                      //   console.log('user logged',UserService.isUserLogged());
                       }).catch((error) => { console.log('failed login',error) });
