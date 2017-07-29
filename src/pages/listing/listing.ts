@@ -38,6 +38,9 @@ export class ListingPage {
       });
   }
 
+  goToShoppingCart(id: string) {
+    console.log("clicked gotoShoppingCart",id);
+  }
 
   goToFeed(category: any) {
     console.log("Clicked goToFeed", category);

@@ -50,16 +50,13 @@ export class LoginPage {
 
 
     signInWithFacebook() {
-      console.log('UserService',this.User);
     if (this.platform.is('cordova')) {
-      console.log('platfrom is cordova');
       return this.fb.login(['email', 'public_profile']).then(res => {
         const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
         return firebase.auth().signInWithCredential(facebookCredential);
       })
     }
     else {
-      console.log('platform is not cordova');
       return this.afAuth.auth
         .signInWithPopup(new firebase.auth.FacebookAuthProvider())
         .then(res => {

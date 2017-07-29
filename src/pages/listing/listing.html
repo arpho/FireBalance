@@ -23,7 +23,7 @@
   <ion-scroll scrollX="true" class="horizontal-categories">
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item"  *ngFor="let popular of listing.populars">
-        <preload-image [ratio]="{w:1, h:1}" [src]="popular.image" title="popular.title"></preload-image>
+        <preload-image [ratio]="{w:1, h:1}" [src]="popular.image" title="popular.title" (click)="goToShoppingCart(popular.id)"></preload-image>
       </ion-col>
     </ion-row>
   </ion-scroll>
@@ -39,4 +39,5 @@
       </background-image>
     </ion-col>
   </ion-row>
+  <a href="https://it.icons8.com/icon/13012/Carrello-Caricato">Carrello caricato crediti icona</a>
 </ion-content>

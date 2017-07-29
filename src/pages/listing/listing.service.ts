@@ -10,7 +10,7 @@ export class ListingService {
   constructor(public http: Http) {}
 
   getData(): Promise<ListingModel> {
-    return this.http.get('./assets/example_data/listing.json')
+    return this.http.get('./assets/example_data/listing.json') //TODO leggere ramo spese in firebase
      .toPromise()
      .then(response => response.json() as ListingModel)
      .catch(this.handleError);
