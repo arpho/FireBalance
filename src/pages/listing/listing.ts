@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 
@@ -13,6 +14,7 @@ import { ListingService } from './listing.service';
   templateUrl: 'listing.html',
 })
 export class ListingPage {
+  shoppingCarts: Observable<any>;
   listing: ListingModel = new ListingModel();
   loading: any;
 
@@ -27,24 +29,13 @@ export class ListingPage {
 
   ionViewDidLoad() {
     this.loading.present();
-    this.listingService
-      .getData()
-      .then(data => {
+    this.shoppingCarts = this.listingService.getShoppingCarts();
+    this.listingService.getData().then(data => {
         this.listing.banner_image = data.banner_image;
         this.listing.banner_title = data.banner_title;
-        this.listing.populars = data.populars;
+        //this.listing.shoppingCarts = data.shoppingCarts;
         this.listing.categories = data.categories;
         this.loading.dismiss();
       });
   }
-
-  goToShoppingCart(id: string) {
-    console.log("clicked gotoShoppingCart",id);
-  }
-
-  goToFeed(category: any) {
-    console.log("Clicked goToFeed", category);
-    this.nav.push(FeedPage, { category: category });
-  }
-
 }

@@ -1,14 +1,16 @@
 {
     "banner_image": "./assets/images/listing/600x300banner1.png",
     "banner_title": "Sports",
-    "populars": [
+    "shoppingCarts": [
         {
-            "title": "Air Sports",
-            "image": "./assets/images/listing/300x300AirSports.png"
+            "title": "nuova spesa",
+            "image": "./assets/images/listing/icon/nuova_spesa.png",
+            "id": "0"
         },
         {
-            "title": "Water Sports",
-            "image": "./assets/images/listing/300x300WaterSports.png"
+            "title": "spesa precedente",
+            "image": "./assets/images/listing/icon/Carrello_Caricato.png",
+            "id":"1"
         },
         {
             "title": "Beach Sports",

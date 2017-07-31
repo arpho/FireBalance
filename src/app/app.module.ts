@@ -6,6 +6,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Http } from '@angular/http';
 
 import { ListingPage } from '../pages/listing/listing';
+import { ListingModel } from '../pages/listing/listing.model';
 import { FeedPage } from '../pages/feed/feed';
 import { FollowersPage } from '../pages/followers/followers';
 import { LayoutsPage } from '../pages/layouts/layouts';
@@ -83,10 +84,13 @@ import { VideoPlaylistPage } from '../pages/video-playlist/video-playlist';
 
 import { VideoPlayerModule } from '../components/video-player/video-player.module';
 import { ValidatorsModule } from '../components/validators/validators.module';
+import { FirebaseApp } from 'angularfire2';
 
 import { LanguageService } from '../providers/language/language.service';
 import { UserService } from './user.service';
-import { ProfileModel } from '../pages/profile/profile.model'; 
+import { ProfileModel } from '../pages/profile/profile.model';
+import { CategoryItemComponent } from './category-item/category-item.component';
+import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component'; 
 
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -106,6 +110,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
+    CategoryItemComponent,
     MyApp,
     ListingPage,
     FeedPage,
@@ -145,7 +150,9 @@ export const firebaseConfig = {
     ColorRadio,
     CounterInput,
     Rating,
-    GoogleMap
+    GoogleMap,
+    CategoryItemComponent,
+    ShoppingCartItemComponent
   ],
   imports: [
     BrowserModule,
@@ -203,6 +210,7 @@ export const firebaseConfig = {
     FeedService,
     ListingService,
     ProfileService,
+    ListingModel,
     ProfileModel,
     NotificationsService,
     List1Service,

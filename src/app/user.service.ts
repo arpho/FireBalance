@@ -7,12 +7,14 @@ export class UserService {
   private user: ProfileModel,
 ){}
   setUser(user){
-    console.log('userMOdel',this.user)
     this.user.user.name = user.displayName;
     this.user.user.image = user.photoURL;
     this.user.user.email = user.email;
     this.user.user.uid = user.uid;
 
+  }
+  getUserUid():String{
+    return this.user.user.uid;
   }
 
   isUserLogged():Boolean{

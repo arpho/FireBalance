@@ -12,6 +12,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { FunctionalitiesPage } from '../pages/functionalities/functionalities';
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { FirebaseApp } from 'angularfire2';
 
 @Component({
   selector: 'app-root',
