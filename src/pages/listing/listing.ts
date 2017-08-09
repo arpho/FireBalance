@@ -29,7 +29,8 @@ export class ListingPage {
 
   ionViewDidLoad() {
     this.loading.present();
-    this.shoppingCarts = this.listingService.getShoppingCarts();
+   //this.listingService.getShoppingCarts().subscribe(data =>{console.log('shoppingCats',data)}); 
+    this.shoppingCarts = this.listingService.getShoppingCarts();//.subscribe(data =>{console.log('shoppingCats',data)});
     this.listingService.getData().then(data => {
         this.listing.banner_image = data.banner_image;
         this.listing.banner_title = data.banner_title;

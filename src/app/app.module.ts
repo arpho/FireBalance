@@ -4,7 +4,7 @@ import { MyApp } from './app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Http } from '@angular/http';
-
+import { Observable } from 'rxjs/Rx';
 import { ListingPage } from '../pages/listing/listing';
 import { ListingModel } from '../pages/listing/listing.model';
 import { FeedPage } from '../pages/feed/feed';
@@ -50,6 +50,7 @@ import { FacebookLoginService } from '../pages/facebook-login/facebook-login.ser
 import { GoogleLoginService } from '../pages/google-login/google-login.service';
 import { TwitterLoginService } from '../pages/twitter-login/twitter-login.service';
 import { GoogleMapsService } from '../pages/maps/maps.service';
+import { CategoriesService } from '../pages/categories/categories.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -81,6 +82,7 @@ import { GoogleLoginPage } from '../pages/google-login/google-login';
 import { TwitterLoginPage } from '../pages/twitter-login/twitter-login';
 import { ContactCardPage } from '../pages/contact-card/contact-card';
 import { VideoPlaylistPage } from '../pages/video-playlist/video-playlist';
+import { CategoriesPage } from '../pages/categories/categories';
 
 import { VideoPlayerModule } from '../components/video-player/video-player.module';
 import { ValidatorsModule } from '../components/validators/validators.module';
@@ -91,7 +93,6 @@ import { UserService } from './user.service';
 import { ProfileModel } from '../pages/profile/profile.model';
 import { CategoryItemComponent } from './category-item/category-item.component';
 import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component'; 
-
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -118,6 +119,7 @@ export const firebaseConfig = {
     LayoutsPage,
     FormsPage,
     LoginPage,
+    CategoriesPage,
     NotificationsPage,
     ProfilePage,
     TabsNavigationPage,
@@ -155,6 +157,7 @@ export const firebaseConfig = {
     ShoppingCartItemComponent
   ],
   imports: [
+    
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
@@ -173,6 +176,7 @@ export const firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    CategoriesPage,
     MyApp,
     ListingPage,
     FeedPage,
@@ -216,7 +220,7 @@ export const firebaseConfig = {
     List1Service,
     List2Service,
     ScheduleService,
-
+    CategoriesService,
     FacebookLoginService,
     GoogleLoginService,
     TwitterLoginService,

@@ -71,7 +71,6 @@ export class LoginPage {
   }
 
   doFacebookLogin() {
-    console.log('login con facebook');
     this.loading = this.loadingCtrl.create();
 
     // Here we will check if the user is already logged in because we don't want to ask users to log in each time they open the app

@@ -1,0 +1,38 @@
+{
+    "categorie":{
+        "2B1nQARiZWWeRbKezsDRh0Cmeg23":{
+            
+         "0":        {
+                     "title": "gnosis",
+                 "id":0,
+                "immagine": "categorie/gnosis.gif"
+            },
+            "1":{  "title": "alimenti",
+                "id": 1,
+                "immagine": "categorie/alimenti.png"
+        },
+            "2":{  "title": "prodotti casa",
+                "id": 2,
+                "immagine": "categorie/alimenti.png"
+        }
+
+        }
+    },
+    "conti":{
+        "2B1nQARiZWWeRbKezsDRh0Cmeg23": {
+        "0":{ "id":0,
+        "label":"default",
+        "shoppingCarts":{"0":{"data":"31/07/2017",
+            "title":"dummy shoppingCart"}}
+    }
+        }
+    }
+
+}
+            
+
+
+           
+        
+    
+    

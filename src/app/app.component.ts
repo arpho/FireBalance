@@ -10,6 +10,7 @@ import { LayoutsPage } from '../pages/layouts/layouts';
 import { WalkthroughPage } from '../pages/walkthrough/walkthrough';
 import { SettingsPage } from '../pages/settings/settings';
 import { FunctionalitiesPage } from '../pages/functionalities/functionalities';
+import { CategoriesPage } from '../pages/categories/categories';
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { FirebaseApp } from 'angularfire2';
@@ -67,12 +68,14 @@ export class MyApp {
           this.translate.get('FORMS'),
           this.translate.get('FUNCTIONALITIES'),
           this.translate.get('LAYOUTS'),
-          this.translate.get('SETTINGS')
+          this.translate.get('SETTINGS'),
+          this.translate.get('Categorie'),
         ).subscribe(data => {
           this.pages = [
             { title: data[0], icon: 'home', component: TabsNavigationPage },
             { title: data[1], icon: 'create', component: FormsPage },
-            { title: data[2], icon: 'code', component: FunctionalitiesPage }
+            { title: data[2], icon: 'code', component: FunctionalitiesPage },
+            { title: data[5], icon: 'code', component: CategoriesPage }
           ];
 
           this.pushPages = [

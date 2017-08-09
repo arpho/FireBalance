@@ -9,6 +9,7 @@ export class LanguageService {
      this.languages.push(
        {name: "English", code: "en"},
        {name: "Spanish", code: "es"},
+       {name: "Italian", code: "it"},
        {name: "Arabic", code: "ar"}
      );
    }

@@ -20,7 +20,6 @@ export class ListingService {
   }
   
   getShoppingCarts():FirebaseListObservable<any> {
-     console.log('listing shoppingcart','/shoppingCarts/'+this.User.getUserUid());
     return this.afDB.list('conti/'+this.User.getUserUid()+'/0'+'/shoppingCarts/');
 
   }
