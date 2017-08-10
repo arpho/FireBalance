@@ -32,6 +32,16 @@ export class CategoriesService implements OnInit {
   pushNewCategory(categoria) {
    this.afDB.list('categorie/'+this.User.getUserUid()).push(categoria);
   }
+  updateCategory(categoria) {
+    this.afDB.list('categorie/'+this.User.getUserUid()).update(categoria.$key,categoria).then(e => {
+      console.log('modificato categoria',e);
+    });
+  }
+  trashCategory(categoria) {
+    this.afDB.list('categorie/'+this.User.getUserUid()).remove(categoria.$key).then(e => {
+      console.log('modificato categoria',e);
+    });
+  }
 
 
 

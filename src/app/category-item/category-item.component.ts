@@ -8,9 +8,8 @@ import { FeedPage } from '../../pages/feed/feed';
   templateUrl: './category-item.component.html',
 //  styleUrls: ['./category-item.component.css']
 })
-export class CategoryItemComponent implements OnInit {
-  ngOnInit() {
-  }
+export class CategoryItemComponent  {
+
 @Input() categoria: Categoria;
   constructor(
     public nav: NavController,

@@ -31,18 +31,15 @@ export class CategoriesPage  {
      { console.log('match',categoria.title.match(re))
        return categoria.title.match(re)!=null;
       }
-    else {
-      console.log('no new category');
+    else 
       return true;
-    }
+    
   }
   createCategory() {
     var categoria = {"title": this.newCategory};
     this.Categories.pushNewCategory(categoria);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriesPage');
-  }
+
 
 }

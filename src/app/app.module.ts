@@ -92,7 +92,8 @@ import { LanguageService } from '../providers/language/language.service';
 import { UserService } from './user.service';
 import { ProfileModel } from '../pages/profile/profile.model';
 import { CategoryItemComponent } from './category-item/category-item.component';
-import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component'; 
+import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
+import { CategoryWudItemComponent } from '../components/category-wud-item/category-wud-item'; 
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -154,7 +155,8 @@ export const firebaseConfig = {
     Rating,
     GoogleMap,
     CategoryItemComponent,
-    ShoppingCartItemComponent
+    ShoppingCartItemComponent,
+    CategoryWudItemComponent
   ],
   imports: [
     

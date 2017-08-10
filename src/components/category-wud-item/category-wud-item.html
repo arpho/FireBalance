@@ -1,0 +1,17 @@
+<div>
+   <background-image tappable class="category-heading" >
+        <ion-row class="heading-row">
+          <ion-col no-padding width-100>
+            <h2>
+            <input type="text" [value]="categoria.title" (input)="categoria.title = $event.target.value" >
+            <button ion-button round icon-right class="choose-category-button " (click)="update(categoria)">
+            <ion-icon name="create" ></ion-icon>
+          </button>
+            <button ion-button round icon-right class="choose-category-button " (click)="trash(categoria)">
+            <ion-icon name="trash" ></ion-icon>
+          </button>
+             </h2>
+          </ion-col>
+        </ion-row>
+      </background-image>
+</div>

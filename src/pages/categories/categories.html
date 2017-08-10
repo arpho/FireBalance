@@ -17,8 +17,8 @@
 <h4 class="categories-title">{{'BROWSE_CATEGORIES' | translate}}</h4>
   <ion-row class="grid-categories">
     <ion-col width-50 class="category-item" *ngFor="let category of categories| async">
-     <app-category-item [categoria]=category *ngIf="showCategory(category)" >
-     </app-category-item>
+     <category-wud-item [categoria]=category *ngIf="showCategory(category)" >
+     </category-wud-item>
     </ion-col>
   </ion-row>
   <hr>
