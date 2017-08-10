@@ -15,9 +15,7 @@ export class CategoriesService implements OnInit {
 
   ngOnInit() {
     this.afDB.list('categorie/'+this.User.getUserUid()).subscribe(data=>{
-      console.log('categorie',data);
-    })
- console.log('loaded categories');
+      console.log('categorie',data);    })
   }
 
   getCategories():Observable<any> {
@@ -33,13 +31,10 @@ export class CategoriesService implements OnInit {
    this.afDB.list('categorie/'+this.User.getUserUid()).push(categoria);
   }
   updateCategory(categoria) {
-    this.afDB.list('categorie/'+this.User.getUserUid()).update(categoria.$key,categoria).then(e => {
-      console.log('modificato categoria',e);
-    });
+    this.afDB.list('categorie/'+this.User.getUserUid()).update(categoria.$key,categoria)
   }
   trashCategory(categoria) {
     this.afDB.list('categorie/'+this.User.getUserUid()).remove(categoria.$key).then(e => {
-      console.log('modificato categoria',e);
     });
   }
 

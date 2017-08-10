@@ -94,6 +94,7 @@ import { ProfileModel } from '../pages/profile/profile.model';
 import { CategoryItemComponent } from './category-item/category-item.component';
 import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
 import { CategoryWudItemComponent } from '../components/category-wud-item/category-wud-item'; 
+import { SuppliersService } from '../pages/fornitori/fornitori.service'
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -214,6 +215,7 @@ export const firebaseConfig = {
 		VideoPlaylistPage
   ],
   providers: [
+    SuppliersService,
     UserService,
     FeedService,
     ListingService,

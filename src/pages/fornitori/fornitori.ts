@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
+import { Observable } from 'rxjs/Rx';
 
+import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
+import { SuppliersService } from './fornitori.service';
+import { SupplierModel} from './fornitori.model';
 /**
  * Generated class for the FornitoriPage page.
  *
@@ -14,8 +17,13 @@ import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
   templateUrl: 'fornitori.html',
 })
 export class FornitoriPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  suppliers:Observable<SupplierModel>;
+ newCategory:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  private Suppliers:SuppliersService) {
+    this.Suppliers.getSuppliers().subscribe(data =>   {
+      console.log('fornitori',data);
+    } );
   }
 
   ionViewDidLoad() {
