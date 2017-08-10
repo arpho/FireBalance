@@ -29,6 +29,10 @@ export class CategoriesService implements OnInit {
     return Promise.reject(error.message || error);
   }
 
+  pushNewCategory(categoria) {
+   this.afDB.list('categorie/'+this.User.getUserUid()).push(categoria);
+  }
+
 
 
 

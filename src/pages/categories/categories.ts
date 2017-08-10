@@ -16,12 +16,29 @@ import { CategoriesService } from './categories.service';
 })
 export class CategoriesPage  {
   categories:Observable<any>;
-
+ newCategory:any;
  
   constructor(public navCtrl: NavController, public navParams: NavParams,
  public  Categories:CategoriesService) {
     this.categories = this.Categories.getCategories();
+    this.newCategory ='';
     
+  }
+
+  showCategory(categoria):Boolean {
+    var re = new RegExp(this.newCategory,'g');
+    if(this.newCategory)
+     { console.log('match',categoria.title.match(re))
+       return categoria.title.match(re)!=null;
+      }
+    else {
+      console.log('no new category');
+      return true;
+    }
+  }
+  createCategory() {
+    var categoria = {"title": this.newCategory};
+    this.Categories.pushNewCategory(categoria);
   }
 
   ionViewDidLoad() {

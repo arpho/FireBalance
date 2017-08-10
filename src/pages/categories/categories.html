@@ -17,10 +17,12 @@
 <h4 class="categories-title">{{'BROWSE_CATEGORIES' | translate}}</h4>
   <ion-row class="grid-categories">
     <ion-col width-50 class="category-item" *ngFor="let category of categories| async">
-     <app-category-item [categoria]=category>
+     <app-category-item [categoria]=category *ngIf="showCategory(category)" >
      </app-category-item>
     </ion-col>
   </ion-row>
+  <hr>
+<input type="text" [value]="newCategory" (input)="newCategory = $event.target.value" >
    <button ion-button block icon-right class="choose-category-button" (click)="createCategory()">
             {{'CREATE_CATEGORY' | translate}}
             <ion-icon name="add"></ion-icon>

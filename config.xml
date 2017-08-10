@@ -90,6 +90,10 @@
     <plugin name="cordova-plugin-crop" spec="^0.3.1" />
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-email-composer" spec="^0.8.7" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="826720427470540" />
+        <variable name="APP_NAME" value="FireBalance" />
+    </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
     </plugin>
@@ -105,9 +109,5 @@
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="twitter-connect-plugin" spec="^0.6.0">
         <variable name="FABRIC_KEY" value="6da298eb1112d28ba03183d50236498db4b7380e" />
-    </plugin>
-    <plugin name="cordova-plugin-facebook4" spec="~1.9.1">
-        <variable name="APP_ID" value="269883086827126" />
-        <variable name="APP_NAME" value="FireBalance" />
     </plugin>
 </widget>
