@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CategoriesService } from './categories.service';
+import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
 
 /**
  * Generated class for the CategoriesPage page.
@@ -38,6 +39,10 @@ export class CategoriesPage  {
   createCategory() {
     var categoria = {"title": this.newCategory};
     this.Categories.pushNewCategory(categoria);
+  }
+  goHome() {
+    console.log('going home');
+    this.navCtrl.setRoot(TabsNavigationPage);
   }
 
 

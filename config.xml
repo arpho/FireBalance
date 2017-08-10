@@ -91,7 +91,7 @@
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-email-composer" spec="^0.8.7" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
-        <variable name="APP_ID" value="826720427470540" />
+        <variable name="APP_ID" value="269883086827126" />
         <variable name="APP_NAME" value="FireBalance" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3">

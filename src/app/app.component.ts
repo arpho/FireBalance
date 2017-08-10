@@ -75,7 +75,7 @@ export class MyApp {
             { title: data[0], icon: 'home', component: TabsNavigationPage },
             { title: data[1], icon: 'create', component: FormsPage },
             { title: data[2], icon: 'code', component: FunctionalitiesPage },
-            { title: data[5], icon: 'code', component: CategoriesPage }
+            { title: data[5], icon: 'pricetags', component: CategoriesPage }
           ];
 
           this.pushPages = [
