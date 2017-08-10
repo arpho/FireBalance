@@ -29,7 +29,7 @@ import { FiltersPage } from '../pages/filters/filters';
 import { TermsOfServicePage } from '../pages/terms-of-service/terms-of-service';
 import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
 import { FormValidationsPage } from '../pages/form-validations/form-validations';
-
+import { FornitoriPage } from '../pages/fornitori/fornitori';
 import { PreloadImage } from '../components/preload-image/preload-image';
 import { BackgroundImage } from '../components/background-image/background-image';
 import { ShowHideContainer } from '../components/show-hide-password/show-hide-container';
@@ -112,6 +112,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
+    FornitoriPage,
     CategoryItemComponent,
     MyApp,
     ListingPage,
@@ -178,6 +179,7 @@ export const firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    FornitoriPage,
     CategoriesPage,
     MyApp,
     ListingPage,

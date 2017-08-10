@@ -41,7 +41,6 @@ export class CategoriesPage  {
     this.Categories.pushNewCategory(categoria);
   }
   goHome() {
-    console.log('going home');
     this.navCtrl.setRoot(TabsNavigationPage);
   }
 
