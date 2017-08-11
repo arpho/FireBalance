@@ -1,0 +1,19 @@
+<div>
+   <background-image tappable class="category-heading" >
+        <ion-row class="heading-row payment-wud">
+          <ion-col no-padding width-100 >
+            <h2>
+            <ion-input type="text" [value]="payment.nome" (input)="payment.nome = $event.target.value" ></ion-input>
+            <ion-input type="text" [value]="payment.addebito" (input)="payment.addddebito = $event.target.value" ></ion-input>
+            <ion-input type="text" [value]="payment.note" (input)="payment.note = $event.target.value" ></ion-input>
+            <button ion-button round icon-right class="choose-category-button " (click)="update(payment)">
+            <ion-icon name="create" ></ion-icon>
+          </button>
+            <button ion-button round icon-right class="choose-category-button " (click)="trash(payment)">
+            <ion-icon name="trash" ></ion-icon>
+          </button>
+             </h2>
+          </ion-col>
+        </ion-row>
+      </background-image>
+</div>

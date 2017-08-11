@@ -129,5 +129,7 @@
   "BROWSE_SUPPLIERS":  "Browse Suppliers",
   "CREATE_SUPPLIER": "Push Supplier",
   "NAME_SUPPLIER": "Supplier's Name",
-  "PAYMENTS": "Payment's Way"
+  "PAYMENTS": "Payments",
+  "BROWSE_PAYMENTS": "Payments",
+  "CREATE_PAYMENT": "Push Payment"
 }

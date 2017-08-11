@@ -21,12 +21,22 @@ export class PaymentsPage implements OnInit {
   payment:PaymentsModel;
   ngOnInit(){
       this.payments = this.Payments.getPayments();
+      
   }
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
       private Payments: PaymentsService
     ) {
     this.payment = new PaymentsModel();
+    this.payment.addebito = "";
+    this.payment.nome = "";
+    this.payment.note = "";
+  }
+
+  createPayment() {
+    this.Payments.pushNewPayment(this.payment).then(data=>{
+      console.log('creto pagamento',data)
+    })
   }
 
   ionViewDidLoad() {

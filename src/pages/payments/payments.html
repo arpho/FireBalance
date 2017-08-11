@@ -13,6 +13,30 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content class="listing-content">
+<h4 class="categories-title">{{'BROWSE_PAYMENTS' | translate}}</h4>
+  <ion-row class="grid-categories">
+    <ion-col width-50 class="category-item" *ngFor="let payment of payments| async">
+     <payment-wud [payment]=payment >
+     </payment-wud>
+    </ion-col>
+  </ion-row>
+  <hr>
+<ion-input placeholder="Nome Pagamento" type="text" [(value)]="payment.nome" (input)="payment.nome = $event.target.value" ></ion-input>
+<ion-icon name="funnel"></ion-icon>
+   <button ion-button block icon-right class="choose-category-button" (click)="createPayment()">
+            {{'CREATE_PAYMENT' | translate}}
+            <ion-icon name="arrow-up"></ion-icon>
+          </button>
+          <section class="form-section" >
+            <ion-item>
+                <ion-input placeholder="Nome Pagamento" type="text" [(value)]="payment.nome" (input)="payment.nome = $event.target.value" ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input placeholder="Codice addebito" type="text" [(value)]="payment.addebito" (input)="payment.addebito = $event.target.value" ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input placeholder="Note  sul Pagamento" type="text" [(value)]="payment.note" (input)="payment.note = $event.target.value" ></ion-input>
+            </ion-item>
+          </section>
 </ion-content>

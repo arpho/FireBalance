@@ -129,6 +129,8 @@
   "BROWSE_SUPPLIERS":  "Elenco Fornitori",
   "CREATE_SUPPLIER": "Inserisci nuovo Fornitore",
   "NAME_SUPPLIER": "Nome del Fornitrore",
-  "PAYMENTS": "metodi di pagamento"
+  "PAYMENTS": "metodi di pagamento",
+  "BROWSE_PAYMENTS": "Metodi di Pagamento",
+  "CREATE_PAYMENT": " inserisci nuovo metodo di pagamento"
 
 }
