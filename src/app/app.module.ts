@@ -99,6 +99,7 @@ import { SuppliersService } from '../pages/fornitori/fornitori.service'
 import { FornitoriWudItemComponent } from '../components/fornitori-wud-item/fornitori-wud-item';
 import { PaymentsPage } from '../pages/payments/payments';
 import { PaymentWudComponent } from '../components/payment-wud/payment-wud';
+import { ShoppingCartWudItemComponent } from '../components/shopping-cart-wud-item/shopping-cart-wud-item';
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -166,7 +167,8 @@ export const firebaseConfig = {
     ShoppingCartItemComponent,
     CategoryWudItemComponent,
     FornitoriWudItemComponent,
-    PaymentWudComponent
+    PaymentWudComponent,
+    ShoppingCartWudItemComponent
   ],
   imports: [
     

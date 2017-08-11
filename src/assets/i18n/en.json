@@ -133,5 +133,6 @@
   "BROWSE_PAYMENTS": "Payments",
   "CREATE_PAYMENT": "Push Payment",
   "SHOPPING-CART": "Purchases",
-  "ShoppingCartPage": "Purchases"
+  "ShoppingCartPage": "Purchases",
+  "NEW_PURCHASE": "New Purchase"
 }

@@ -1,0 +1,19 @@
+<div>
+   <background-image tappable class="category-heading" >
+        <ion-row class="heading-row carrelloSpesa-wud">
+          <ion-col no-padding width-100 >
+            <h2>
+            <ion-input type="text" [value]="carrelloSpesa.nome" (input)="carrelloSpesa.nome = $event.target.value" ></ion-input>
+            <ion-input type="text" [value]="carrelloSpesa.addebito" (input)="carrelloSpesa.addddebito = $event.target.value" ></ion-input>
+            <ion-input type="text" [value]="carrelloSpesa.note" (input)="carrelloSpesa.note = $event.target.value" ></ion-input>
+            <button ion-button round icon-right class="choose-category-button " (click)="update(carrelloSpesa)">
+            <ion-icon name="create" ></ion-icon>
+          </button>
+            <button ion-button round icon-right class="choose-category-button " (click)="trash(carrelloSpesa)">
+            <ion-icon name="trash" ></ion-icon>
+          </button>
+             </h2>
+          </ion-col>
+        </ion-row>
+      </background-image>
+</div>
