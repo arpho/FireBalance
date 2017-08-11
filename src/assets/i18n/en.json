@@ -131,5 +131,7 @@
   "NAME_SUPPLIER": "Supplier's Name",
   "PAYMENTS": "Payments",
   "BROWSE_PAYMENTS": "Payments",
-  "CREATE_PAYMENT": "Push Payment"
+  "CREATE_PAYMENT": "Push Payment",
+  "SHOPPING-CART": "Purchases",
+  "ShoppingCartPage": "Purchases"
 }

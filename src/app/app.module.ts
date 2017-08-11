@@ -51,7 +51,7 @@ import { GoogleLoginService } from '../pages/google-login/google-login.service';
 import { TwitterLoginService } from '../pages/twitter-login/twitter-login.service';
 import { GoogleMapsService } from '../pages/maps/maps.service';
 import { CategoriesService } from '../pages/categories/categories.service';
-
+import { ShoppingCartService } from '../pages/shopping-cart/shopping-cart.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
@@ -83,7 +83,7 @@ import { TwitterLoginPage } from '../pages/twitter-login/twitter-login';
 import { ContactCardPage } from '../pages/contact-card/contact-card';
 import { VideoPlaylistPage } from '../pages/video-playlist/video-playlist';
 import { CategoriesPage } from '../pages/categories/categories';
-
+import { ShoppingCartPage } from '../pages/shopping-cart/shopping-cart';
 import { VideoPlayerModule } from '../components/video-player/video-player.module';
 import { ValidatorsModule } from '../components/validators/validators.module';
 import { FirebaseApp } from 'angularfire2';
@@ -117,6 +117,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
+    ShoppingCartPage,
     PaymentsPage,
     FornitoriPage,
     CategoryItemComponent,
@@ -187,6 +188,7 @@ export const firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    ShoppingCartPage,
     PaymentsPage,
     FornitoriPage,
     CategoriesPage,
@@ -235,6 +237,7 @@ export const firebaseConfig = {
     List1Service,
     List2Service,
     ScheduleService,
+    ShoppingCartService,
     CategoriesService,
     FacebookLoginService,
     GoogleLoginService,

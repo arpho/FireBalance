@@ -131,6 +131,8 @@
   "NAME_SUPPLIER": "Nome del Fornitrore",
   "PAYMENTS": "metodi di pagamento",
   "BROWSE_PAYMENTS": "Metodi di Pagamento",
-  "CREATE_PAYMENT": " inserisci nuovo metodo di pagamento"
+  "CREATE_PAYMENT": " Inserisci nuovo metodo di pagamento",
+  "SHOPPING-CART": "Acquisti",
+  "ShoppingCartPage": "Acquisti"
 
 }
