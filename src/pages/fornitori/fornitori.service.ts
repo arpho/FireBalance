@@ -27,14 +27,14 @@ export class SuppliersService implements OnInit {
   }
 
   pushNewSupplier(fornitore) {
-   this.afDB.list('fornitori/'+this.User.getUserUid()).push(fornitore);
+   return this.afDB.list('fornitori/'+this.User.getUserUid()).push(fornitore);
   }
 
-  updateCategory(fornitore) {
+  updateSupplier(fornitore) {
     this.afDB.list('fornitori/'+this.User.getUserUid()).update(fornitore.$key,fornitore)
   }
 
-  trashCategory(fornitore) {
+  trashSupplier(fornitore) {
     this.afDB.list('fornitori/'+this.User.getUserUid()).remove(fornitore.$key).then(e => {
     });
   }

@@ -1,5 +1,5 @@
 import { Component,Input } from '@angular/core';
-import { Categoria }  from '../../pages/listing/listing.model';
+import { SupplierModel }  from '../../pages/fornitori/fornitori.model';
 import { CategoriesService } from '../../pages/categories/categories.service';
 
 /**
@@ -15,7 +15,7 @@ import { CategoriesService } from '../../pages/categories/categories.service';
 export class CategoryWudItemComponent {
 
   text: string;
- @Input() categoria: Categoria;
+ @Input() fornitore: SupplierModel;
   constructor(public  Categories:CategoriesService) {
   }
 

@@ -125,5 +125,8 @@
   "PHONE_VALIDATIONS": "Phone Validations",
   "PASSWORD_VALIDATIONS": "Password Validations",
   "ACCEPT_TERMS_VALIDATIONS": "Accept Terms Validations",
-  "SHOPPING_CARTS":"shopping carts"
+  "SHOPPING_CARTS": "shopping carts",
+  "BROWSE_SUPPLIERS":  "Browse Suppliers",
+  "CREATE_SUPPLIER": "Push Supplier",
+  "NAME_SUPPLIER": "Supplier's Name"
 }

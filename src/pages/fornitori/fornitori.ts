@@ -18,16 +18,33 @@ import { SupplierModel} from './fornitori.model';
 })
 export class FornitoriPage {
   suppliers:Observable<SupplierModel>;
- newCategory:any;
+ supplier:SupplierModel;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   private Suppliers:SuppliersService) {
+    //this.supplier = "";
+    this.supplier = new SupplierModel();
+    this.supplier.nome = "";
+    this.supplier.indirizzo = "";
+    this.supplier.latitudine = "";
+    this.supplier.longitudine = "";
+    this.supplier.note = "";
+    this.suppliers = this.Suppliers.getSuppliers()
     this.Suppliers.getSuppliers().subscribe(data =>   {
       console.log('fornitori',data);
     } );
   }
 
+  navigate() {
+    console.log('navigator');
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FornitoriPage');
+  }
+  createSupplier() {
+    console.log('creo fornitore',this.supplier);
+    this.Suppliers.pushNewSupplier(this.supplier).then(data=>{
+      console.log('dati inseriti',data,'errore');
+    })
   }
 
   goHome() {

@@ -13,6 +13,31 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content class="listing-content">
+<h4 class="categories-title">{{'BROWSE_SUPPLIERS' | translate}}</h4>
+  <ion-row class="grid-categories">
+    <ion-col width-50 class="category-item" *ngFor="let supplier of suppliers| async">
+     <fornitori-wud-item [fornitore]=supplier >
+     </fornitori-wud-item>
+    </ion-col>
+  </ion-row>
+  <hr>
+<ion-input placeholder="Nome Fornitore" type="text" [(value)]="supplier.nome" (input)="supplier.nome = $event.target.value" ></ion-input>
+<ion-icon name="funnel"></ion-icon>
+   <button ion-button block icon-right class="choose-category-button" (click)="createSupplier()">
+            {{'CREATE_SUPPLIER' | translate}}
+            <ion-icon name="arrow-up"></ion-icon>
+          </button>
+          <section class="form-section" >
+            <ion-item>
+                <ion-input placeholder="Nome Fornitore" type="text" [(value)]="supplier.nome" (input)="supplier.nome = $event.target.value" ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input placeholder="Indirizzo Fornitore" type="text" [(value)]="supplier.indirizzo" (input)="supplier.indirizzo = $event.target.value" ></ion-input>
+                <button ion-button icon-only clear item-right   (click)="navigate()"><ion-icon name="navigate"> </ion-icon></button>
+            </ion-item>
+            <ion-item>
+                <ion-input placeholder="Note  sul Fornitore" type="text" [(value)]="supplier.note" (input)="supplier.note = $event.target.value" ></ion-input>
+            </ion-item>
+          </section>
 </ion-content>
