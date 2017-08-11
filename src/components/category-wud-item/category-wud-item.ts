@@ -15,7 +15,7 @@ import { CategoriesService } from '../../pages/categories/categories.service';
 export class CategoryWudItemComponent {
 
   text: string;
- @Input() fornitore: SupplierModel;
+ @Input() categoria: SupplierModel;
   constructor(public  Categories:CategoriesService) {
   }
 

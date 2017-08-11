@@ -22,6 +22,9 @@ export class CategoriesPage  {
   constructor(public navCtrl: NavController, public navParams: NavParams,
  public  Categories:CategoriesService) {
     this.categories = this.Categories.getCategories();
+  this.Categories.getCategories().subscribe(data=>{
+    console.log('categorie',data);
+    });
     this.newCategory ='';
     
   }
