@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
@@ -9,18 +9,13 @@ import { FirebaseListObservable } from 'angularfire2/database';
 import { SupplierModel} from './fornitori.model';
 
 @Injectable()
-export class SuppliersService implements OnInit {
+export class SuppliersService  {
   constructor(public http: Http,
     private afDB: AngularFireDatabase,
     //,// produce uno strano errore no peovider for Observable 
     private User:UserService) {}
 
-  ngOnInit() {
-    this.afDB.list('fornitori/'+this.User.getUserUid()).subscribe(data=>{
-      console.log('fornitori',data);
-    })
- console.log('loaded fornitori');
-  }
+
 
   getSuppliers():Observable<any> {
     return this.afDB.list('fornitori/'+this.User.getUserUid());

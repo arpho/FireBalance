@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 
@@ -16,7 +16,7 @@ import { SupplierModel} from './fornitori.model';
   selector: 'page-fornitori',
   templateUrl: 'fornitori.html',
 })
-export class FornitoriPage {
+export class FornitoriPage implements OnInit {
   suppliers:Observable<SupplierModel>;
  supplier:SupplierModel;
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -28,12 +28,10 @@ export class FornitoriPage {
     this.supplier.latitudine = "";
     this.supplier.longitudine = "";
     this.supplier.note = "";
-    this.suppliers = this.Suppliers.getSuppliers()
-    this.Suppliers.getSuppliers().subscribe(data =>   {
-      console.log('fornitori',data);
-    } );
   }
-
+  ngOnInit(){
+    this.suppliers = this.Suppliers.getSuppliers()
+  }
   navigate() {
     console.log('navigator');
   }
