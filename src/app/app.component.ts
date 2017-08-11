@@ -12,7 +12,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { FunctionalitiesPage } from '../pages/functionalities/functionalities';
 import { CategoriesPage } from '../pages/categories/categories';
 import { FornitoriPage } from '../pages/fornitori/fornitori';
-
+import { PaymentsPage } from '../pages/payments/payments';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { FirebaseApp } from 'angularfire2';
 
@@ -71,14 +71,16 @@ export class MyApp {
           this.translate.get('LAYOUTS'),
           this.translate.get('SETTINGS'),
           this.translate.get('Categorie'),
-          this.translate.get('SUPPLIERS')
+          this.translate.get('SUPPLIERS'),
+          this.translate.get('PAYMENTS')
         ).subscribe(data => {
           this.pages = [
             { title: data[0], icon: 'home', component: TabsNavigationPage },
             { title: data[1], icon: 'create', component: FormsPage },
             { title: data[2], icon: 'code', component: FunctionalitiesPage },
             { title: data[5], icon: 'pricetags', component: CategoriesPage },
-            { title: data[6], icon: 'contacts', component: FornitoriPage }
+            { title: data[6], icon: 'contacts', component: FornitoriPage },
+            { title: data[7], icon: 'cash', component: PaymentsPage }
           ];
 
           this.pushPages = [

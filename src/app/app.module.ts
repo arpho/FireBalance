@@ -96,6 +96,7 @@ import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-it
 import { CategoryWudItemComponent } from '../components/category-wud-item/category-wud-item'; 
 import { SuppliersService } from '../pages/fornitori/fornitori.service'
 import { FornitoriWudItemComponent } from '../components/fornitori-wud-item/fornitori-wud-item';
+import { PaymentsPage } from '../pages/payments/payments';
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -114,6 +115,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
+    PaymentsPage,
     FornitoriPage,
     CategoryItemComponent,
     MyApp,
@@ -182,6 +184,7 @@ export const firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    PaymentsPage,
     FornitoriPage,
     CategoriesPage,
     MyApp,

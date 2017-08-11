@@ -128,6 +128,7 @@
   "SHOPPING_CARTS":"Carrelli della spesa",
   "BROWSE_SUPPLIERS":  "Elenco Fornitori",
   "CREATE_SUPPLIER": "Inserisci nuovo Fornitore",
-  "NAME_SUPPLIER": "Nome del Fornitrore"
+  "NAME_SUPPLIER": "Nome del Fornitrore",
+  "PAYMENTS": "metodi di pagamento"
 
 }
