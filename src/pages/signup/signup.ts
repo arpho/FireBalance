@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, LoadingController } from 'ionic-angular';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
-
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TermsOfServicePage } from '../terms-of-service/terms-of-service';
 import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
 
@@ -11,6 +10,8 @@ import { FacebookLoginService } from '../facebook-login/facebook-login.service';
 import { GoogleLoginService } from '../google-login/google-login.service';
 import { TwitterLoginService } from '../twitter-login/twitter-login.service';
 
+import {UserService} from '../../app/user.service';
+import { LoginPage } from '../login/login';
 @Component({
   selector: 'signup-page',
   templateUrl: 'signup.html'
@@ -21,6 +22,7 @@ export class SignupPage {
   loading: any;
 
   constructor(
+    private User:UserService,
     public nav: NavController,
     public modal: ModalController,
     public facebookLoginService: FacebookLoginService,
@@ -31,14 +33,26 @@ export class SignupPage {
     this.main_page = { component: TabsNavigationPage };
 
     this.signup = new FormGroup({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('test', Validators.required),
-      confirm_password: new FormControl('test', Validators.required)
+      email: new FormControl('damicogiuseppe77@gmail.com', Validators.required),
+      password: new FormControl('vilu7240', Validators.required),
+      confirm_password: new FormControl('vilu7240', Validators.required)
     });
   }
 
+  
+
   doSignup(){
-    this.nav.setRoot(this.main_page.component);
+    //this.nav.setRoot(this.main_page.component);
+    console.log('signup');
+    
+    this.User.signupUser(this.signup.value)
+    .then(user=>{
+      console.log("user creato",user)
+      this.nav.push(LoginPage);
+    })
+    .catch(err=>{
+      console.log("errore creando l'utente",err);
+    })
   }
 
   doFacebookSignup() {

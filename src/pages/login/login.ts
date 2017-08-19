@@ -39,13 +39,23 @@ export class LoginPage {
     this.main_page = { component: TabsNavigationPage };
 
     this.login = new FormGroup({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('test', Validators.required)
+      email: new FormControl('damicogiuseppe77@gmail.com', Validators.required),
+      password: new FormControl('vilu7240', Validators.required)
     });
   }
 
   doLogin(){
-    this.nav.setRoot(this.main_page.component);
+    //this.nav.setRoot(this.main_page.component);
+    console.log('login',this.login.value);
+    this.User.loginUser(this.login.value)
+    .then(user=>{
+      console.log('login ok',user);
+      this.User.setUser(user);
+      this.nav.setRoot(this.main_page.component);
+    })
+    .catch(err=>{
+      console.log('login no ok',err);
+    })
   }
 
 

@@ -5,6 +5,7 @@ export class ItemModel {
     barcode: string;
     nome: string;
     descrizione: string;
+    immagine: string
     categorieId: Array<string>;
 }
 export class ShoppingCart {
@@ -12,4 +13,5 @@ export class ShoppingCart {
     pagamentoId: string;
     dataAcquisto: Timestamp<any>;
     dataContabile: Timestamp<any>;
+    acquisti: Array<ItemModel>;
 }

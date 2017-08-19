@@ -227,7 +227,9 @@ export const firebaseConfig = {
 		VideoPlaylistPage
   ],
   providers: [
+    
     PaymentsService,
+    
     SuppliersService,
     UserService,
     FeedService,
