@@ -28,7 +28,7 @@ export class CategoriesService implements OnInit {
   }
 
   pushNewCategory(categoria) {
-   this.afDB.list('categorie/'+this.User.getUserUid()).push(categoria);
+   return this.afDB.list('categorie/'+this.User.getUserUid()).push(categoria);
   }
   updateCategory(categoria) {
     this.afDB.list('categorie/'+this.User.getUserUid()).update(categoria.$key,categoria)

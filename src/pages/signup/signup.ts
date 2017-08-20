@@ -34,7 +34,7 @@ export class SignupPage {
     
 
     this.signup = new FormGroup({
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required,Validators.email]),
       password: new FormControl('', [ Validators.required,
         Validators.minLength(6)]),
       confirm_password: new FormControl('', [ Validators.required,
@@ -87,6 +87,7 @@ export class SignupPage {
 
   doTwitterSignup() {
     console.log('errori nella password',this.signup.controls.password.errors);
+    console.log('errori nella mail',this.signup.controls.email.errors);
     console.log('errori nella password_match',this.signup.controls.confirm_password.errors);
     console.log('errori nella form',this.signup.errors);
   }

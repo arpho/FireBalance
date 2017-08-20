@@ -32,7 +32,7 @@ export class CategoriesPage  {
   showCategory(categoria):Boolean {
     var re = new RegExp(this.newCategory,'g');
     if(this.newCategory)
-     { console.log('match',categoria.title.match(re))
+     { //console.log('match',categoria.title.match(re))
        return categoria.title.match(re)!=null;
       }
     else 
@@ -41,7 +41,9 @@ export class CategoriesPage  {
   }
   createCategory() {
     var categoria = {"title": this.newCategory};
-    this.Categories.pushNewCategory(categoria);
+    this.Categories.pushNewCategory(categoria).then(o=>{
+      this.newCategory = "";
+    });
   }
   goHome() {
     this.navCtrl.setRoot(TabsNavigationPage);
