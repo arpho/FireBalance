@@ -13,15 +13,23 @@
     <show-hide-container>
       <ion-item>
         <ion-input type="password" placeholder="Password" formControlName="password" show-hide-input></ion-input>
+        
       </ion-item>
+      <div *ngIf="!signup.controls['password'].hasError('length') && signup.controls['password'].touched" class="ui error message">
+          La password deve contenere  almeno 6 carateri
+        </div>
     </show-hide-container>
     <show-hide-container>
       <ion-item>
         <ion-input type="password" placeholder="Confirm password" formControlName="confirm_password" show-hide-input></ion-input>
       </ion-item>
+      <div *ngIf="signup.hasError('noMatch')" class="ui error message">
+          Le password  non corrispondono
+        </div>
     </show-hide-container>
     <button ion-button block class="auth-action-button signup-button" type="submit" [disabled]="!signup.valid">{{'SIGN_UP' | translate}}</button>
   </form>
+  
   <p class="auth-divider">
     Or
   </p>

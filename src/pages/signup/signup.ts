@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, LoadingController } from 'ionic-angular';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl } from '@angular/forms';
 import { TermsOfServicePage } from '../terms-of-service/terms-of-service';
 import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
 
@@ -31,15 +31,22 @@ export class SignupPage {
     public loadingCtrl: LoadingController
   ) {
     this.main_page = { component: TabsNavigationPage };
+    
 
     this.signup = new FormGroup({
-      email: new FormControl('damicogiuseppe77@gmail.com', Validators.required),
-      password: new FormControl('vilu7240', Validators.required),
-      confirm_password: new FormControl('vilu7240', Validators.required)
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', [ Validators.required,
+        Validators.minLength(6)]),
+      confirm_password: new FormControl('', [ Validators.required,
+        Validators.minLength(6)])
     });
+    this.signup.setValidators(this.passwordMatchValidator);
   }
 
-  
+ 
+  /*passwordMatch(c: AbstractControl) {
+    return c.value.password === c.value.confirm_password ? null : {'nomatch': true};
+  }*/
 
   doSignup(){
     //this.nav.setRoot(this.main_page.component);
@@ -79,26 +86,13 @@ export class SignupPage {
   }
 
   doTwitterSignup() {
-    this.loading = this.loadingCtrl.create();
-    // Here we will check if the user is already logged in
-    // because we don't want to ask users to log in each time they open the app
-    let env = this;
+    console.log('errori nella password',this.signup.controls.password.errors);
+    console.log('errori nella password_match',this.signup.controls.confirm_password.errors);
+    console.log('errori nella form',this.signup.errors);
+  }
 
-    this.twitterLoginService.getTwitterUser()
-    .then(function(data) {
-       // user is previously logged with FB and we have his data we will let him access the app
-      env.nav.setRoot(env.main_page.component);
-    }, function(error){
-      //we don't have the user data so we will ask him to log in
-      env.twitterLoginService.doTwitterLogin()
-      .then(function(res){
-        env.loading.dismiss();
-        env.nav.setRoot(env.main_page.component);
-      }, function(err){
-        console.log("Facebook Login error", err);
-        env.loading.dismiss();
-      });
-    });
+  passwordMatchValidator(control:AbstractControl):{[key:string]:any}{
+    return control.value.password == control.value.confirm_password ? null: {'noMatch':'le password non coincidono'};
   }
 
   doGoogleSignup() {
