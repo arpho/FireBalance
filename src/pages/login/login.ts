@@ -15,6 +15,7 @@ import * as firebase from 'firebase/app';
 import {UserService} from '../../app/user.service';
 import { Platform } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
+import { Toast } from '@ionic-native/toast';
 
 @Component({
   selector: 'login-page',
@@ -24,9 +25,12 @@ export class LoginPage {
   login: FormGroup;
   main_page: { component: any };
   loading: any;
+  logging:any;
 
 
   constructor(
+    private toast: Toast, 
+    public plt: Platform,
     public nav: NavController,
     public facebookLoginService: FacebookLoginService,
     public googleLoginService: GoogleLoginService,
@@ -37,7 +41,7 @@ export class LoginPage {
     public loadingCtrl: LoadingController
   ) {
     this.main_page = { component: TabsNavigationPage };
-
+    this.logging = false;
     this.login = new FormGroup({
       email: new FormControl('damicogiuseppe77@gmail.com', Validators.required),
       password: new FormControl('vilu7240', Validators.required)
@@ -47,14 +51,36 @@ export class LoginPage {
   doLogin(){
     //this.nav.setRoot(this.main_page.component);
     console.log('login',this.login.value);
+    this.logging = true
     this.User.loginUser(this.login.value)
     .then(user=>{
       console.log('login ok',user);
+      this.logging = false;
       this.User.setUser(user);
       this.nav.setRoot(this.main_page.component);
+      if(this.plt.is('android')) {
+        this.toast.show(`benvenuto ` + user.email, '5000', 'center').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
+    }
+    else {
+      console.log('login ok');
+    }
     })
     .catch(err=>{
       console.log('login no ok',err);
+      if(this.plt.is('android')){
+        this.toast.show(`problemi di autenticazione`, '5000', 'center').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
+    }
+    else {
+      console.log('problemi di autenticazione',err);
+    }
     })
   }
 

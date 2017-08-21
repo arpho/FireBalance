@@ -9,9 +9,10 @@ import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
 import { FacebookLoginService } from '../facebook-login/facebook-login.service';
 import { GoogleLoginService } from '../google-login/google-login.service';
 import { TwitterLoginService } from '../twitter-login/twitter-login.service';
-
+import { Toast } from '@ionic-native/toast';
 import {UserService} from '../../app/user.service';
 import { LoginPage } from '../login/login';
+import { Platform } from 'ionic-angular';
 @Component({
   selector: 'signup-page',
   templateUrl: 'signup.html'
@@ -22,6 +23,9 @@ export class SignupPage {
   loading: any;
 
   constructor(
+    
+    private toast: Toast, 
+    private platform: Platform,
     private User:UserService,
     public nav: NavController,
     public modal: ModalController,
@@ -90,6 +94,13 @@ export class SignupPage {
     console.log('errori nella mail',this.signup.controls.email.errors);
     console.log('errori nella password_match',this.signup.controls.confirm_password.errors);
     console.log('errori nella form',this.signup.errors);
+    if (this.platform.is('andrroid')) {
+      this.toast.show(`I'm a toast`, '5000', 'center').subscribe(
+        toast => {
+          console.log(toast);
+        }
+      );
+  }
   }
 
   passwordMatchValidator(control:AbstractControl):{[key:string]:any}{

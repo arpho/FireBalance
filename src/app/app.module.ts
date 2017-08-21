@@ -73,6 +73,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Toast } from '@ionic-native/toast';
 
 // Functionalities
 import { FunctionalitiesPage } from '../pages/functionalities/functionalities';
@@ -227,7 +228,7 @@ export const firebaseConfig = {
 		VideoPlaylistPage
   ],
   providers: [
-    
+    Toast,
     PaymentsService,
     
     SuppliersService,
