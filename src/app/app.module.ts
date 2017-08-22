@@ -101,6 +101,8 @@ import { FornitoriWudItemComponent } from '../components/fornitori-wud-item/forn
 import { PaymentsPage } from '../pages/payments/payments';
 import { PaymentWudComponent } from '../components/payment-wud/payment-wud';
 import { ShoppingCartWudItemComponent } from '../components/shopping-cart-wud-item/shopping-cart-wud-item';
+import { FieldFilterComponent } from '../components/field-filter/field-filter';
+import { UtilitiesService } from './utilities.service';
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -169,7 +171,8 @@ export const firebaseConfig = {
     CategoryWudItemComponent,
     FornitoriWudItemComponent,
     PaymentWudComponent,
-    ShoppingCartWudItemComponent
+    ShoppingCartWudItemComponent,
+    FieldFilterComponent
   ],
   imports: [
     
@@ -228,6 +231,7 @@ export const firebaseConfig = {
 		VideoPlaylistPage
   ],
   providers: [
+    UtilitiesService,
     Toast,
     PaymentsService,
     

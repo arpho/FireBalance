@@ -60,7 +60,7 @@ ext {
     }
     // Sets the versionCode to the given value.
     if (!project.hasProperty('cdvVersionCode')) {
-        cdvVersionCode = '1.1.2'
+        cdvVersionCode = null;
     }
     // Sets the minSdkVersion to the given value.
     if (!project.hasProperty('cdvMinSdkVersion')) {

@@ -16,6 +16,7 @@ import {UserService} from '../../app/user.service';
 import { Platform } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 import { Toast } from '@ionic-native/toast';
+import { UtilitiesService} from '../../app/utilities.service';
 
 @Component({
   selector: 'login-page',
@@ -29,6 +30,7 @@ export class LoginPage {
 
 
   constructor(
+    private utilities: UtilitiesService,
     private toast: Toast, 
     public plt: Platform,
     public nav: NavController,
@@ -58,29 +60,18 @@ export class LoginPage {
       this.logging = false;
       this.User.setUser(user);
       this.nav.setRoot(this.main_page.component);
-      if(this.plt.is('android')) {
-        this.toast.show(`benvenuto ` + user.email, '5000', 'center').subscribe(
-          toast => {
-            console.log(toast);
-          }
-        );
-    }
-    else {
-      console.log('login ok');
-    }
+      this.utilities.showToast('benvenuto '+user.email,'5000','top',(txt)=>{
+                                                                              console.log(txt);
+                                                                            })
     })
     .catch(err=>{
       console.log('login no ok',err);
-      if(this.plt.is('android')){
-        this.toast.show(`problemi di autenticazione`, '5000', 'center').subscribe(
-          toast => {
-            console.log(toast);
-          }
-        );
-    }
-    else {
-      console.log('problemi di autenticazione',err);
-    }
+    //  if(this.plt.is('android')){
+        this.utilities.showToast(`problemi di autenticazione`, '5000', 'center',toast => {
+          console.log(toast);
+        });
+    
+    
     })
   }
 

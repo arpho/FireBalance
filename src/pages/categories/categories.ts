@@ -18,15 +18,20 @@ import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
 export class CategoriesPage  {
   categories:Observable<any>;
  newCategory:any;
+ segnaposto:string;
  
   constructor(public navCtrl: NavController, public navParams: NavParams,
  public  Categories:CategoriesService) {
+   this.segnaposto = "filtra categoria";
     this.categories = this.Categories.getCategories();
   this.Categories.getCategories().subscribe(data=>{
     console.log('categorie',data);
     });
     this.newCategory ='';
     
+  }
+  setFilterString(categoria) {
+    this.newCategory = categoria;
   }
 
   showCategory(categoria):Boolean {

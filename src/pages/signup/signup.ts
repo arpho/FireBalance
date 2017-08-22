@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, LoadingController } from 'ionic-angular';
+import { LoadingController, ModalController, NavController }  from 'ionic-angular';
 import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl } from '@angular/forms';
 import { TermsOfServicePage } from '../terms-of-service/terms-of-service';
 import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
@@ -13,6 +13,7 @@ import { Toast } from '@ionic-native/toast';
 import {UserService} from '../../app/user.service';
 import { LoginPage } from '../login/login';
 import { Platform } from 'ionic-angular';
+import { UtilitiesService} from '../../app/utilities.service';
 @Component({
   selector: 'signup-page',
   templateUrl: 'signup.html'
@@ -23,7 +24,7 @@ export class SignupPage {
   loading: any;
 
   constructor(
-    
+    private utilities: UtilitiesService,
     private toast: Toast, 
     private platform: Platform,
     private User:UserService,
@@ -94,13 +95,7 @@ export class SignupPage {
     console.log('errori nella mail',this.signup.controls.email.errors);
     console.log('errori nella password_match',this.signup.controls.confirm_password.errors);
     console.log('errori nella form',this.signup.errors);
-    if (this.platform.is('andrroid')) {
-      this.toast.show(`I'm a toast`, '5000', 'center').subscribe(
-        toast => {
-          console.log(toast);
-        }
-      );
-  }
+   
   }
 
   passwordMatchValidator(control:AbstractControl):{[key:string]:any}{
