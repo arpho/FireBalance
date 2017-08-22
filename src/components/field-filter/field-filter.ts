@@ -27,11 +27,12 @@ export class FieldFilterComponent {
       'field':['',Validators.required]
     })
     this.field = this.filterForm.controls['field']
+    this.doFilter =  new EventEmitter<string>();
+    
     console.log('valueChange',this.field.valueChanges);
     this.field.valueChanges.subscribe(
       (value:string) => {
       console.log('stringa di ricerca',value);
-       this.doFilter =  new EventEmitter<string>();
       this.doFilter.emit({filterString:value});
     })
     console.log('Hello FieldFilterComponent Component');

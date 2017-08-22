@@ -27,7 +27,7 @@
   <hr>
 <input type="text" [value]="newCategory" (input)="newCategory = $event.target.value" >
 <field-filter [placeholder]='segnaposto'
-              (doFilter)="newCategory= $event"        
+              (doFilter)="newCategory= $event.filterString"        
 ></field-filter>
    <button ion-button block icon-right class="choose-category-button" (click)="createCategory()">
             {{'CREATE_CATEGORY' | translate}}

@@ -8,9 +8,12 @@ export class UtilitiesService{
         private plt:Platform,
         private toast: Toast
     ) {};
+    isPlatform(platform:string): boolean{
+        return this.plt.is(platform);
+    }
     
     isAndroid(): boolean {
-        return this.plt.is('android');
+        return this.isPlatform('android');
     }
 
     showToast(message:string,duration:string,position:string,next:(any)=>void) {
