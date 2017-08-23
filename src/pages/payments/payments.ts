@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl,ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import { PaymentsModel } from './payments.model';
 import { PaymentsService } from './payments.service';
@@ -20,21 +20,25 @@ import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
 export class PaymentsPage implements OnInit {
   payments:Observable<PaymentsModel>;
   payment:PaymentsModel;
-  paymentForm: FormGroup;
+  public paymentForm: FormGroup;
   ngOnInit(){
       this.payments = this.Payments.getPayments();
+      this.Payments.getPayments().subscribe(data=>{
+        console.log('got payments from server',data);
+      })
       
   }
   constructor(public navCtrl: NavController,
       public navParams: NavParams,
-      paymentForm: FormGroup,
-      private Payments: PaymentsService
+      private Payments: PaymentsService,
+      fb:FormBuilder
     ) {
-    this.paymentForm  = new FormGroup({
+    this.paymentForm  = fb.group({
       addebito: new FormControl(''),
       nome: new FormControl(''),
       note: new FormControl('')
-    })
+    },
+  Validators.required);
     this.payment = new PaymentsModel();
     this.payment.addebito = "";
     this.payment.nome = "";
@@ -42,9 +46,11 @@ export class PaymentsPage implements OnInit {
     
   }
 
-  createPayment() {
-    this.Payments.pushNewPayment(this.payment).then(data=>{
-      console.log('creto pagamento',data)
+  createPayment(values) {
+    const Payment = new PaymentsModel(values.controls);
+    console.log('valori nella form',Payment);
+    this.Payments.pushNewPayment(Payment).then(data=>{
+      console.log('creato pagamento',data)
     })
   }
 

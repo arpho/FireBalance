@@ -1,4 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectorRef } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl,ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -175,7 +176,7 @@ export const firebaseConfig = {
     FieldFilterComponent
   ],
   imports: [
-    
+    ReactiveFormsModule,
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
@@ -231,6 +232,7 @@ export const firebaseConfig = {
 		VideoPlaylistPage
   ],
   providers: [
+    //FormGroup,
     UtilitiesService,
     Toast,
     PaymentsService,

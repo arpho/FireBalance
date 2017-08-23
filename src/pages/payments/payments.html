@@ -21,22 +21,39 @@
      </payment-wud>
     </ion-col>
   </ion-row>
-  <hr>
-<ion-input placeholder="Nome Pagamento" type="text" [(value)]="payment.nome" (input)="payment.nome = $event.target.value" ></ion-input>
-<ion-icon name="funnel"></ion-icon>
-   <button ion-button block icon-right class="choose-category-button" (click)="createPayment()">
-            {{'CREATE_PAYMENT' | translate}}
-            <ion-icon name="arrow-up"></ion-icon>
-          </button>
-          <section class="form-section" >
-            <ion-item>
-                <ion-input placeholder="Nome Pagamento" type="text" [(value)]="payment.nome" (input)="payment.nome = $event.target.value" ></ion-input>
-            </ion-item>
+   
+            
+          <div class=" ui form"  [formGroup]="paymentForm">
+              <button type="submit" ion-button block icon-right class="choose-category-button" (click)="createPayment(this.paymentForm)">
+                  {{'CREATE_PAYMENT' | translate}}
+                  <ion-icon name="arrow-up"></ion-icon>
+                </button>
+            <label for="nome">Pagamento</label>
+            <ion-input type="text"
+                   id="nomeInput"
+                   placeholder="Pagamento"
+                   formControlName="nome" >
+            </ion-input>
+            <label for="addebito">Codice addebito</label>
+            <ion-input type="text"
+                   id="addebitoInput"
+                   placeholder="codice addebito"
+                   formControlName="addebito" >
+            </ion-input><label for="addebito">Codice addebito</label>
+            <ion-input type="text"
+                   id="noteInput"
+                   placeholder="note"
+                   formControlName="note" >
+            </ion-input>
+          </div>
+
+          <!--section class="form-section" >
+            
             <ion-item>
                 <ion-input placeholder="Codice addebito" type="text" [(value)]="payment.addebito" (input)="payment.addebito = $event.target.value" ></ion-input>
             </ion-item>
             <ion-item>
                 <ion-input placeholder="Note  sul Pagamento" type="text" [(value)]="payment.note" (input)="payment.note = $event.target.value" ></ion-input>
             </ion-item>
-          </section>
+          </section-->
 </ion-content>

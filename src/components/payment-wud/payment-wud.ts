@@ -16,8 +16,7 @@ export class PaymentWudComponent {
   text: string;
   @Input() payment:PaymentsModel;
   constructor(private Payments:PaymentsService) {
-    console.log('Hello PaymentWudComponent Component');
-    this.text = 'Hello World';
+   
   }
   update(supplier) {
     this.Payments.updatePayment(supplier);
