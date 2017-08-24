@@ -23,9 +23,9 @@ export class PaymentsPage implements OnInit {
   public paymentForm: FormGroup;
   ngOnInit(){
       this.payments = this.Payments.getPayments();
-      this.Payments.getPayments().subscribe(data=>{
+      /*this.Payments.getPayments().subscribe(data=>{
         console.log('got payments from server',data);
-      })
+      })*/
       
   }
   constructor(public navCtrl: NavController,

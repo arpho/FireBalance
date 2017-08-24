@@ -23,12 +23,11 @@ export class PaymentsService  {
    return this.afDB.list('pagamenti/'+this.User.getUserUid()).push(fornitore);
   }
 
-  updatePayment(fornitore) {
-    this.afDB.list('pagamenti/'+this.User.getUserUid()).update(fornitore.$key,fornitore)
+  updatePayment(pagamento,key) {
+   return this.afDB.list('pagamenti/'+this.User.getUserUid()).update(key,pagamento)
   }
 
-  trashPayment(fornitore) {
-    this.afDB.list('pagamenti/'+this.User.getUserUid()).remove(fornitore.$key).then(e => {
-    });
-  }
+  trashPayment(key) {
+    return this.afDB.list('pagamenti/'+this.User.getUserUid()).remove(key)
+}
 }
