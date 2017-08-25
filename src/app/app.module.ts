@@ -39,6 +39,9 @@ import { ColorRadio } from '../components/color-radio/color-radio';
 import { CounterInput } from '../components/counter-input/counter-input';
 import { Rating } from '../components/rating/rating';
 import { GoogleMap } from '../components/google-map/google-map';
+import {MdButtonModule, MdCheckboxModule,MdIconModule,MdIconRegistry} from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
+
 
 import { FeedService } from '../pages/feed/feed.service';
 import { ListingService } from '../pages/listing/listing.service';
@@ -176,8 +179,12 @@ export const firebaseConfig = {
     FieldFilterComponent
   ],
   imports: [
+    MdIconModule,
     ReactiveFormsModule,
     BrowserModule,
+    MdIconModule,
+    MdButtonModule,
+    MdCheckboxModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
@@ -232,7 +239,7 @@ export const firebaseConfig = {
 		VideoPlaylistPage
   ],
   providers: [
-    //FormGroup,
+    MdIconRegistry,
     UtilitiesService,
     Toast,
     PaymentsService,
@@ -274,4 +281,8 @@ export const firebaseConfig = {
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private mdIconRegistry: MdIconRegistry, private domSanitizer: DomSanitizer){
+    mdIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/mdi.svg'));
+}
+}
