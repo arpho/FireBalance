@@ -18,7 +18,9 @@ import { SupplierModel} from './fornitori.model';
 })
 export class FornitoriPage implements OnInit {
   suppliers:Observable<SupplierModel>;
+  filterFornitore:string;
  supplier:SupplierModel;
+ segnaposto:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   private Suppliers:SuppliersService) {
     //this.supplier = "";
@@ -28,7 +30,20 @@ export class FornitoriPage implements OnInit {
     this.supplier.latitudine = "";
     this.supplier.longitudine = "";
     this.supplier.note = "";
+    this.segnaposto = "filtra per nome";
   }
+
+  filterSupplier(categoria):Boolean {
+    var re = new RegExp(this.filterFornitore,'i');
+    if(this.filterFornitore)
+     { //console.log('match',categoria.title.match(re))
+       return categoria.nome.match(re)!=null;
+      }
+    else 
+      return true;
+    
+  }
+
   ngOnInit(){
     this.suppliers = this.Suppliers.getSuppliers()
   }
@@ -40,9 +55,10 @@ export class FornitoriPage implements OnInit {
   }
   createSupplier() {
     console.log('creo fornitore',this.supplier);
-    this.Suppliers.pushNewSupplier(this.supplier).then(data=>{
+    /*
+    this.Suppliers.pushNewSupplier(new SupplierModel(this.su)).then(data=>{
       console.log('dati inseriti',data,'errore');
-    })
+    })*/
   }
 
   goHome() {

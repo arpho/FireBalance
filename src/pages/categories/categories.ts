@@ -35,7 +35,7 @@ export class CategoriesPage  {
   }
 
   showCategory(categoria):Boolean {
-    var re = new RegExp(this.newCategory,'g');
+    var re = new RegExp(this.newCategory,'i');
     if(this.newCategory)
      { //console.log('match',categoria.title.match(re))
        return categoria.title.match(re)!=null;

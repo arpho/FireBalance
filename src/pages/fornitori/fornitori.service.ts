@@ -25,12 +25,12 @@ export class SuppliersService  {
    return this.afDB.list('fornitori/'+this.User.getUserUid()).push(fornitore);
   }
 
-  updateSupplier(fornitore) {
-    this.afDB.list('fornitori/'+this.User.getUserUid()).update(fornitore.$key,fornitore)
+  updateSupplier(fornitore,key) {
+    this.afDB.list('fornitori/'+this.User.getUserUid()).update(key,fornitore)
   }
 
-  trashSupplier(fornitore) {
-    this.afDB.list('fornitori/'+this.User.getUserUid()).remove(fornitore.$key).then(e => {
+  trashSupplier(key) {
+    this.afDB.list('fornitori/'+this.User.getUserUid()).remove(key).then(e => {
     });
   }
 }

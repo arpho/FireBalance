@@ -39,7 +39,7 @@ import { ColorRadio } from '../components/color-radio/color-radio';
 import { CounterInput } from '../components/counter-input/counter-input';
 import { Rating } from '../components/rating/rating';
 import { GoogleMap } from '../components/google-map/google-map';
-import {MdButtonModule, MdCheckboxModule,MdIconModule,MdIconRegistry} from '@angular/material';
+import {MdButtonModule, MdCheckboxModule,MdIconModule,MdIconRegistry,MdSpinner,MdFab} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 
 
@@ -239,6 +239,8 @@ export const firebaseConfig = {
 		VideoPlaylistPage
   ],
   providers: [
+    MdFab,
+    MdSpinner,
     MdIconRegistry,
     UtilitiesService,
     Toast,

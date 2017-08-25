@@ -1,15 +1,27 @@
-<div>
+<div class=" ui form"  [formGroup]="supplierForm">
    <background-image tappable class="category-heading" >
         <ion-row class="heading-row wud-fornitore">
           <ion-col no-padding width-100 >
             <h2>
-            <ion-input type="text" [value]="fornitore.nome" (input)="fornitore.nome = $event.target.value" ></ion-input>
-            <ion-input type="text" [value]="fornitore.indirizzo" (input)="fornitore.indirizzo = $event.target.value" ></ion-input>
-            <ion-input type="text" [value]="fornitore.note" (input)="fornitore.note = $event.target.value" ></ion-input>
-            <button ion-button round icon-right class="choose-category-button " (click)="update(fornitore)">
+                <ion-input type="text"
+                            id="nomeInput"
+                            placeholder="Nome fornitore"
+                            formControlName="nome" >
+                </ion-input>
+                <ion-input type="text"
+                           id="nomeInput"
+                           placeholder="indirizzo"
+                           formControlName="indirizzo" >
+                </ion-input>
+                <ion-input type="text"
+                           id="nomeInput"
+                           placeholder="Note sul fornitore"
+                           formControlName="note" >
+                </ion-input>
+            <button ion-button round icon-right class="choose-category-button " (click)="update(this.supplierForm,fornitore.$key)">
             <ion-icon name="create" ></ion-icon>
           </button>
-            <button ion-button round icon-right class="choose-category-button " (click)="trash(fornitore)">
+            <button ion-button round icon-right class="choose-category-button " (click)="trash(fornitore.$key)">
             <ion-icon name="trash" ></ion-icon>
           </button>
              </h2>

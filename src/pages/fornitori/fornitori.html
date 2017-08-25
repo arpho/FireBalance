@@ -8,7 +8,16 @@
 
   <ion-navbar>
     <ion-title><ion-icon name="arrow-back"(click)="goHome()" ></ion-icon>  fornitori</ion-title>
+    <div id="SupplierForm">
+        <button md-fab
+        (click)="createSupplier()">
+        <ion-icon name="add"></ion-icon></button>
+    <field-filter [placeholder]='segnaposto'
+                  (doFilter)="filterFornitore= $event.filterString"        
+    ></field-filter>
+    </div>
   </ion-navbar>
+  
 
 </ion-header>
 
@@ -17,13 +26,11 @@
 <h4 class="categories-title">{{'BROWSE_SUPPLIERS' | translate}}</h4>
   <ion-row class="grid-categories">
     <ion-col width-50 class="category-item" *ngFor="let supplier of suppliers| async">
-     <fornitori-wud-item [fornitore]=supplier >
+     <fornitori-wud-item [fornitore]=supplier *ngIf="filterSupplier(supplier)">
      </fornitori-wud-item>
     </ion-col>
   </ion-row>
   <hr>
-<ion-input placeholder="Nome Fornitore" type="text" [(value)]="supplier.nome" (input)="supplier.nome = $event.target.value" ></ion-input>
-<ion-icon name="funnel"></ion-icon>
    <button ion-button block icon-right class="choose-category-button" (click)="createSupplier()">
             {{'CREATE_SUPPLIER' | translate}}
             <ion-icon name="arrow-up"></ion-icon>

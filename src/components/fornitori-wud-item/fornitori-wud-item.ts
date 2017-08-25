@@ -1,4 +1,5 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl,ReactiveFormsModule } from '@angular/forms';
 import { SupplierModel }  from '../../pages/fornitori/fornitori.model';
 import { SuppliersService } from '../../pages/fornitori/fornitori.service';
 
@@ -12,21 +13,31 @@ import { SuppliersService } from '../../pages/fornitori/fornitori.service';
   selector: 'fornitori-wud-item',
   templateUrl: 'fornitori-wud-item.html'
 })
-export class FornitoriWudItemComponent {
-
+export class FornitoriWudItemComponent implements OnInit {
+  public supplierForm: FormGroup;
   text: string;
  @Input() fornitore: SupplierModel;
+ ngOnInit() {
+    this.supplierForm = new FormGroup({
+      indirizzo: new FormControl(this.fornitore.indirizzo),
+      latitudine: new FormControl(this.fornitore.latitudine),
+      longitudine: new FormControl(this.fornitore.longitudine),
+      nome: new FormControl(this.fornitore.nome),
+      note: new FormControl(this.fornitore.note)
+  },Validators.required);
+}
   constructor(public  Fornitori:SuppliersService) {
     console.log('Hello FornitoriWudItemComponent Component');
     this.text = 'Hello World';
   }
 
-  update(supplier) {
-    this.Fornitori.updateSupplier(supplier);
+  update(supplier,key) {
+    var fornitore  = new SupplierModel(supplier)
+    this.Fornitori.updateSupplier(supplier,key);
     
   }
-  trash(supplier) {
-    this.Fornitori.trashSupplier(supplier);
+  trash(key) {
+    this.Fornitori.trashSupplier(key);
     
   }
 
