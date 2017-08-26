@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the CreatePaymentPage page.
@@ -15,9 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CreatePaymentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public view: ViewController) {
   }
 
+  dismiss() {
+    this.view.dismiss();
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreatePaymentPage');
   }
