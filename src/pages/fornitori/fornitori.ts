@@ -1,10 +1,12 @@
 import { Component,OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 
+import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl,ReactiveFormsModule } from '@angular/forms';
 import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
 import { SuppliersService } from './fornitori.service';
 import { SupplierModel} from './fornitori.model';
+import { CreateSupplierPage } from '../create-supplier/create-supplier';
 /**
  * Generated class for the FornitoriPage page.
  *
@@ -22,6 +24,7 @@ export class FornitoriPage implements OnInit {
  supplier:SupplierModel;
  segnaposto:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
+    public modal: ModalController,
   private Suppliers:SuppliersService) {
     //this.supplier = "";
     this.supplier = new SupplierModel();
@@ -55,6 +58,8 @@ export class FornitoriPage implements OnInit {
   }
   createSupplier() {
     console.log('creo fornitore',this.supplier);
+    let modal = this.modal.create(CreateSupplierPage);
+    modal.present();
     /*
     this.Suppliers.pushNewSupplier(new SupplierModel(this.su)).then(data=>{
       console.log('dati inseriti',data,'errore');

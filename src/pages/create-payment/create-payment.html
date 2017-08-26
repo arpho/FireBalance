@@ -7,51 +7,36 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>createPayment</ion-title>
-    <button ion-button (click)="dismiss()">
-      <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
-    </button>
+   <ion-title class="title"> createPayment </ion-title> 
+
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <form class="sample-form card-form"  (ngSubmit)="createCard()">
-        <section class="form-section">
-          <h2 class="section-title">{{'CREDICT_CARD_INFORMATION' | translate}}</h2>
-          <ion-item>
-            <ion-label floating>{{'CARD_NUMBER' | translate}}</ion-label>
-            <!--ion-input type="text" formControlName="card_number"></ion-input-->
-          </ion-item>
-          <ion-item>
-            <ion-label floating>{{'CARD_HOLDER' | translate}}</ion-label>
-            <!--ion-input type="text" formControlName="card_holder"></ion-input-->
-          </ion-item>
-          <ion-row no-padding class="multi-input-row">
-            <ion-col no-padding width-50>
-              <ion-item class="multi-input">
-                <ion-label floating>CVC</ion-label>
-                <!--ion-input type="text" formControlName="cvc"></ion-input-->
-              </ion-item>
-            </ion-col>
-            <ion-col no-padding width-50>
-              <ion-item class="multi-input time-item">
-                <ion-label floating>{{'EXP_DATE' | translate}}</ion-label>
-                <ion-datetime  displayFormat="MM/YYYY" pickerFormat="MM-YYYY"></ion-datetime>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-        </section>
-        <ion-list class="card-preferences">
-          <ion-item class="switcher-item">
-            <ion-label>{{'SAVE_THIS_CARD' | translate}}</ion-label>
-            <ion-toggle ></ion-toggle>
-          </ion-item>
-        </ion-list>
-        <!--section class="form-section">
-          <button ion-button block class="form-action-button create-card-button" type="submit" [disabled]="!card_form.valid">Confirm</button>
-        </section-->
-      </form>
+  <div class=" ui form"  [formGroup]="paymentForm">
+    
+  <label for="nome">Pagamento</label>
+  <ion-input type="text"
+             id="nomeInput"
+             placeholder="Pagamento"
+             formControlName="nome" >
+  </ion-input>
+  <label for="addebito">Codice addebito</label>
+  <ion-input type="text"
+             id="addebitoInput"
+             placeholder="codice addebito"
+             formControlName="addebito" >
+  </ion-input><label for="addebito">Note</label>
+  <ion-input type="text"
+             id="noteInput"
+             placeholder="note"
+             formControlName="note" >
+  </ion-input>
+  <button type="submit" ion-button block icon-right class="choose-category-button" (click)="createPayment(this.paymentForm)">
+    {{'CREATE_PAYMENT' | translate}}
+  </button>
+</div>
 
 </ion-content>

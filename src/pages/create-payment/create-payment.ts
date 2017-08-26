@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl,ReactiveFormsModule } from '@angular/forms';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { PaymentsService} from '../payments/payments.service';
+import { PaymentsModel } from '../payments/payments.model';
+import { UtilitiesService } from '../../app/utilities.service';
 
 /**
  * Generated class for the CreatePaymentPage page.
@@ -14,9 +17,18 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
   templateUrl: 'create-payment.html',
 })
 export class CreatePaymentPage {
-
+  public paymentForm: FormGroup;
   constructor(public navCtrl: NavController, public navParams: NavParams,
+    private Payments: PaymentsService,
+    private Utilities: UtilitiesService,
+    fb:FormBuilder,
     public view: ViewController) {
+      this.paymentForm  = fb.group({
+        addebito: new FormControl(''),
+        nome: new FormControl(''),
+        note: new FormControl('')
+      },
+    Validators.required);
   }
 
   dismiss() {
@@ -25,6 +37,16 @@ export class CreatePaymentPage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreatePaymentPage');
+  }
+  createPayment(payment:any) {
+    var Payment = new PaymentsModel(payment.controls);
+    this.Payments.pushNewPayment(Payment).then(data=>{
+      console.log('creato',data);
+      this.view.dismiss();
+      this.Utilities.showToast('nuovo tipo di pagamento inserito',' 5000','bottom',toast => {
+        console.log('toasted',toast);
+      })
+    })
   }
 
 }

@@ -7,8 +7,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title><ion-icon name="arrow-back"(click)="goHome()" ></ion-icon>  {{"PAYMENTS"|translate}}</ion-title>
+      <ion-icon class="title" name="arrow-back"(click)="goHome()" ></ion-icon>
+    <ion-title class="title">  {{"PAYMENTS"|translate}}</ion-title>
+    <button md-fab
+    (click)="createPayment()">
+    <ion-icon name="add"></ion-icon></button>
   </ion-navbar>
+
 
 </ion-header>
 
@@ -23,37 +28,6 @@
   </ion-row>
    
             
-          <div class=" ui form"  [formGroup]="paymentForm">
-              <button type="submit" ion-button block icon-right class="choose-category-button" (click)="createPayment(this.paymentForm)">
-                  {{'CREATE_PAYMENT' | translate}}
-                  <ion-icon name="arrow-up"></ion-icon>
-                </button>
-            <label for="nome">Pagamento</label>
-            <ion-input type="text"
-                       id="nomeInput"
-                       placeholder="Pagamento"
-                       formControlName="nome" >
-            </ion-input>
-            <label for="addebito">Codice addebito</label>
-            <ion-input type="text"
-                       id="addebitoInput"
-                       placeholder="codice addebito"
-                       formControlName="addebito" >
-            </ion-input><label for="addebito">Note</label>
-            <ion-input type="text"
-                       id="noteInput"
-                       placeholder="note"
-                       formControlName="note" >
-            </ion-input>
-          </div>
+          
 
-          <!--section class="form-section" >
-            
-            <ion-item>
-                <ion-input placeholder="Codice addebito" type="text" [(value)]="payment.addebito" (input)="payment.addebito = $event.target.value" ></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-input placeholder="Note  sul Pagamento" type="text" [(value)]="payment.note" (input)="payment.note = $event.target.value" ></ion-input>
-            </ion-item>
-          </section-->
 </ion-content>

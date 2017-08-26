@@ -7,12 +7,29 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>createSupplier</ion-title>
+      <ion-title class="title"> {{title}} </ion-title> <ion-button><ion-icon name="close" (click)="dismiss()"></ion-icon></ion-button>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <div class=" ui form"  [formGroup]="supplierForm">
+        <label for="nome">Nome del fornitore</label>
+        <ion-input type="text"
+                   id="nomeInput"
+                   placeholder="nome Fornitore"
+                   formControlName="nome" >
+        </ion-input>
+        <label for="indirizzo">Indirizzo</label>
+        <ion-input type="text"
+                   id="indirrizzo"
+                   placeholder="indirizzo del fornitore"
+                   formControlName="indirizzo">
+        </ion-input>
+        <button type="submit" ion-button block icon-right class="choose-category-button" (click)="createSupplier(this.supplierForm)">
+            {{'inserisci fornitore' | translate}}
+          </button>
+    </div>
 
 </ion-content>

@@ -19,8 +19,8 @@ export class PaymentsService  {
     return this.afDB.list('pagamenti/'+this.User.getUserUid());
   }
 
-  pushNewPayment(fornitore) {
-   return this.afDB.list('pagamenti/'+this.User.getUserUid()).push(fornitore);
+  pushNewPayment(payment) {
+   return this.afDB.list('pagamenti/'+this.User.getUserUid()).push(payment);
   }
 
   updatePayment(pagamento,key) {

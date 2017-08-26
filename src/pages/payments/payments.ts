@@ -48,12 +48,8 @@ export class PaymentsPage implements OnInit {
     
   }
 
-  createPayment(values) {
-   /* const Payment = new PaymentsModel(values.controls);
-    console.log('valori nella form',Payment);
-    this.Payments.pushNewPayment(Payment).then(data=>{
-      console.log('creato pagamento',data)
-    })*/
+  createPayment() {
+
 
 
     let modal = this.modal.create(CreatePaymentPage);

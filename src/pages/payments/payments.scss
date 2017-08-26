@@ -1,3 +1,15 @@
 page-payments {
+    .title{
+        text-align: center;
+        color:white;
+    }
+    .mat-fab {
+        position: fixed;
+        /* float: right; */
+        top: 0px;
+        right: 0px;
+        z-index: 10000;
+    }
+    
 
 }
