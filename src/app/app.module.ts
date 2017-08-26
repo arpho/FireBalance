@@ -7,6 +7,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { ListingPage } from '../pages/listing/listing';
+import { CreatePaymentPage } from '../pages/create-payment/create-payment';
 import { ListingModel } from '../pages/listing/listing.model';
 import { FeedPage } from '../pages/feed/feed';
 import { FollowersPage } from '../pages/followers/followers';
@@ -125,6 +126,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
+    CreatePaymentPage,
     ShoppingCartPage,
     PaymentsPage,
     FornitoriPage,
@@ -202,6 +204,7 @@ export const firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    CreatePaymentPage,
     ShoppingCartPage,
     PaymentsPage,
     FornitoriPage,

@@ -1,10 +1,11 @@
 import { Component,OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
 import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl,ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import { PaymentsModel } from './payments.model';
 import { PaymentsService } from './payments.service';
 import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
+import { CreatePaymentPage } from '../create-payment/create-payment';
 
 /**
  * Generated class for the PaymentsPage page.
@@ -31,6 +32,7 @@ export class PaymentsPage implements OnInit {
   constructor(public navCtrl: NavController,
       public navParams: NavParams,
       private Payments: PaymentsService,
+      public modal: ModalController,
       fb:FormBuilder
     ) {
     this.paymentForm  = fb.group({
@@ -47,11 +49,16 @@ export class PaymentsPage implements OnInit {
   }
 
   createPayment(values) {
-    const Payment = new PaymentsModel(values.controls);
+   /* const Payment = new PaymentsModel(values.controls);
     console.log('valori nella form',Payment);
     this.Payments.pushNewPayment(Payment).then(data=>{
       console.log('creato pagamento',data)
-    })
+    })*/
+
+
+    let modal = this.modal.create(CreatePaymentPage);
+    modal.present();
+
   }
 
   ionViewDidLoad() {
