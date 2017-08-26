@@ -42,10 +42,11 @@ export class CreatePaymentPage {
     var Payment = new PaymentsModel(payment.controls);
     this.Payments.pushNewPayment(Payment).then(data=>{
       console.log('creato',data);
-      this.view.dismiss();
+      
       this.Utilities.showToast('nuovo tipo di pagamento inserito',' 5000','bottom',toast => {
         console.log('toasted',toast);
-      })
+      });
+      this.view.dismiss();
     })
   }
 
