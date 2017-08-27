@@ -27,26 +27,39 @@
                    placeholder="indirizzo del fornitore"
                    formControlName="indirizzo">
         </ion-input>
-        <div  *ngIf="this.supplierForm.controls.longitudine.value">
-        <label for="longitudine">Longitudine</label>
-        <ion-input type="text"
-                   id="longitudine"
-                   placeholder="longitudine"
-                   formControlName="longitudine">
-        </ion-input>
+        <div *ngIf="!this.supplierForm.controls.onLine.value">
+            
+        
+        
+            <div  *ngIf="this.supplierForm.controls.longitudine.value">
+            <label for="longitudine">Longitudine</label>
+            <ion-input type="text"
+                    id="longitudine"
+                    placeholder="longitudine"
+                    formControlName="longitudine">
+            </ion-input>
+            </div>
+            <div  *ngIf="this.supplierForm.controls.latitudine.value ">
+            <label for="lartitudine">Latitudine</label>
+            <ion-input type="text"
+                    id="latitudine"
+                    placeholder="latitudine"
+                    formControlName="latitudine">
+            </ion-input>
+            </div>
         </div>
-        <div  *ngIf="this.supplierForm.controls.latitudine.value">
-        <label for="lartitudine">Latitudine</label>
-        <ion-input type="text"
-                   id="latitudine"
-                   placeholder="latitudine"
-                   formControlName="latitudine">
-        </ion-input>
-        <ion-item class="switcher-item">
+        <ion-list>
+        <ion-item>
+        <ion-label>{{text4Switch()}}</ion-label>
+        <ion-toggle id="online"
+                formControlName="onLine">
+        </ion-toggle>
         </ion-item>
-        </div>
+        </ion-list>
         <ion-icon name="locate" (click)="geolocalize()"></ion-icon>
         <button type="submit" ion-button block icon-right class="choose-category-button" (click)="createSupplier(this.supplierForm)">
+            
+                <button ion-button block clear class="signup-button" (click)="goToSignup()">{{'SIGN_UP!' | translate}}</button>
             {{'inserisci fornitore' | translate}}
           </button>
     </div>

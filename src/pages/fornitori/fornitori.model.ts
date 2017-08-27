@@ -12,13 +12,13 @@ export class SupplierModel {
         indirizzo: FormControl,
         longitudine: FormControl,
         latitudine: FormControl,
-        onLine: boolean
+        onLine: FormControl
     }) {
             this.nome = fornitore && fornitore.nome.value||"";
             this.note = fornitore && fornitore.note.value ||"";
             this.indirizzo = fornitore && fornitore.indirizzo.value ||"";
             this.latitudine = fornitore && fornitore.latitudine.value || "";
             this.longitudine = fornitore && fornitore.longitudine.value || "";
-            this.onLine = fornitore && fornitore.onLine || false;
+            this.onLine =  fornitore && fornitore.onLine.value || false;
         }
 }

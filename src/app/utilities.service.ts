@@ -20,6 +20,9 @@ export class UtilitiesService{
     isPlatform(platform:string): boolean{
         return this.plt.is(platform);
     }
+    text4Switch(textTrue,textFalse,selector) {
+        return  (selector==true) ? textTrue : textFalse;
+    }
     
     isAndroid(): boolean {
         return this.isPlatform('android');

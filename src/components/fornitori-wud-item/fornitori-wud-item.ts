@@ -24,7 +24,8 @@ export class FornitoriWudItemComponent implements OnInit {
       latitudine: new FormControl(this.fornitore.latitudine),
       longitudine: new FormControl(this.fornitore.longitudine),
       nome: new FormControl(this.fornitore.nome),
-      note: new FormControl(this.fornitore.note)
+      note: new FormControl(this.fornitore.note),
+      onLine: new FormControl(this.fornitore.onLine)
   },Validators.required);
 }
   constructor(public  Fornitori:SuppliersService,
@@ -33,6 +34,10 @@ export class FornitoriWudItemComponent implements OnInit {
     this.text = 'Hello World';
   }
 
+
+  text4Switch(){
+    return this.Utilities.text4Switch("Fornitore On-line","fornitore tradizionale",this.supplierForm.controls.onLine.value);
+  }
 
   geolocalize() {
     console.log('localizing');

@@ -32,10 +32,14 @@ export class CreateSupplierPage {
       note: new FormControl(''),
       indirizzo: new FormControl(''),
       latitudine: new FormControl(''),
-      longitudine: new FormControl('')
+      longitudine: new FormControl(''),
+      onLine: new FormControl(false)
     },
   Validators.required);
 
+  }
+  text4Switch(){
+    return this.Utilities.text4Switch("Fornitore On-line","fornitore tradizionale",this.supplierForm.controls.onLine.value);
   }
   geolocalize() {
     console.log('localizing');
