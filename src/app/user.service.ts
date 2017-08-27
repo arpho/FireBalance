@@ -1,10 +1,11 @@
 import { ProfileModel } from '../pages/profile/profile.model';
-import { Injectable } from '@angular/core';
+import { Injectable,Inject } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { FirebaseApp } from 'angularfire2';
 @Injectable()
 export class UserService {
   constructor(
+    @Inject('FIREBASE_CONFIG') private FirebaseConfig,
   private user: ProfileModel,
 ){
   const firebaseConfig = {
@@ -16,7 +17,7 @@ export class UserService {
       messagingSenderId: "84418489236"
   };
   if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig)
+    firebase.initializeApp(FirebaseConfig)
   }
 
 }

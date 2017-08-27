@@ -1,5 +1,5 @@
 
-import { Injectable } from '@angular/core';
+import { Injectable,Inject } from '@angular/core';
 import {Http} from '@angular/http';
 import { Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -9,12 +9,13 @@ import * as _ from 'lodash';
 export class UtilitiesService{
     public googleKey:string;
     constructor(
+        @Inject('GoogleKey') private GoogleKey,
         public http:Http,
         private plt:Platform,
         private toast: Toast,
         public geolocation: Geolocation
     ) {
-        this.googleKey = "AIzaSyATOf9HX67HaKlMQU0V7qUvrCe0McNSo40";
+        this.googleKey = GoogleKey;//"AIzaSyATOf9HX67HaKlMQU0V7qUvrCe0McNSo40";
     };
     isPlatform(platform:string): boolean{
         return this.plt.is(platform);
