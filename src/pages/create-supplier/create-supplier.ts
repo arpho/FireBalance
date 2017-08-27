@@ -43,8 +43,13 @@ export class CreateSupplierPage {
       console.log('coordinate',resp.coords.latitude,resp.coords.longitude);
       this.supplierForm.controls.longitudine.setValue(resp.coords.longitude);
       this.supplierForm.controls.latitudine.setValue(resp.coords.latitude);
+      this.Utilities.inverseGeoLocation(resp.coords.latitude,resp.coords.longitude).subscribe(data=>{
+        this.supplierForm.controls.indirizzo.setValue(this.Utilities.makeAddress(data.json()));
+
+      });
      })
   }
+  
   createSupplier(supplier:any) {
     var Supplier = new SupplierModel(supplier.controls);
     console.log('creo fornitore',Supplier);

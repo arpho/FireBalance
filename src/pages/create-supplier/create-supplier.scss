@@ -1,3 +1,21 @@
 page-create-supplier {
+    @include switcher-item-styles($white-d, $theme-color-1);
+    
+                        .switcher-item
+                        {
+                            padding: 0px 14px;
+                          background: $white;
+    
+                            .item-inner
+                            {
+                                ion-label {
+                                    opacity: 1;
+                                }
+    
+                                ion-toggle {
+                                    padding-right: 0px;
+                                }
+                            }
+                        }
 
 }

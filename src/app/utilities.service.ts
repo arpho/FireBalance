@@ -1,21 +1,38 @@
 
 import { Injectable } from '@angular/core';
+import {Http} from '@angular/http';
 import { Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Toast } from '@ionic-native/toast';
+import * as _ from 'lodash'; 
 @Injectable()
 export class UtilitiesService{
+    public googleKey:string;
     constructor(
+        public http:Http,
         private plt:Platform,
         private toast: Toast,
         public geolocation: Geolocation
-    ) {};
+    ) {
+        this.googleKey = "AIzaSyATOf9HX67HaKlMQU0V7qUvrCe0McNSo40";
+    };
     isPlatform(platform:string): boolean{
         return this.plt.is(platform);
     }
     
     isAndroid(): boolean {
         return this.isPlatform('android');
+    }
+    makeUrl(lat,long) {
+        return  "https://maps.googleapis.com/maps/api/geocode/json?latlng=".concat(lat).concat(",").concat(long).concat("&key=").concat(this.googleKey);
+    }
+    inverseGeoLocation(lat, long) {
+        var url = this.makeUrl(lat,long)
+        return this.http.get(url);
+    }
+    makeAddress(resp) {
+        return resp.results[0].formatted_address;
+       
     }
 
     geolocalize(): Promise<any> {

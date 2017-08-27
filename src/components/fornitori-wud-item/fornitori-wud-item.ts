@@ -2,6 +2,7 @@ import { Component,Input,OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl,ReactiveFormsModule } from '@angular/forms';
 import { SupplierModel }  from '../../pages/fornitori/fornitori.model';
 import { SuppliersService } from '../../pages/fornitori/fornitori.service';
+import {UtilitiesService } from '../../app/utilities.service';
 
 /**
  * Generated class for the FornitoriWudItemComponent component.
@@ -26,9 +27,24 @@ export class FornitoriWudItemComponent implements OnInit {
       note: new FormControl(this.fornitore.note)
   },Validators.required);
 }
-  constructor(public  Fornitori:SuppliersService) {
+  constructor(public  Fornitori:SuppliersService,
+              public Utilities:UtilitiesService) {
     console.log('Hello FornitoriWudItemComponent Component');
     this.text = 'Hello World';
+  }
+
+
+  geolocalize() {
+    console.log('localizing');
+    this.Utilities.geolocalize().then((resp) => {
+      console.log('coordinate',resp.coords.latitude,resp.coords.longitude);
+      this.supplierForm.controls.longitudine.setValue(resp.coords.longitude);
+      this.supplierForm.controls.latitudine.setValue(resp.coords.latitude);
+      this.Utilities.inverseGeoLocation(resp.coords.latitude,resp.coords.longitude).subscribe(data=>{
+        this.supplierForm.controls.indirizzo.setValue(this.Utilities.makeAddress(data.json()));
+
+      });
+     })
   }
 
   update(supplier,key) {
