@@ -25,3 +25,4 @@ $output-bourbon-deprecation-warnings: false;
 // automatically applied to the <body> element in the app.
 @import "../theme/common";
 $app-direction: multi;
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

@@ -44,7 +44,6 @@ import { GoogleMap } from '../components/google-map/google-map';
 import {MdButtonModule, MdCheckboxModule,MdIconModule,MdIconRegistry,MdSpinner,MdFab} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 
-
 import { FeedService } from '../pages/feed/feed.service';
 import { ListingService } from '../pages/listing/listing.service';
 import { ProfileService } from '../pages/profile/profile.service';
@@ -109,6 +108,7 @@ import { PaymentWudComponent } from '../components/payment-wud/payment-wud';
 import { ShoppingCartWudItemComponent } from '../components/shopping-cart-wud-item/shopping-cart-wud-item';
 import { FieldFilterComponent } from '../components/field-filter/field-filter';
 import { UtilitiesService } from './utilities.service';
+import { HelloMaterialComponent } from '../components/hello-material/hello-material';
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -180,7 +180,8 @@ export const firebaseConfig = {
     FornitoriWudItemComponent,
     PaymentWudComponent,
     ShoppingCartWudItemComponent,
-    FieldFilterComponent
+    FieldFilterComponent,
+    HelloMaterialComponent
   ],
   imports: [
     MdIconModule,
@@ -290,7 +291,7 @@ export const firebaseConfig = {
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {
-  constructor(private mdIconRegistry: MdIconRegistry, private domSanitizer: DomSanitizer){
-    mdIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/mdi.svg'));
+  constructor(/*private mdIconRegistry: MdIconRegistry,*/ private domSanitizer: DomSanitizer){
+   // mdIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/mdi.svg'));
 }
 }

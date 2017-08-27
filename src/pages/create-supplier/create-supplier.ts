@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl,ReactiveFormsModule } from '@angular/forms';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 import { SupplierModel } from '../fornitori/fornitori.model';
 import { SuppliersService } from '../fornitori/fornitori.service';
 import {UtilitiesService } from '../../app/utilities.service';
@@ -21,6 +22,7 @@ export class CreateSupplierPage {
   public supplierForm: FormGroup;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     fb:FormBuilder,
+    public geolocation: Geolocation,
   public Utilities: UtilitiesService,
   public  Suppliers: SuppliersService,
   public view:ViewController) {
@@ -35,7 +37,14 @@ export class CreateSupplierPage {
   Validators.required);
 
   }
-
+  geolocalize() {
+    console.log('localizing');
+    this.Utilities.geolocalize().then((resp) => {
+      console.log('coordinate',resp.coords.latitude,resp.coords.longitude);
+      this.supplierForm.controls.longitudine.setValue(resp.coords.longitude);
+      this.supplierForm.controls.latitudine.setValue(resp.coords.latitude);
+     })
+  }
   createSupplier(supplier:any) {
     var Supplier = new SupplierModel(supplier.controls);
     console.log('creo fornitore',Supplier);
