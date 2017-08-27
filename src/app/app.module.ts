@@ -41,7 +41,7 @@ import { ColorRadio } from '../components/color-radio/color-radio';
 import { CounterInput } from '../components/counter-input/counter-input';
 import { Rating } from '../components/rating/rating';
 import { GoogleMap } from '../components/google-map/google-map';
-import {MdButtonModule, MdCheckboxModule,MdIconModule,MdIconRegistry,MdSpinner,MdFab} from '@angular/material';
+import {MdButtonModule, MdCheckboxModule,MdIconModule,MdIconRegistry,MdSpinner,MdFab,MdSlideToggleModule} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 
 import { FeedService } from '../pages/feed/feed.service';
@@ -112,7 +112,7 @@ import { HelloMaterialComponent } from '../components/hello-material/hello-mater
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
+ const googleKey = "AIzaSyATOf9HX67HaKlMQU0V7qUvrCe0McNSo40";
 export const firebaseConfig = {
   apiKey: "AIzaSyCo8vHpRDMa_JsS5J6_vmLTbVNv8eMamgU",
     authDomain: "fir-6062c.firebaseapp.com",
@@ -246,6 +246,7 @@ export const firebaseConfig = {
 		VideoPlaylistPage
   ],
   providers: [
+    {provide:"GoogleKey",useValue: googleKey},
     MdFab,
     MdSpinner,
     MdIconRegistry,
