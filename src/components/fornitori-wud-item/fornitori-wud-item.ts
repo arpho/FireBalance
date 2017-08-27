@@ -32,8 +32,8 @@ export class FornitoriWudItemComponent implements OnInit {
   }
 
   update(supplier,key) {
-    var fornitore  = new SupplierModel(supplier)
-    this.Fornitori.updateSupplier(supplier,key);
+    var fornitore  = new SupplierModel(supplier.controls)
+    this.Fornitori.updateSupplier(fornitore,key);
     
   }
   trash(key) {
