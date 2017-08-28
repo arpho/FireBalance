@@ -43,6 +43,7 @@ import { Rating } from '../components/rating/rating';
 import { GoogleMap } from '../components/google-map/google-map';
 import {MdButtonModule, MdCheckboxModule,MdIconModule,MdIconRegistry,MdSpinner,MdFab,MdSlideToggleModule} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
+import {SuiModule} from 'ng2-semantic-ui';
 
 import { FeedService } from '../pages/feed/feed.service';
 import { ListingService } from '../pages/listing/listing.service';
