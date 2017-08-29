@@ -44,7 +44,7 @@ import { GoogleMap } from '../components/google-map/google-map';
 import {MdButtonModule, MdCheckboxModule,MdIconModule,MdIconRegistry,MdSpinner,MdFab,MdSlideToggleModule} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SuiModule} from 'ng2-semantic-ui';
-
+import {Subject} from 'rxjs/Subject';
 import { FeedService } from '../pages/feed/feed.service';
 import { ListingService } from '../pages/listing/listing.service';
 import { ProfileService } from '../pages/profile/profile.service';
@@ -99,6 +99,7 @@ import { LanguageService } from '../providers/language/language.service';
 import { UserService } from './user.service';
 import { PaymentsService } from '../pages/payments/payments.service';
 import { ProfileModel } from '../pages/profile/profile.model';
+import { UserModel } from '../pages/profile/profile.model';
 import { CategoryItemComponent } from './category-item/category-item.component';
 import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
 import { CategoryWudItemComponent } from '../components/category-wud-item/category-wud-item'; 
@@ -257,6 +258,7 @@ export const firebaseConfig = {
   providers: [
     {provide:"GoogleKey",useValue: googleKey},
     {provide:"FIREBASE_CONFIG",useValue:FIREBASE_CONFIG},
+    Subject,
     MdFab,
     MdSpinner,
     MdIconRegistry,
@@ -271,6 +273,7 @@ export const firebaseConfig = {
     ProfileService,
     ListingModel,
     ProfileModel,
+    UserModel,
     NotificationsService,
     List1Service,
     List2Service,

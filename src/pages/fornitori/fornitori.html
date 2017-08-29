@@ -24,12 +24,12 @@
 
 <ion-content class="listing-content">
 <h4 class="categories-title">{{'BROWSE_SUPPLIERS' | translate}}</h4>
-  <ion-row class="grid-categories">
+<article class="list">
     <ion-col width-50 class="category-item" *ngFor="let supplier of suppliers| async">
      <fornitori-wud-item [fornitore]=supplier *ngIf="filterSupplier(supplier)">
      </fornitori-wud-item>
     </ion-col>
-  </ion-row>
+</article>
   <hr>
   
 </ion-content>

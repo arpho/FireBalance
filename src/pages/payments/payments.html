@@ -20,12 +20,12 @@
 
 <ion-content class="listing-content">
 <h4 class="categories-title">{{'BROWSE_PAYMENTS' | translate}}</h4>
-  <ion-row class="grid-categories">
+<article class="list">
     <ion-col width-50 class="category-item" *ngFor="let payment of payments| async">
      <payment-wud [payment]=payment >
      </payment-wud>
     </ion-col>
-  </ion-row>
+</article>
    
             
           
