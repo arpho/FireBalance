@@ -1,0 +1,14 @@
+<div class="selectedCategories" >
+  <ion-row class="list">
+    <ion-col *ngFor="let cat of categories">
+      <selected-category
+[category_id]=cat
+(click)="clicked(cat)"
+>
+</selected-category>
+    </ion-col>
+  </ion-row>
+</div>
+<div>
+  {{text}}
+</div>

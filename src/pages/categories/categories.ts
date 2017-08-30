@@ -19,10 +19,20 @@ export class CategoriesPage  {
   categories:Observable<any>;
  newCategory:any;
  segnaposto:string;
+ category_id:string;
+ categories_id:string[];
  
   constructor(public navCtrl: NavController, public navParams: NavParams,
  public  Categories:CategoriesService) {
-   this.segnaposto = "filtra categoria";
+    this.segnaposto = "filtra categoria";
+    this.category_id = "-Ks0UbaDoqhXN1yoyKNP";
+    this.categories_id = new Array<string>();
+    this.categories_id.push("-Ks0UdZGtzunNoCmGGJd");
+    this.categories_id.push("-Ks0VR4z3gZTXtwqTZ-V");
+    this.categories_id.push("-Ks0UbaDoqhXN1yoyKNP");
+    this.Categories.fetchCategoryById(this.category_id).subscribe(cat=>{
+      console.log('got category',cat);
+    })
     this.categories = this.Categories.getCategories();
   this.Categories.getCategories().subscribe(data=>{
     console.log('categorie',data);
@@ -30,8 +40,17 @@ export class CategoriesPage  {
     this.newCategory ='';
     
   }
+
+  selectedCategories(val){
+    console.log('selectedCategories',val);
+  }
+
   setFilterString(categoria) {
     this.newCategory = categoria;
+  }
+
+  clicked(val) {
+    console.log('clicked received',val);
   }
 
   showCategory(categoria):Boolean {

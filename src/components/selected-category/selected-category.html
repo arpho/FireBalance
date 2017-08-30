@@ -1,0 +1,11 @@
+<!-- categoria viene caricato da categoryComponent è asincrono -->
+<div *ngFor="let cat of categoria|async"  >
+  <div class="selected-category">
+    <button (click)="click()" ion-button round class="button-calm small_button">{{cat.$value}}
+      <div>
+        
+    <ion-icon name="close" ></ion-icon>
+    </div>
+ </button>
+  </div>
+</div>

@@ -111,6 +111,10 @@ import { ShoppingCartWudItemComponent } from '../components/shopping-cart-wud-it
 import { FieldFilterComponent } from '../components/field-filter/field-filter';
 import { UtilitiesService } from './utilities.service';
 import { HelloMaterialComponent } from '../components/hello-material/hello-material';
+import { CategoryComponent } from '../components/category/category';
+import { SelectedCategoryComponent } from '../components/selected-category/selected-category';
+import { CategoryModel } from '../components/category/category.model';
+import { SelectedCategoriesListComponent } from '../components/selected-categories-list/selected-categories-list';
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -191,7 +195,10 @@ export const firebaseConfig = {
     PaymentWudComponent,
     ShoppingCartWudItemComponent,
     FieldFilterComponent,
-    HelloMaterialComponent
+    HelloMaterialComponent,
+    CategoryComponent,
+    SelectedCategoryComponent,
+    SelectedCategoriesListComponent
   ],
   imports: [
     MdIconModule,
@@ -273,6 +280,7 @@ export const firebaseConfig = {
     ProfileService,
     ListingModel,
     ProfileModel,
+    CategoryModel,
     UserModel,
     NotificationsService,
     List1Service,

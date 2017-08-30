@@ -32,7 +32,7 @@ export class FieldFilterComponent {
     console.log('valueChange',this.field.valueChanges);
     this.field.valueChanges.subscribe(
       (value:string) => {
-      console.log('stringa di ricerca',value);
+      //console.log('stringa di ricerca',value);
       this.doFilter.emit({filterString:value});
     })
     console.log('Hello FieldFilterComponent Component');

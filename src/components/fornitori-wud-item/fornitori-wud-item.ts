@@ -17,6 +17,7 @@ import {UtilitiesService } from '../../app/utilities.service';
 export class FornitoriWudItemComponent implements OnInit {
   public supplierForm: FormGroup;
   text: string;
+  busy: boolean;
  @Input() fornitore: SupplierModel;
  ngOnInit() {
     this.supplierForm = new FormGroup({
@@ -32,6 +33,7 @@ export class FornitoriWudItemComponent implements OnInit {
               public Utilities:UtilitiesService) {
     console.log('Hello FornitoriWudItemComponent Component');
     this.text = 'Hello World';
+    this.busy = false;
   }
 
 
@@ -40,12 +42,14 @@ export class FornitoriWudItemComponent implements OnInit {
   }
 
   geolocalize() {
+    this.busy = true;
     console.log('localizing');
     this.Utilities.geolocalize().then((resp) => {
       console.log('coordinate',resp.coords.latitude,resp.coords.longitude);
       this.supplierForm.controls.longitudine.setValue(resp.coords.longitude);
       this.supplierForm.controls.latitudine.setValue(resp.coords.latitude);
       this.Utilities.inverseGeoLocation(resp.coords.latitude,resp.coords.longitude).subscribe(data=>{
+        this.busy = false;
         this.supplierForm.controls.indirizzo.setValue(this.Utilities.makeAddress(data.json()));
 
       });

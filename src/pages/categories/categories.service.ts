@@ -18,6 +18,10 @@ export class CategoriesService implements OnInit {
       console.log('categorie',data);    })
   }
 
+  fetchCategoryById(id:string) {
+    return this.afDB.list('categorie/'+this.User.getUserUid()+'/'+id);
+  }
+
   getCategories():Observable<any> {
     return this.afDB.list('categorie/'+this.User.getUserUid());
   }
