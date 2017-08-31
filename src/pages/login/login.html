@@ -28,5 +28,11 @@
     Or
   </p>
   <button ion-button block class="facebook-auth-button" (click)="signInWithFacebook()">Log in with Facebook</button-->
-   <div *ngIf="logging"> <ion-spinner name="bubbles"></ion-spinner><md-spinner></md-spinner></div>
+   <div *ngIf="logging"> <div class="loader-wrapper" id="loader-3">
+    <div id="loader"></div>
+    <div id="loader"></div>
+    <div id="loader"></div>
+    <div id="loader"></div>
+    <div id="loader"></div>
+</div></div>
 </ion-content>
