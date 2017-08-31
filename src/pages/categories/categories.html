@@ -33,8 +33,13 @@
 >
 </selected-category-->
 <selected-categories-list [categories]=categories_id
-                          (SelectedCategories)="selectedCategories($event)">
+                          (selectedCategories)="selectedCategories($event)">
 </selected-categories-list>
+
+<selectable-categories-list [categories]=categories_id
+                            [filterString]=newCategory
+                            (selectedCategory)="selectCategory($event)">
+</selectable-categories-list>
 
 
   <article class="list">

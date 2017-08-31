@@ -115,6 +115,8 @@ import { CategoryComponent } from '../components/category/category';
 import { SelectedCategoryComponent } from '../components/selected-category/selected-category';
 import { CategoryModel } from '../components/category/category.model';
 import { SelectedCategoriesListComponent } from '../components/selected-categories-list/selected-categories-list';
+import { SelectableCategoriesListComponent } from '../components/selectable-categories-list/selectable-categories-list';
+import { SelectableCategoryComponent } from '../components/selectable-category/selectable-category';
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -198,7 +200,9 @@ export const firebaseConfig = {
     HelloMaterialComponent,
     CategoryComponent,
     SelectedCategoryComponent,
-    SelectedCategoriesListComponent
+    SelectedCategoriesListComponent,
+    SelectableCategoriesListComponent,
+    SelectableCategoryComponent,
   ],
   imports: [
     MdIconModule,

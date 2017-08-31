@@ -1,4 +1,5 @@
 import { Component,Input, Output, EventEmitter  } from '@angular/core';
+import { Observable,Subject } from 'rxjs';
 import { CategoryModel } from '../category/category.model';
 
 /**
@@ -16,17 +17,13 @@ export class SelectedCategoriesListComponent {
   @Input()  categories:string[];
   @Output() selectedCategories: EventEmitter<string[]> = new EventEmitter<string[]>();
 
-  text: string;
-
   constructor() {
-    console.log('Hello SelectedCategoriesListComponent Component',this.categories);
-    this.text = 'Hello World list of categories';
   }
+
   clicked(val) {
     console.log('clicked category inside selectedCategoryList',val);
-    console.log('original list',this.categories);
-    this.categories = this.categories.filter(cat =>cat !=val);
-    console.log('filtered list',this.categories);
+    this.categories = this.categories.filter(cat =>cat !=val);// rimuovo la categoria che è stata cliccata
+    this.selectedCategories.emit(this.categories)
     
 
 

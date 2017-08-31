@@ -1,0 +1,14 @@
+
+<div>
+ <div class="list">
+   <ion-row *ngFor="let  cat of SelectableCategories|async" >
+     <article>
+       <selectable-category [category_id]= cat.$key
+                            [filterString] = filterString
+                            (clicked)= "selected(cat.$key)"
+                            *ngIf=!isSelected(cat.$key)>
+       </selectable-category>
+     </article>
+   </ion-row>
+ </div>
+</div>
