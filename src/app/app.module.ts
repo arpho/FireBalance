@@ -203,6 +203,7 @@ export const firebaseConfig = {
     SelectedCategoriesListComponent,
     SelectableCategoriesListComponent,
     SelectableCategoryComponent,
+    SelectableCategoryComponent,
   ],
   imports: [
     MdIconModule,
