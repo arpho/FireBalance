@@ -39,5 +39,6 @@ export class SelectableCategoriesListComponent extends SelectedCategoriesListCom
     //console.log(`has been selected category_id ${key}`);
     this.selectedCategory.emit(key);
   }
+  
 
 }

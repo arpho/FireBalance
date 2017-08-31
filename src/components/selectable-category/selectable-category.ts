@@ -1,6 +1,6 @@
-import { Component,Input,Output,EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { CategoryComponent } from '../category/category'
-import {CategoriesService} from '../../pages/categories/categories.service'
+import { CategoriesService } from '../../pages/categories/categories.service'
 
 /**
  * Generated class for the SelectableCategoryComponent component.
@@ -12,15 +12,19 @@ import {CategoriesService} from '../../pages/categories/categories.service'
   selector: 'selectable-category',
   templateUrl: 'selectable-category.html'
 })
-export class SelectableCategoryComponent extends CategoryComponent{
+export class SelectableCategoryComponent extends CategoryComponent  {
 
-  @Input() filterString:string;
-  @Output() clicked: EventEmitter<string>= new EventEmitter<string>();
-
+  @Output() clicked: EventEmitter<string> = new EventEmitter<string>();
+  visible: boolean;
   constructor(
-    public Categories:CategoriesService
+    public Categories: CategoriesService
   ) {
     super(Categories);
+    this.visible = true;
   }
+
+
+
+  
 
 }
