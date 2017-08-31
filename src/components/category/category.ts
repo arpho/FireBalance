@@ -15,6 +15,7 @@ import { CategoryModel } from './category.model';
 })
 export class CategoryComponent implements OnInit {
   @Input() category_id: string;
+  @Input() filterString:string;
   @Output() clicked: EventEmitter<string> = new EventEmitter<string>();
   category: CategoryModel;
   categoria: any;
@@ -23,7 +24,6 @@ export class CategoryComponent implements OnInit {
     //console.log('init categoria',this.category_id);
     this.categoria = this.Categories.fetchCategoryById(this.category_id);
     this.Categories.fetchCategoryById(this.category_id).subscribe(category => {
-      console.log('cerco ',this.category_id)
       const categoria = {
         title: category[0].$value,
         icon: category[0].icon,

@@ -5,7 +5,8 @@
      <article>
        <selectable-category [category_id]= cat.$key
                             (clicked)= "selected(cat.$key)"
-                            *ngIf="!isSelected()" >
+                            *ngIf="!isSelected(cat.$key)"
+                            [filterString]=filterString >
        </selectable-category>
      </article>
    </ion-row>
