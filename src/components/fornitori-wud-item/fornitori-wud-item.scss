@@ -8,139 +8,129 @@ fornitori-wud-item {
 //spinner fico
 
 
-#loader-1 #loader{
-	position: relative;
-    left: 50%;
-    top: 50%;
-    height: 20vw;
-    width: 20vw;
-    margin: -10vw 0 0 -10vw; 
-    border: 3px solid transparent;
-    border-top-color: #3498db;
-    border-bottom-color: #3498db; 
-    border-radius: 50%;
-    z-index: 2;
-    -webkit-animation: spin 2s linear infinite;
-    -moz-animation: spin 2s linear infinite;
-    -o-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
 
-#loader-1 #loader:before{
-	content: "";
-    position: absolute;
-    top:2%;
-    bottom: 2%;
-    left: 2%;
-    right: 2%; 
-    border: 3px solid transparent;
-    z-index: 2;
-    border-top-color: #db213a;
-    border-radius: 50%;
-    -webkit-animation: spin 3s linear infinite;
-    -moz-animation: spin 3s linear infinite;
-    -o-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
+	/*Horizontal circles as bars loader-3 */
 
-}
-
-#loader-1 #loader:after{
-	content: "";
-    position: absolute;
-    top:5%;
-    bottom: 5%;
-    left: 5%;
-    right: 5%; 
-    border: 3px solid transparent;
-    border-top-color: #dec52d;
-    z-index: 2;
-    border-radius: 50%;
-    -webkit-animation: spin 1.5s linear infinite;
-    -moz-animation: spin 1.5s linear infinite;
-    -o-animation: spin 1.5s linear infinite;
-    animation: spin 1.5s linear infinite;
-
-}
-
-/*Keyframes for spin animation */
-
-@-webkit-keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(0deg);  /* IE 9 */
-        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    #loader-3 #loader{
+        position: absolute;
+        width: 2vw;
+        height: 2vw;
+        background: rgb(255,0,0);
+        top:50%;
+        left: 50%;
+        border-radius: 50%;
+        z-index: 1500;
+        -webkit-animation: forward 2.3s linear infinite;
+        -moz-animation: forward 2.3s linear infinite;
+        -o-animation: forward 2.3s linear infinite;
+        animation: forward 2.3s linear infinite ;
     }
-
-    50% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(180deg);  /* Firefox 16+, IE 10+, Opera */
+    
+    #loader-3 > #loader:nth-of-type(1) {
+        -webkit-animation-delay: -0.46s;
+        -moz-animation-delay: -0.46s;
+        -o-animation-delay: -0.46s;
+            animation-delay: -0.46s;
     }
-    100% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    
+    #loader-3 > #loader:nth-of-type(2) {
+        -webkit-animation-delay: -0.92s;
+        -moz-animation-delay: -0.92s;
+        -o-animation-delay: -0.92s;
+            animation-delay: -0.92s;
     }
-}
-
-
-@-moz-keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(0deg);  /* IE 9 */
-        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    #loader-3 > #loader:nth-of-type(3) {
+        -webkit-animation-delay: -1.38s;
+        -moz-animation-delay: -1.38s;
+        -o-animation-delay: -1.38s;
+            animation-delay: -1.38s;
     }
-
-    50% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(180deg);  /* Firefox 16+, IE 10+, Opera */
+    #loader-3 > #loader:nth-of-type(4) {
+        -webkit-animation-delay: -1.84s;
+        -moz-animation-delay: -1.84s;
+        -o-animation-delay: -1.84s;
+            animation-delay: -1.84s;
     }
-    100% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    
+    /*keyframes for forward animations*/
+    
+    @-webkit-keyframes forward {
+        0% {
+            left: 40%;
+            opacity: 0;
+            background: rgb(255,255,0);
+        }
+        10% {
+            left: 45%;
+            opacity: 1;
+        }
+        90% {
+            left: 55%;
+            opacity: 1;
+        }
+        100% {
+            left: 62%;
+            opacity: 0;
+        }
     }
-}
-
-@-o-keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(0deg);  /* IE 9 */
-        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    
+    @-moz-keyframes forward {
+        0% {
+            left: 40%;
+            opacity: 0;
+            background: rgb(255,255,0);
+        }
+        10% {
+            left: 45%;
+            opacity: 1;
+        }
+        90% {
+            left: 55%;
+            opacity: 1;
+        }
+        100% {
+            left: 62%;
+            opacity: 0;
+        }
     }
-
-    50% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(180deg);  /* Firefox 16+, IE 10+, Opera */
+    
+    @-o-keyframes forward {
+        0% {
+            left: 40%;
+            opacity: 0;
+            background: rgb(255,255,0);
+        }
+        10% {
+            left: 45%;
+            opacity: 1;
+        }
+        90% {
+            left: 55%;
+            opacity: 1;
+        }
+        100% {
+            left: 62%;
+            opacity: 0;
+        }
     }
-    100% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    
+    @keyframes forward {
+        0% {
+            left: 40%;
+            opacity: 0;
+            background: rgb(255,255,0);
+        }
+        10% {
+            left: 45%;
+            opacity: 1;
+        }
+        90% {
+            left: 55%;
+            opacity: 1;
+        }
+        100% {
+            left: 62%;
+            opacity: 0;
+        }
     }
-}
-
-@keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(0deg);  /* IE 9 */
-        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-    }
-
-    50% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(180deg);  /* Firefox 16+, IE 10+, Opera */
-    }
-    100% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-    }
-
-
-
-}
 }
