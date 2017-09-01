@@ -7,29 +7,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title><ion-icon name="arrow-back"(click)="goHome()" ></ion-icon>  fornitori</ion-title>
+    <ion-title>
+      <ion-icon name="arrow-back" (click)="goHome()"></ion-icon> fornitori</ion-title>
     <div id="SupplierForm">
-        <button md-fab
-        (click)="createSupplier()">
+      <button md-fab (click)="createSupplier()">
         <ion-icon name="add"></ion-icon></button>
-    <field-filter [placeholder]='segnaposto'
-                  (doFilter)="filterFornitore= $event.filterString"        
-    ></field-filter>
+      <field-filter [placeholder]='segnaposto' (doFilter)="filterFornitore= $event.filterString"></field-filter>
     </div>
   </ion-navbar>
-  
+
 
 </ion-header>
 
 
+
 <ion-content class="listing-content">
-<h4 class="categories-title">{{'BROWSE_SUPPLIERS' | translate}}</h4>
-<article class="list">
+    <selector [db]=Suppliers (selected)="selectedEvent($event)" [db]=Suppliers>
+      </selector>
+  <h4 class="categories-title">{{'BROWSE_SUPPLIERS' | translate}}</h4>
+  <article class="list">
     <ion-col width-50 class="category-item" *ngFor="let supplier of suppliers| async">
-     <fornitori-wud-item [fornitore]=supplier *ngIf="filterSupplier(supplier)">
-     </fornitori-wud-item>
+      <fornitori-wud-item [fornitore]=supplier *ngIf="filterSupplier(supplier)">
+      </fornitori-wud-item>
     </ion-col>
-</article>
+  </article>
   <hr>
-  
+
 </ion-content>

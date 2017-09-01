@@ -25,7 +25,7 @@ export class FornitoriPage implements OnInit {
  segnaposto:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modal: ModalController,
-  private Suppliers:SuppliersService) {
+    public Suppliers:SuppliersService) {
     //this.supplier = "";
     this.supplier = new SupplierModel();
     this.supplier.nome = "";
@@ -35,8 +35,11 @@ export class FornitoriPage implements OnInit {
     this.supplier.note = "";
     this.segnaposto = "filtra per nome";
   }
+  selectedEvent(id){
+    console.log('got selection',id);
+  }
 
-  filterSupplier(categoria):Boolean {
+  filterSupplier(categoria):boolean {
     var re = new RegExp(this.filterFornitore,'i');
     if(this.filterFornitore)
      { //console.log('match',categoria.title.match(re))

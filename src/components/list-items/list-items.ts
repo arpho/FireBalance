@@ -24,7 +24,7 @@ export class ListItemsComponent {
 
   constructor() {
     console.log('Hello ListItemsComponent Component');
-    this.text = 'Hello World';
+    this.text = 'Hello World list-item';
   }
 
 }

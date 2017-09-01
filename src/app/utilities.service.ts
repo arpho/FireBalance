@@ -23,6 +23,19 @@ export class UtilitiesService{
     text4Switch(textTrue,textFalse,selector) {
         return  (selector==true) ? textTrue : textFalse;
     }
+
+    regexFilter(filterString:string,value){
+        var re = new RegExp(filterString,'i');
+        if(filterString)
+         { //console.log('match',categoria.title.match(re))
+           return value.match(re)!=null;
+          }
+        else 
+          return true;
+        
+      }
+
+    
     
     isAndroid(): boolean {
         return this.isPlatform('android');

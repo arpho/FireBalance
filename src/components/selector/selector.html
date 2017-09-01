@@ -1,7 +1,5 @@
-<!-- Generated template for the SelectorComponent component -->
-<div>
-  {{text}}
-</div>
 <div>
   <field-filter [placeholder]=placeholder (doFilter)="filterString=$event">
   </field-filter>
+</div>
+<list-items [items]=items (selected)="selectedEvent($event)">

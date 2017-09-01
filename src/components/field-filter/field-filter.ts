@@ -29,7 +29,7 @@ export class FieldFilterComponent {
     this.field = this.filterForm.controls['field']
     this.doFilter =  new EventEmitter<string>();
     
-    console.log('valueChange',this.field.valueChanges);
+    //console.log('valueChange',this.field.valueChanges);
     this.field.valueChanges.subscribe(
       (value:string) => {
       //console.log('stringa di ricerca',value);
