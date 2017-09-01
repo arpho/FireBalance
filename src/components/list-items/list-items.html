@@ -1,0 +1,8 @@
+<!-- Generated template for the ListItemsComponent component -->
+<div class =" ui items">
+  <ion-row *ngFor="let item of items" >
+    <simpleitem [item]=item
+                (selected)="selectedItem($event)" >
+    </simpleitem>
+  </ion-row>
+</div>

@@ -7,14 +7,17 @@ import { Model } from '../pages/listing/listing.model';
 import {UserService} from '../../app/user.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { SupplierModel} from './fornitori.model';
+import {DbLayer} from '../../app/dbLayer.interface'
 
 @Injectable()
-export class SuppliersService  {
+export class SuppliersService  implements DbLayer {
   constructor(public http: Http,
     private afDB: AngularFireDatabase,
     //,// produce uno strano errore no peovider for Observable 
     private User:UserService) {}
-
+  getElements():Observable<any>{
+    return this.getSuppliers()
+  }
 
 
   getSuppliers():Observable<any> {
