@@ -22,6 +22,7 @@ import { CreateSupplierPage } from '../create-supplier/create-supplier';
 export class FornitoriPage implements OnInit {
   suppliers: Observable<SupplierModel>;
   filterFornitore: string;
+  component: string;
   supplier: SupplierModel;
   createSupplierPage: CreateSupplierPage;
   segnaposto: string;
@@ -36,6 +37,7 @@ export class FornitoriPage implements OnInit {
     this.supplier.longitudine = "";
     this.supplier.note = "";
     this.segnaposto = "filtra per nome";
+    this.component = "supplier";
   }
   selectedEvent(id) {
     console.log('got selection', id);
@@ -53,7 +55,7 @@ export class FornitoriPage implements OnInit {
 
   ngOnInit() {
     this.suppliers = this.Suppliers.getSuppliers()
-    
+
   }
   navigate() {
     console.log('navigator');

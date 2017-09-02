@@ -5,6 +5,7 @@ import { SuppliersService } from '../../pages/fornitori/fornitori.service';
 import { Observable } from 'rxjs/Rx';
 import { UtilitiesService } from '../../app/utilities.service'
 import { CreateSupplierPage } from '../../pages/create-supplier/create-supplier';
+import { CreatePaymentPage } from '../../pages/create-payment/create-payment';
 /**
  * Generated class for the SelectorComponent component.
  *
@@ -16,17 +17,17 @@ import { CreateSupplierPage } from '../../pages/create-supplier/create-supplier'
   templateUrl: 'selector.html'
 })
 export class SelectorComponent implements OnInit {
-  @Input() db: DbLayer;
-  @Input() create:any;
-  @Output() selected: EventEmitter<string> = new EventEmitter<string>();
-  text: string;
+  @Input() db: DbLayer;//servizio di  backend
+  @Input() component:string;// componente di cui aprire il popup di creazione
+  @Output() selected: EventEmitter<string> = new EventEmitter<string>(); // segnale emesso al componente father in caso di selezione nei componenti figli
+  Components:any //oggetto usato per la selezione del popup da visualzzare
   filterString: string;
-  placeholder: string;
-  items: Observable<any>
+  placeholder: string;// placeholder del componente filter field
+  items: Observable<any> // items visualizzati nella lista
 
   add(){
     console.log('adding');
-    let modal = this.modal.create(CreateSupplierPage);
+    let modal = this.modal.create(this.Components[this.component]);
     modal.present();
   }
 
@@ -44,8 +45,7 @@ export class SelectorComponent implements OnInit {
     public Utilities: UtilitiesService,
     public Suppliers: SuppliersService) {
     this.placeholder = 'seleziona fornitore';
-    console.log('Hello SelectorComponent Component');
-    this.text = 'Hello World selectors';
+    this.Components = {"supplier":CreateSupplierPage,"payment":CreatePaymentPage};
   }
 
 }
