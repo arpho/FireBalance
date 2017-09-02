@@ -23,6 +23,7 @@ export class FornitoriPage implements OnInit {
   suppliers: Observable<SupplierModel>;
   filterFornitore: string;
   component: string;
+  fieldId: string;
   supplier: SupplierModel;
   createSupplierPage: CreateSupplierPage;
   segnaposto: string;
@@ -34,13 +35,16 @@ export class FornitoriPage implements OnInit {
     this.supplier.nome = "";
     this.supplier.indirizzo = "";
     this.supplier.latitudine = "";
-    this.supplier.longitudine = "";
+    this.supplier.longitudine = "";     
     this.supplier.note = "";
     this.segnaposto = "filtra per nome";
     this.component = "supplier";
+    this.fieldId = "-Kt16RPjJ_mr9valYyov";
+    console.log('fieldId in fornitori',this.fieldId);
   }
   selectedEvent(id) {
     console.log('got selection', id);
+    this.fieldId = id;
   }
 
   filterSupplier(categoria): boolean {

@@ -18,6 +18,10 @@ export class PaymentsService  implements DbLayer{
     return this.getPayments();
   }
 
+  getElementById(id:string): Observable<any>{
+    return this.afDB.list(`pagamenti/${this.User.getUserUid()}/${id}`)
+  }
+
   getPayments():Observable<any> {
     return this.afDB.list('pagamenti/'+this.User.getUserUid());
   }

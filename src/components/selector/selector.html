@@ -1,4 +1,6 @@
 <div>
+  <selected-item [fieldId]=fieldId [db]=db>
+  </selected-item>
   <field-filter [placeholder]=placeholder (doFilter)="filterString=$event.filterString">
   </field-filter>
   <ion-icon name="add" (click)="add()"></ion-icon>

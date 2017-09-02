@@ -120,6 +120,7 @@ import { SelectableCategoryComponent } from '../components/selectable-category/s
 import { SelectorComponent } from '../components/selector/selector';
 import { SimpleitemComponent } from '../components/simpleitem/simpleitem';
 import { ListItemsComponent } from '../components/list-items/list-items';
+import { SelectedItemComponent } from '../components/selected-item/selected-item';
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -210,6 +211,7 @@ export const firebaseConfig = {
     SelectorComponent,
     SimpleitemComponent,
     ListItemsComponent,
+    SelectedItemComponent,
   ],
   imports: [
     MdIconModule,

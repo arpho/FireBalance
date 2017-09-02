@@ -57,6 +57,13 @@
         </ion-item>
         </ion-list>
         <ion-icon name="locate" (click)="geolocalize()"></ion-icon>
+        <div *ngIf="busy"> <div class="loader-wrapper" id="loader-3">
+            <div id="loader"></div>
+            <div id="loader"></div>
+            <div id="loader"></div>
+            <div id="loader"></div>
+            <div id="loader"></div>
+        </div></div>
         <button type="submit" ion-button block icon-right class="choose-category-button" (click)="createSupplier(this.supplierForm)">
             
                 <button ion-button block clear class="signup-button" (click)="goToSignup()">{{'SIGN_UP!' | translate}}</button>

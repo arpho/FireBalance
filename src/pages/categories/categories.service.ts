@@ -4,41 +4,43 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ListingModel } from '../pages/listing/listing.model';
-import {UserService} from '../../app/user.service';
+import { UserService } from '../../app/user.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 @Injectable()
 export class CategoriesService implements OnInit {
   constructor(public http: Http,
     private afDB: AngularFireDatabase,
     //,// produce uno strano errore no peovider for Observable 
-    private User:UserService) {}
+    private User: UserService) { }
 
   ngOnInit() {
-    this.afDB.list('categorie/'+this.User.getUserUid()).subscribe(data=>{
-      console.log('categorie',data);    })
+    this.afDB.list('categorie/' + this.User.getUserUid()).subscribe(data => {
+      console.log('categorie', data);
+    })
   }
 
-  fetchCategoryById(id:string) {
-    return this.afDB.list('categorie/'+this.User.getUserUid()+'/'+id);
+  fetchCategoryById(id: string) {
+    console.log('url categorie in fetch','categorie/' + this.User.getUserUid() + '/' + id);
+    return this.afDB.list('categorie/' + this.User.getUserUid() + '/' + id);
   }
 
-  getCategories():Observable<any> {
-    return this.afDB.list('categorie/'+this.User.getUserUid());
+  getCategories(): Observable<any> {
+    return this.afDB.list('categorie/' + this.User.getUserUid());
   }
 
-   private handleError(error: any): Promise<any> {
+  private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
 
   pushNewCategory(categoria) {
-   return this.afDB.list('categorie/'+this.User.getUserUid()).push(categoria);
+    return this.afDB.list('categorie/' + this.User.getUserUid()).push(categoria);
   }
   updateCategory(categoria) {
-    this.afDB.list('categorie/'+this.User.getUserUid()).update(categoria.$key,categoria)
+    this.afDB.list('categorie/' + this.User.getUserUid()).update(categoria.$key, categoria)
   }
   trashCategory(categoria) {
-    this.afDB.list('categorie/'+this.User.getUserUid()).remove(categoria.$key).then(e => {
+    this.afDB.list('categorie/' + this.User.getUserUid()).remove(categoria.$key).then(e => {
     });
   }
 

@@ -19,14 +19,17 @@ import {UtilitiesService } from '../../app/utilities.service';
 })
 export class CreateSupplierPage {
   title:string;
+  public busy: boolean;
   public supplierForm: FormGroup;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     fb:FormBuilder,
     public geolocation: Geolocation,
+    
   public Utilities: UtilitiesService,
   public  Suppliers: SuppliersService,
   public view:ViewController) {
     this.title = "Nuovo Fornitore";
+    this.busy = false;
     this.supplierForm  = fb.group({
       nome: new FormControl(''),
       note: new FormControl(''),
@@ -42,8 +45,10 @@ export class CreateSupplierPage {
     return this.Utilities.text4Switch("Fornitore On-line","fornitore tradizionale",this.supplierForm.controls.onLine.value);
   }
   geolocalize() {
+    this.busy = true;
     console.log('localizing');
     this.Utilities.geolocalize().then((resp) => {
+      this.busy = false;
       console.log('coordinate',resp.coords.latitude,resp.coords.longitude);
       this.supplierForm.controls.longitudine.setValue(resp.coords.longitude);
       this.supplierForm.controls.latitudine.setValue(resp.coords.latitude);

@@ -24,6 +24,7 @@ export class CategoryComponent implements OnInit {
     //console.log('init categoria',this.category_id);
     this.categoria = this.Categories.fetchCategoryById(this.category_id);
     this.Categories.fetchCategoryById(this.category_id).subscribe(category => {
+      console.log('una sola categoria',category)
       const categoria = {
         title: category[0].$value,
         icon: category[0].icon,
