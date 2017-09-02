@@ -21,19 +21,14 @@ export class SelectorComponent implements OnInit {
   placeholder: string;
   items: Observable<any>
 
-  filter(value: string): boolean {
-    return this.Utilities.regexFilter(this.filterString, value);
-  }
+
 
   ngOnInit() {
     this.items = this.db.getElements();
-    this.db.getElements().filter(x => this.filter(x)).subscribe(data => {
-      console.log('got data in selector', data);
-    })
+
   }
 
   selectedEvent(id: any) {
-    console.log("selected event in selector", id);
     this.selected.emit(id);
   }
 

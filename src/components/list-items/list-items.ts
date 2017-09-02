@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+import { UtilitiesService } from '../../app/utilities.service'
 
 /**
  * Generated class for the ListItemsComponent component.
@@ -14,6 +15,7 @@ import { Observable } from 'rxjs/Rx';
 export class ListItemsComponent {
 
   @Input() items: Observable<any>
+  @Input() filterString: string;
   @Output() selected: EventEmitter<string> = new EventEmitter<string>();
   text: string;
 
@@ -22,7 +24,13 @@ export class ListItemsComponent {
     this.selected.emit(id);
   }
 
-  constructor() {
+  showItem(item) {
+    return this.Utilities.regexFilter(this.filterString, item.nome)
+  }
+
+  constructor(
+    public Utilities: UtilitiesService
+  ) {
     console.log('Hello ListItemsComponent Component');
     this.text = 'Hello World list-item';
   }

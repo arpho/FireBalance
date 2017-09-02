@@ -2,7 +2,8 @@
 <div class =" ui items">
   <ion-row *ngFor="let item of items|async" >
     <simpleitem [item]=item
-                (selected)="selectedItem($event)" >
+                (selected)="selectedItem($event)" 
+                *ngIf="showItem(item)" >
     </simpleitem>
   </ion-row>
 </div>

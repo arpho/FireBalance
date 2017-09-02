@@ -1,4 +1,4 @@
-import { Component,Input,Output,EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 /**
  * Generated class for the SimpleitemComponent component.
@@ -11,15 +11,14 @@ import { Component,Input,Output,EventEmitter } from '@angular/core';
   templateUrl: 'simpleitem.html'
 })
 export class SimpleitemComponent {
- @Input() item:any;
- @Output() selected: EventEmitter<string> = new EventEmitter<string>();
- 
- click(){
-   this.selected.emit(this.item.$key);
- }
+  @Input() item: any;
+  @Output() selected: EventEmitter<string> = new EventEmitter<string>();
+
+  click() {
+    this.selected.emit(this.item.$key);
+  }
 
   constructor() {
-    console.log('Hello SimpleitemComponent Component');
   }
 
 }
