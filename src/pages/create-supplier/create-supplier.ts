@@ -57,10 +57,10 @@ export class CreateSupplierPage {
   createSupplier(supplier:any) {
     var Supplier = new SupplierModel(supplier.controls);
     console.log('creo fornitore',Supplier);
+    this.view.dismiss();
     this.Suppliers.pushNewSupplier(Supplier).then(data=>{
       this.Utilities.showToast('Fornitore aggiunto','5000','bottom',toast=>{ console.log('toastad',toast)
     });
-    this.view.dismiss();
     })
     /*
     this.Suppliers.pushNewSupplier(new SupplierModel(this.su)).then(data=>{
