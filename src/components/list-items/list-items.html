@@ -1,9 +1,14 @@
 <!-- Generated template for the ListItemsComponent component -->
 <div class =" ui items">
-  <ion-row *ngFor="let item of items|async" >
+  <ion-row *ngFor="let item of items |async let i = index"  >
     <simpleitem [item]=item
                 (selected)="selectedItem($event)" 
-                *ngIf="showItem(item)" >
+                *ngIf="showItem(item) "
+                 >
+                 {{i}}
     </simpleitem>
   </ion-row>
+  <div *ngIf="i==0" >
+    no items 
+  </div>
 </div>
