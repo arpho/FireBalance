@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit,OnChanges,SimpleChanges } from '@angular/core';
 import { SelectedCategoriesListComponent } from '../selected-categories-list/selected-categories-list';
 import { CategoriesService } from '../../pages/categories/categories.service';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   selector: 'selectable-categories-list',
   templateUrl: 'selectable-categories-list.html'
 })
-export class SelectableCategoriesListComponent extends SelectedCategoriesListComponent implements OnInit {
+export class SelectableCategoriesListComponent extends SelectedCategoriesListComponent implements OnInit,OnChanges {
   SelectableCategories: Observable<any>;
   text: string;
   @Output() selectedCategory: EventEmitter<string> = new EventEmitter<string>(); 
@@ -21,11 +21,13 @@ export class SelectableCategoriesListComponent extends SelectedCategoriesListCom
   ngOnInit() {
     this.SelectableCategories = this.Categories.getCategories();
     this.Categories.getCategories().subscribe(cats =>{
-      console.log('selectable categories',cats)
     })
   }
 
-  
+  ngOnChanges(changes:SimpleChanges){
+    this.Categories.getCategories().subscribe(cats =>{ //aggiorna la lista delle categorie selezionabili
+    })
+  }
 
   constructor(
     public Categories: CategoriesService

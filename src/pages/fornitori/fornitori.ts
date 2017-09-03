@@ -30,7 +30,6 @@ export class FornitoriPage implements OnInit {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modal: ModalController,
     public Suppliers: SuppliersService) {
-    //this.supplier = "";
     this.supplier = new SupplierModel();
     this.supplier.nome = "";
     this.supplier.indirizzo = "";
@@ -40,7 +39,6 @@ export class FornitoriPage implements OnInit {
     this.segnaposto = "filtra per nome";
     this.component = "supplier";
     this.fieldId = "-Kt16RPjJ_mr9valYyov";
-    console.log('fieldId in fornitori',this.fieldId);
   }
   selectedEvent(id) {
     console.log('got selection', id);

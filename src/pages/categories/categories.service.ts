@@ -20,7 +20,6 @@ export class CategoriesService implements OnInit {
   }
 
   fetchCategoryById(id: string) {
-    console.log('url categorie in fetch','categorie/' + this.User.getUserUid() + '/' + id);
     return this.afDB.list('categorie/' + this.User.getUserUid() + '/' + id);
   }
 

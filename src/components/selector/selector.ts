@@ -19,6 +19,7 @@ import { CreatePaymentPage } from '../../pages/create-payment/create-payment';
 export class SelectorComponent implements OnInit {
   @Input() db: DbLayer;//servizio di  backend
   @Input() fieldId:string;
+  @Input() CreatePage:any;
   @Input() component:string;// componente di cui aprire il popup di creazione
   @Output() selected: EventEmitter<string> = new EventEmitter<string>(); // segnale emesso al componente father in caso di selezione nei componenti figli
   Components:any //oggetto usato per la selezione del popup da visualzzare

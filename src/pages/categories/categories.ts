@@ -31,13 +31,11 @@ export class CategoriesPage {
     this.categories_id.push("-Ks0VR4z3gZTXtwqTZ-V");
     this.categories_id.push("-Ks0UbaDoqhXN1yoyKNP");
     this.Categories.fetchCategoryById(this.category_id).subscribe(cat => {
-      console.log('got category', cat);
     })
     this.categories = this.Categories.getCategories();
     this.Categories.getCategories().subscribe(data => {
-      console.log('categorie', data);
     });
-    this.newCategory = '';
+    this.newCategory = "";
 
   }
 
@@ -50,12 +48,13 @@ export class CategoriesPage {
   }
 
   selectCategory(key) {
-    //console.log('selected category', key);
-    this.categories_id.push(key); //aggiungo la nuova categoria
+    //console.log('selected category', key); 
+    this.categories_id.push(key); //aggiungo la nuova categoria 
   }
 
   setFilterString(categoria) {
-    this.newCategory = categoria;
+    if (categoria)
+      this.newCategory = categoria;
   }
 
   clicked(val) {
@@ -71,6 +70,8 @@ export class CategoriesPage {
       return true;
 
   }
+
+
   createCategory() {
     var categoria = { "title": this.newCategory };
     this.Categories.pushNewCategory(categoria).then(o => {
