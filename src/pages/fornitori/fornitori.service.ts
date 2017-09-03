@@ -21,7 +21,7 @@ export class SuppliersService implements DbLayer {
 
   getElementById(id: string): Observable<any> {
     const url = 'fornitori/' + this.User.getUserUid() + '/' + id;
-    console.log('url',url)
+    console.log('url', url)
     return this.afDB.list(url);
   }
 
@@ -34,11 +34,11 @@ export class SuppliersService implements DbLayer {
   }
 
   updateSupplier(fornitore, key) {
-    this.afDB.list('fornitori/' + this.User.getUserUid()).update(key, fornitore)
+    return this.afDB.list('fornitori/' + this.User.getUserUid()).update(key, fornitore)
   }
 
   trashSupplier(key) {
-    this.afDB.list('fornitori/' + this.User.getUserUid()).remove(key).then(e => {
+    return this.afDB.list('fornitori/' + this.User.getUserUid()).remove(key).then(e => {
     });
   }
 }

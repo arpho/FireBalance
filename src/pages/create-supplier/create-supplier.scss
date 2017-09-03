@@ -1,6 +1,8 @@
 page-create-supplier {
     @include switcher-item-styles($white-d, $theme-color-1);
-    
+    ion-title {
+        text-align: center
+    }
                         .switcher-item
                         {
                             padding: 0px 14px;
