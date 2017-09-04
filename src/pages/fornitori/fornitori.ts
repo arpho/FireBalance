@@ -34,7 +34,7 @@ export class FornitoriPage implements OnInit {
     this.supplier.nome = "";
     this.supplier.indirizzo = "";
     this.supplier.latitudine = "";
-    this.supplier.longitudine = "";     
+    this.supplier.longitudine = "";
     this.supplier.note = "";
     this.segnaposto = "filtra per nome";
     this.component = "supplier";

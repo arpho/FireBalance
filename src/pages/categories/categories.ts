@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Rx';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { CategoriesService } from './categories.service';
 import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
-import {CategoriesSelectorPage} from '../categories-selector/categories-selector';
+import { CategoriesSelectorPage } from '../categories-selector/categories-selector';
 
 /**
  * Generated class for the CategoriesPage page.
@@ -42,11 +42,13 @@ export class CategoriesPage {
 
   }
 
-  categoriesSelector(){
+  categoriesSelector() {
     console.log('ciao ');
 
-    let modal = this.modal.create(CategoriesSelectorPage,this.categories_id);
-    modal.present();
+    let modal = this.modal.create(CategoriesSelectorPage, this.categories_id);
+    modal.onDidDismiss(values => {
+      console.log('modal dismissed', values);
+    })
   }
   selectedCategories(val) {
     //console.log('selectedCategories', val);

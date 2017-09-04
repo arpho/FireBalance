@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import * as _ from 'lodash';
 
 /**
@@ -14,24 +14,21 @@ import * as _ from 'lodash';
   templateUrl: 'categories-selector.html',
 })
 export class CategoriesSelectorPage {
-  public categories_id:string[];
+  public categories_id: string[];
   constructor(public navCtrl: NavController,
-     public navParams: NavParams,
+    public navParams: NavParams,
     public view: ViewController
   ) {
     this.categories_id = [];// inizializzo l'array di id 
-    console.log('navParams',navParams.data)
-    _.forEach(navParams.data,element => {
+    _.forEach(navParams.data, element => {
       this.categories_id.push(element);
     });
-    console.log('ids',this.categories_id);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriesSelectorPage');
   }
-  selectedCategories(cats){
-    console.log('got cats',cats)
+  selectedCategories(cats) {
+    this.view.dismiss(cats);
   }
 
   dismiss() {
