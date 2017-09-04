@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { CategoriesService } from './categories.service';
 import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
+import {CategoriesSelectorPage} from '../categories-selector/categories-selector';
 
 /**
  * Generated class for the CategoriesPage page.
@@ -23,7 +24,9 @@ export class CategoriesPage {
   categories_id: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public Categories: CategoriesService) {
+    public Categories: CategoriesService,
+    public modal: ModalController
+  ) {
     this.segnaposto = "filtra categoria";
     this.category_id = "-Ks0UbaDoqhXN1yoyKNP";
     this.categories_id = new Array<string>();
@@ -39,6 +42,12 @@ export class CategoriesPage {
 
   }
 
+  categoriesSelector(){
+    console.log('ciao ');
+
+    let modal = this.modal.create(CategoriesSelectorPage,this.categories_id);
+    modal.present();
+  }
   selectedCategories(val) {
     //console.log('selectedCategories', val);
     this.categories_id = val;

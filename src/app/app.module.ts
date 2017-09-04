@@ -101,11 +101,13 @@ import { PaymentsService } from '../pages/payments/payments.service';
 import { ProfileModel } from '../pages/profile/profile.model';
 import { UserModel } from '../pages/profile/profile.model';
 import { CategoryItemComponent } from './category-item/category-item.component';
+import { CategoriesSelectorComponent} from '../components/categories-selector/categories-selector';
 import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
 import { CategoryWudItemComponent } from '../components/category-wud-item/category-wud-item'; 
 import { SuppliersService } from '../pages/fornitori/fornitori.service'
 import { FornitoriWudItemComponent } from '../components/fornitori-wud-item/fornitori-wud-item';
 import { PaymentsPage } from '../pages/payments/payments';
+import {CategoriesSelectorPage} from '../pages/categories-selector/categories-selector';
 import { PaymentWudComponent } from '../components/payment-wud/payment-wud';
 import { ShoppingCartWudItemComponent } from '../components/shopping-cart-wud-item/shopping-cart-wud-item';
 import { FieldFilterComponent } from '../components/field-filter/field-filter';
@@ -147,6 +149,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
+    CategoriesSelectorPage,
     CreateSupplierPage,
     CreatePaymentPage,
     ShoppingCartPage,
@@ -194,7 +197,9 @@ export const firebaseConfig = {
     CounterInput,
     Rating,
     GoogleMap,
+    
     CategoryItemComponent,
+    CategoriesSelectorComponent,
     ShoppingCartItemComponent,
     CategoryWudItemComponent,
     FornitoriWudItemComponent,
@@ -237,6 +242,7 @@ export const firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    CategoriesSelectorPage,
     CreateSupplierPage,
     CreatePaymentPage,
     ShoppingCartPage,

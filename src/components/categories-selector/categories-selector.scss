@@ -1,0 +1,20 @@
+categories-selector {
+    .ok {
+        width: 24em;
+        height:3em;
+    }
+    .annulla {
+        width: 29em;
+        height: 3em;
+    }
+
+    #buttons {
+        /* z-index: 54; */
+        bottom: 0em;
+        position: fixed;
+    }
+    selected-categories-list{
+        //position:fixed
+    }
+
+}

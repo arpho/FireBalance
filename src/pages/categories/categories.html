@@ -26,6 +26,9 @@
 
 
 <ion-content class="listing-content">
+    <button (click) = "categoriesSelector()">
+        <ion-icon name="pricetags"></ion-icon>
+      </button>
 <h4 class="categories-title">{{'BROWSE_CATEGORIES' | translate}}</h4>
 <!--selected-category
 [category_id]=category_id
@@ -37,7 +40,7 @@
 </selected-categories-list>
 
 <selectable-categories-list [categories]=categories_id
-                            [filterString]=newCategory
+                            [filterString]=filterString
                             (selectedCategory)="selectCategory($event)">
 </selectable-categories-list>
 

@@ -68,7 +68,7 @@ export class CreateSupplierPage {
     if (!this.navParams.get('key'))
       this.Suppliers.pushNewSupplier(Supplier).then(data => {
         this.Utilities.showToast('Fornitore aggiunto', '5000', 'bottom', toast => {
-          console.log('toasted', toast)
+          console.log('toasted', toast);
         });
       })
     else
@@ -77,6 +77,7 @@ export class CreateSupplierPage {
           console.log("toasted", toast)
         });
       })
+      this.view.dismiss();
     /*
     this.Suppliers.pushNewSupplier(new SupplierModel(this.su)).then(data=>{
       console.log('dati inseriti',data,'errore');

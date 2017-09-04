@@ -1,0 +1,15 @@
+<!-- Generated template for the CategoriesSelectorComponent component -->
+<div>
+    <selected-categories-list [categories]=categories_id
+    (selectedCategories)="deselectedCategories($event)">
+</selected-categories-list>
+<field-filter [placeholder]=segnaposto
+(doFilter)="filterString= $event.filterString"  
+></field-filter>
+<selectable-categories-list [categories]=categories_id
+[filterString]=filterString
+(selectedCategory)="selectCategory($event)">
+</selectable-categories-list>
+<div id="buttons"><button class="annulla"(click)="cancel()">Annulla</button>
+     <button (click)="ok()"class="ok">OK</button>
+</div>
