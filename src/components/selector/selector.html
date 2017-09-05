@@ -5,5 +5,5 @@
   </field-filter>
   <ion-icon name="add" (click)="add()"></ion-icon>
 </div>
-<list-items [items]=items (selected)="selectedEvent($event) " [filterString]=filterString>
+<list-items [items]=items (selected)="selectedEvent($event) " [filterString]=filterString *ngIf="filterString" >
 </list-items>
