@@ -29,7 +29,7 @@ export class SelectorComponent implements OnInit {
 
   add(){
     console.log('adding');
-    let modal = this.modal.create(this.Components[this.component]);
+    let modal = this.modal.create(this.Components[this.db.getComponentType()]);
     modal.present();
   }
 

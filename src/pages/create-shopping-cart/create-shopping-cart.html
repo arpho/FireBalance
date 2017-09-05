@@ -22,5 +22,8 @@
         <button mdSuffix [mdDatepickerToggle]="picker"></button>
       </md-input-container>
       <md-datepicker  #picker></md-datepicker>
-      
+      <selector [db]=Suppliers (selected)="selectedSupplier($event)"   [fieldId]=fieldIdFornitore>
+        </selector>
+        <selector [db]=Payments (selected)="selectedPayment($event)"   [fieldId]=fieldIdPagamento>
+          </selector>
 </ion-content>

@@ -11,6 +11,9 @@ import { DbLayer } from '../../app/dbLayer.interface'
 
 @Injectable()
 export class SuppliersService implements DbLayer {
+  getComponentType() {
+    return "supplier";
+  }
   constructor(public http: Http,
     private afDB: AngularFireDatabase,
     //,// produce uno strano errore no peovider for Observable 
