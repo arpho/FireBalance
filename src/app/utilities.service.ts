@@ -9,7 +9,7 @@ import * as _ from 'lodash';
 export class UtilitiesService {
     public googleKey: string;
     constructor(
-        @Inject('GoogleKey') private GoogleKey,
+        @Inject('GoogleKey') public GoogleKey,
         public http: Http,
         private plt: Platform,
         private toast: Toast,

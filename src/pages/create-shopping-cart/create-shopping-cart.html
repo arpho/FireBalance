@@ -1,0 +1,26 @@
+<!--
+  Generated template for the CreateShoppingCartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}<ion-button><ion-icon name="close" class="dismiss" (click)="dismiss()"></ion-icon></ion-button></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <md-input-container>
+        <input mdInput 
+               [mdDatepicker]="picker" 
+               [(ngModel)]="date"
+               placeholder="Choose a date">
+        <button mdSuffix [mdDatepickerToggle]="picker"></button>
+      </md-input-container>
+      <md-datepicker  #picker></md-datepicker>
+      
+</ion-content>

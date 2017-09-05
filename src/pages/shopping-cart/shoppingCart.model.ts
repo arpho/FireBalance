@@ -5,13 +5,19 @@ export class ItemModel {
     barcode: string;
     nome: string;
     descrizione: string;
-    immagine: string
+    picture: string
     categorieId: Array<string>;
+    tassoConversione:number;
+    moneta:string
 }
 export class ShoppingCart {
     fornitoreId: string;
     pagamentoId: string;
-    dataAcquisto: Timestamp<any>;
-    dataContabile: Timestamp<any>;
+    datacontabile: Timestamp<any>;
+    dataFiscale: Timestamp<any>;
     acquisti: Array<ItemModel>;
+    key:string;
+}
+export class PurchaisedModel{
+
 }

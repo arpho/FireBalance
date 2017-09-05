@@ -48,6 +48,7 @@
         "@types/googlemaps": "3.25.38",
         "@types/jquery": "^3.2.12",
         "ImagePicker": "git+https://github.com/ionicthemes/ImagePicker.git",
+        "angular-material-datepicker": "^1.0.2",
         "angular2-text-mask": "8.0.1",
         "angularfire2": "^4.0.0-rc.1",
         "bourbon": "4.2.7",

@@ -1,7 +1,9 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl,ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { MdNativeDateModule, MdDatepicker } from '@angular/material';
+import { MaterialModule, MdDatepickerModule } from '@angular/material';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Http } from '@angular/http';
@@ -10,6 +12,7 @@ import { ListingPage } from '../pages/listing/listing';
 import { CreatePaymentPage } from '../pages/create-payment/create-payment';
 import { CreateSupplierPage } from '../pages/create-supplier/create-supplier';
 import { ListingModel } from '../pages/listing/listing.model';
+import { CreateShoppingCartPage } from '../pages/create-shopping-cart/create-shopping-cart';
 import { FeedPage } from '../pages/feed/feed';
 import { FollowersPage } from '../pages/followers/followers';
 import { LayoutsPage } from '../pages/layouts/layouts';
@@ -41,10 +44,10 @@ import { ColorRadio } from '../components/color-radio/color-radio';
 import { CounterInput } from '../components/counter-input/counter-input';
 import { Rating } from '../components/rating/rating';
 import { GoogleMap } from '../components/google-map/google-map';
-import {MdButtonModule, MdCheckboxModule,MdIconModule,MdIconRegistry,MdSpinner,MdFab,MdSlideToggleModule} from '@angular/material';
-import {DomSanitizer} from '@angular/platform-browser';
-import {SuiModule} from 'ng2-semantic-ui';
-import {Subject} from 'rxjs/Subject';
+import { MdButtonModule, MdCheckboxModule, MdIconModule, MdIconRegistry, MdSpinner, MdFab, MdSlideToggleModule } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
+import { SuiModule } from 'ng2-semantic-ui';
+import { Subject } from 'rxjs/Subject';
 import { FeedService } from '../pages/feed/feed.service';
 import { ListingService } from '../pages/listing/listing.service';
 import { ProfileService } from '../pages/profile/profile.service';
@@ -101,13 +104,13 @@ import { PaymentsService } from '../pages/payments/payments.service';
 import { ProfileModel } from '../pages/profile/profile.model';
 import { UserModel } from '../pages/profile/profile.model';
 import { CategoryItemComponent } from './category-item/category-item.component';
-import { CategoriesSelectorComponent} from '../components/categories-selector/categories-selector';
+import { CategoriesSelectorComponent } from '../components/categories-selector/categories-selector';
 import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
-import { CategoryWudItemComponent } from '../components/category-wud-item/category-wud-item'; 
+import { CategoryWudItemComponent } from '../components/category-wud-item/category-wud-item';
 import { SuppliersService } from '../pages/fornitori/fornitori.service'
 import { FornitoriWudItemComponent } from '../components/fornitori-wud-item/fornitori-wud-item';
 import { PaymentsPage } from '../pages/payments/payments';
-import {CategoriesSelectorPage} from '../pages/categories-selector/categories-selector';
+import { CategoriesSelectorPage } from '../pages/categories-selector/categories-selector';
 import { PaymentWudComponent } from '../components/payment-wud/payment-wud';
 import { ShoppingCartWudItemComponent } from '../components/shopping-cart-wud-item/shopping-cart-wud-item';
 import { FieldFilterComponent } from '../components/field-filter/field-filter';
@@ -124,24 +127,24 @@ import { SimpleitemComponent } from '../components/simpleitem/simpleitem';
 import { ListItemsComponent } from '../components/list-items/list-items';
 import { SelectedItemComponent } from '../components/selected-item/selected-item';
 export function createTranslateLoader(http: Http) {
-	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
- const googleKey = "AIzaSyATOf9HX67HaKlMQU0V7qUvrCe0McNSo40";
- const FIREBASE_CONFIG = {
+const googleKey = "AIzaSyATOf9HX67HaKlMQU0V7qUvrCe0McNSo40";
+const FIREBASE_CONFIG = {
   apiKey: "AIzaSyCo8vHpRDMa_JsS5J6_vmLTbVNv8eMamgU",
-    authDomain: "fir-6062c.firebaseapp.com",
-    databaseURL: "https://fir-6062c.firebaseio.com",
-    projectId: "fir-6062c",
-    storageBucket: "fir-6062c.appspot.com",
-    messagingSenderId: "84418489236"
+  authDomain: "fir-6062c.firebaseapp.com",
+  databaseURL: "https://fir-6062c.firebaseio.com",
+  projectId: "fir-6062c",
+  storageBucket: "fir-6062c.appspot.com",
+  messagingSenderId: "84418489236"
 };
 export const firebaseConfig = {
   apiKey: "AIzaSyCo8vHpRDMa_JsS5J6_vmLTbVNv8eMamgU",
-    authDomain: "fir-6062c.firebaseapp.com",
-    databaseURL: "https://fir-6062c.firebaseio.com",
-    projectId: "fir-6062c",
-    storageBucket: "fir-6062c.appspot.com",
-    messagingSenderId: "84418489236"
+  authDomain: "fir-6062c.firebaseapp.com",
+  databaseURL: "https://fir-6062c.firebaseio.com",
+  projectId: "fir-6062c",
+  storageBucket: "fir-6062c.appspot.com",
+  messagingSenderId: "84418489236"
 };
 
 
@@ -149,6 +152,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
+    CreateShoppingCartPage,
     CategoriesSelectorPage,
     CreateSupplierPage,
     CreatePaymentPage,
@@ -185,9 +189,9 @@ export const firebaseConfig = {
     GoogleLoginPage,
     ContactCardPage,
     TwitterLoginPage,
-		AdsPage,
-		FormValidationsPage,
-		VideoPlaylistPage,
+    AdsPage,
+    FormValidationsPage,
+    VideoPlaylistPage,
 
     PreloadImage,
     BackgroundImage,
@@ -197,7 +201,7 @@ export const firebaseConfig = {
     CounterInput,
     Rating,
     GoogleMap,
-    
+
     CategoryItemComponent,
     CategoriesSelectorComponent,
     ShoppingCartItemComponent,
@@ -219,6 +223,9 @@ export const firebaseConfig = {
     SelectedItemComponent,
   ],
   imports: [
+    MdNativeDateModule,
+    MdDatepickerModule,        // <----- import(must)
+    MdNativeDateModule ,
     MdIconModule,
     ReactiveFormsModule,
     BrowserModule,
@@ -230,19 +237,20 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-		TranslateModule.forRoot({
-    loader: {
+    TranslateModule.forRoot({
+      loader: {
         provide: TranslateLoader,
-      	useFactory: (createTranslateLoader),
+        useFactory: (createTranslateLoader),
         deps: [Http]
-		    }
-		}),
-		VideoPlayerModule,
-		ValidatorsModule
+      }
+    }),
+    VideoPlayerModule,
+    ValidatorsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     CategoriesSelectorPage,
+    CreateShoppingCartPage,
     CreateSupplierPage,
     CreatePaymentPage,
     ShoppingCartPage,
@@ -277,13 +285,13 @@ export const firebaseConfig = {
     GoogleLoginPage,
     ContactCardPage,
     TwitterLoginPage,
-		AdsPage,
-		FormValidationsPage,
-		VideoPlaylistPage
+    AdsPage,
+    FormValidationsPage,
+    VideoPlaylistPage
   ],
   providers: [
-    {provide:"GoogleKey",useValue: googleKey},
-    {provide:"FIREBASE_CONFIG",useValue:FIREBASE_CONFIG},
+    { provide: "GoogleKey", useValue: googleKey },
+    { provide: "FIREBASE_CONFIG", useValue: FIREBASE_CONFIG },
     Subject,
     MdFab,
     MdSpinner,
@@ -291,7 +299,7 @@ export const firebaseConfig = {
     UtilitiesService,
     Toast,
     PaymentsService,
-    
+
     SuppliersService,
     UserService,
     FeedService,
@@ -311,10 +319,10 @@ export const firebaseConfig = {
     GoogleLoginService,
     TwitterLoginService,
     GoogleMapsService,
-		LanguageService,
+    LanguageService,
 
-	  SplashScreen,
-	  StatusBar,
+    SplashScreen,
+    StatusBar,
     SocialSharing,
     NativeStorage,
     InAppBrowser,
@@ -323,16 +331,16 @@ export const firebaseConfig = {
     Keyboard,
     Geolocation,
     TwitterConnect,
-		AdMobFree,
-		AppRate,
-		ImagePicker,
-		Crop,
-		EmailComposer
+    AdMobFree,
+    AppRate,
+    ImagePicker,
+    Crop,
+    EmailComposer
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
-  constructor(/*private mdIconRegistry: MdIconRegistry,*/ private domSanitizer: DomSanitizer){
-   // mdIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/mdi.svg'));
-}
+  constructor(/*private mdIconRegistry: MdIconRegistry,*/ private domSanitizer: DomSanitizer) {
+    // mdIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/mdi.svg'));
+  }
 }
