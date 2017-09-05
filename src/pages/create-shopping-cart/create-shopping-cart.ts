@@ -25,12 +25,16 @@ export class CreateShoppingCartPage implements OnInit {
   title: string;
   fieldIdFornitore: string;
   fieldIdPagamento: string;
+  paymentPlaceholder:string;
+  supplierPlaceholder:string;
   mydate: DateTime;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public Payments: PaymentsService,
     public Suppliers: SuppliersService,
     public view: ViewController) {
-    this.title = navParams.get('key') ? "modifica carrello della spesa" : "Nuovo Carrello della spesa"
+    this.title = navParams.get('key') ? "modifica carrello della spesa" : "Nuovo Carrello della spesa";
+    this.supplierPlaceholder = "seleziona fornitore";
+    this.paymentPlaceholder = "seleziona metodo di pagamento";
   }
   dismiss() {
     this.view.dismiss();

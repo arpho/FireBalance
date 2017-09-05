@@ -49,6 +49,7 @@ export class CategoriesPage {
     modal.onDidDismiss(values => {
       console.log('modal dismissed', values);
     })
+    modal.present();
   }
   selectedCategories(val) {
     //console.log('selectedCategories', val);

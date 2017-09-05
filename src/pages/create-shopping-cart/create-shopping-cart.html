@@ -7,23 +7,37 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{title}}<ion-button><ion-icon name="close" class="dismiss" (click)="dismiss()"></ion-icon></ion-button></ion-title>
+    <ion-title>{{title}}
+      <ion-button>
+        <ion-icon name="close" class="dismiss" (click)="dismiss()"></ion-icon>
+      </ion-button>
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <md-input-container>
-        <input mdInput 
-               [mdDatepicker]="picker" 
-               [(ngModel)]="date"
-               placeholder="Choose a date">
-        <button mdSuffix [mdDatepickerToggle]="picker"></button>
-      </md-input-container>
-      <md-datepicker  #picker></md-datepicker>
-      <selector [db]=Suppliers (selected)="selectedSupplier($event)"   [fieldId]=fieldIdFornitore>
-        </selector>
-        <selector [db]=Payments (selected)="selectedPayment($event)"   [fieldId]=fieldIdPagamento>
-          </selector>
+  <md-input-container>
+    <input mdInput [mdDatepicker]="picker" [(ngModel)]="date" placeholder="Choose a date">
+    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+  </md-input-container>
+  <md-datepicker #picker></md-datepicker>
+  <ion-row>
+    <ion-col>
+      <label><b> fornitore</b></label>
+      <selector [db]=Suppliers (selected)="selectedSupplier($event)" [fieldId]=fieldIdFornitore [placeholder]=supplierPlaceholder>
+      </selector>
+    </ion-col>
+    <ion-col>
+      <label><b> metodo di pagamento</b></label>
+      <selector [db]=Payments (selected)="selectedPayment($event)" [fieldId]=fieldIdPagamento [placeholder]=paymentPlaceholder>
+      </selector>
+    </ion-col>
+  </ion-row>
+  <ion-input type="text" [(ngModel)]="dataFiscale" disabled></ion-input>
+  <md-input-container>
+    <ion-input type="text" [(ngModel)]="dataFiscale" disabled></ion-input>
+  </md-input-container>
+
 </ion-content>

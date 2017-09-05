@@ -1,9 +1,11 @@
 <div>
-  <selected-item [fieldId]=fieldId [db]=db>
+  <selected-item [fieldId]=fieldId [db]=db >
   </selected-item>
   <field-filter [placeholder]=placeholder (doFilter)="filterString=$event.filterString">
   </field-filter>
-  <ion-icon name="add" (click)="add()"></ion-icon>
+  <ion-icon name="add-circle" (click)="add()"></ion-icon>
 </div>
-<list-items [items]=items (selected)="selectedEvent($event) " [filterString]=filterString *ngIf="filterString" >
-</list-items>
+<div class="list elenco">
+  <list-items [items]=items (selected)="selectedEvent($event) " [filterString]=filterString *ngIf="filterString">
+  </list-items>
+</div>

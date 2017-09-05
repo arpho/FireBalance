@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { DbLayer } from '../../app/dbLayer.interface';
 import { SuppliersService } from '../../pages/fornitori/fornitori.service';
 import { Observable } from 'rxjs/Rx';
@@ -18,16 +18,16 @@ import { CreatePaymentPage } from '../../pages/create-payment/create-payment';
 })
 export class SelectorComponent implements OnInit {
   @Input() db: DbLayer;//servizio di  backend
-  @Input() fieldId:string;
-  @Input() CreatePage:any;
-  @Input() component:string;// componente di cui aprire il popup di creazione
+  @Input() fieldId: string;
+  @Input() placeholder: string;
+  @Input() CreatePage: any;
+  @Input() component: string;// componente di cui aprire il popup di creazione
   @Output() selected: EventEmitter<string> = new EventEmitter<string>(); // segnale emesso al componente father in caso di selezione nei componenti figli
-  Components:any //oggetto usato per la selezione del popup da visualzzare
+  Components: any //oggetto usato per la selezione del popup da visualzzare
   filterString: string;
-  placeholder: string;// placeholder del componente filter field
   items: Observable<any> // items visualizzati nella lista
 
-  add(){
+  add() {
     console.log('adding');
     let modal = this.modal.create(this.Components[this.db.getComponentType()]);
     modal.present();
@@ -35,22 +35,23 @@ export class SelectorComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.db.getElements();
-    console.log('fieldId in selector oninit',this.fieldId)
+    console.log('fieldId in selector oninit', this.fieldId)
 
   }
 
   selectedEvent(id: any) {
+    //this.filterString = "";
     this.selected.emit(id);
   }
 
   constructor(
-    
+
     public modal: ModalController,
     public Utilities: UtilitiesService,
     public Suppliers: SuppliersService) {
-      console.log('fieldId in selector constructor',this.fieldId)
-    this.placeholder = 'seleziona fornitore';
-    this.Components = {"supplier":CreateSupplierPage,"payment":CreatePaymentPage};
+    console.log('fieldId in selector constructor', this.fieldId)
+    //this.placeholder = 'seleziona fornitore';
+    this.Components = { "supplier": CreateSupplierPage, "payment": CreatePaymentPage };
   }
 
 }
