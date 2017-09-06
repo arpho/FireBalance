@@ -16,7 +16,7 @@ import { PaymentsPage } from '../pages/payments/payments';
 import { ShoppingCartPage } from '../pages/shopping-cart/shopping-cart'
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { FirebaseApp } from 'angularfire2';
-
+import * as moment from 'moment/moment';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.html'

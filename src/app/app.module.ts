@@ -126,6 +126,8 @@ import { SelectorComponent } from '../components/selector/selector';
 import { SimpleitemComponent } from '../components/simpleitem/simpleitem';
 import { ListItemsComponent } from '../components/list-items/list-items';
 import { SelectedItemComponent } from '../components/selected-item/selected-item';
+import { DataFiscaleComponent } from '../components/data-fiscale/data-fiscale';
+import { MomentModule } from 'angular2-moment';
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -221,11 +223,13 @@ export const firebaseConfig = {
     SimpleitemComponent,
     ListItemsComponent,
     SelectedItemComponent,
+    DataFiscaleComponent,
   ],
   imports: [
+    MomentModule,
     MdNativeDateModule,
     MdDatepickerModule,        // <----- import(must)
-    MdNativeDateModule ,
+    MdNativeDateModule,
     MdIconModule,
     ReactiveFormsModule,
     BrowserModule,

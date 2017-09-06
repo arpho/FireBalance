@@ -19,10 +19,17 @@
 
 <ion-content padding>
   <md-input-container>
-    <input mdInput [mdDatepicker]="picker" [(ngModel)]="date" placeholder="Choose a date">
-    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+    <ion-item>
+      <ion-label>Data Acquisto</ion-label>
+      <ion-datetime  [(ngModel)]="dataAcquisto">
+      </ion-datetime>
+    </ion-item>
+        <data-fiscale [dataAcquisto]=dataAcquisto (dataAddebitoCalculated)="dataAddebito=$event" [payment]=payment></data-fiscale>
+    <!--input mdInput [mdDatepicker]="picker" [(ngModel)]="date" placeholder="Choose a date">
+    <button mdSuffix [mdDatepickerToggle]="picker"></button-->
   </md-input-container>
-  <md-datepicker #picker></md-datepicker>
+  <!--md-datepicker #picker></md-datepicker-->
+
   <ion-row>
     <ion-col>
       <label><b> fornitore</b></label>

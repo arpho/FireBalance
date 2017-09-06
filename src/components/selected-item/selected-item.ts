@@ -38,9 +38,7 @@ export class SelectedItemComponent implements OnInit, OnChanges {
 
 
   constructor() {
-    console.log('fieldId in selected item constructor', this.fieldId)
     this.item = { nome: "boom " }
-    console.log('Hello SelectedItemComponent Component');
   }
 
 }

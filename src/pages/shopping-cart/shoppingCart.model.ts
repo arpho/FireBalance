@@ -10,7 +10,7 @@ export class ItemModel {
     tassoConversione:number;
     moneta:string
 }
-export class ShoppingCart {
+export class ShoppingCartModel {
     fornitoreId: string;
     pagamentoId: string;
     datacontabile: Timestamp<any>;

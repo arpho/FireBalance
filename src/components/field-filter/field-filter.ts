@@ -21,7 +21,6 @@ export class FieldFilterComponent {
   @Output() selected: EventEmitter<string> = new EventEmitter<string>();
   filterForm: FormGroup;
   click() {
-    console.log('clicked campo filtro', this.filterForm.controls.field.value)
     if (this.filterForm.controls.field)
       this.selected.emit(this.filterForm.controls.field.value)
   }
@@ -40,8 +39,6 @@ export class FieldFilterComponent {
         //console.log('stringa di ricerca',value);
         this.doFilter.emit({ filterString: value });
       })
-    console.log('Hello FieldFilterComponent Component');
-    this.text = 'Hello World';
   }
 
 }

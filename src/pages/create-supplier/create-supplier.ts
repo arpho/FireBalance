@@ -67,17 +67,18 @@ export class CreateSupplierPage {
     this.view.dismiss();
     if (!this.navParams.get('key'))
       this.Suppliers.pushNewSupplier(Supplier).then(data => {
+        this.view.dismiss(data);//invio la key del nuovo fornitore al componente chiamante
         this.Utilities.showToast('Fornitore aggiunto', '5000', 'bottom', toast => {
           console.log('toasted', toast);
         });
       })
     else
       this.Suppliers.updateSupplier(Supplier, Supplier.key).then(data => {
+        this.view.dismiss(data);
         this.Utilities.showToast("fornitore modificato", "5000", "bottom", toast => {
           console.log("toasted", toast)
         });
       })
-      this.view.dismiss();
     /*
     this.Suppliers.pushNewSupplier(new SupplierModel(this.su)).then(data=>{
       console.log('dati inseriti',data,'errore');

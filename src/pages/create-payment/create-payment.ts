@@ -41,12 +41,11 @@ export class CreatePaymentPage {
   createPayment(payment:any) {
     var Payment = new PaymentsModel(payment.controls);
     this.Payments.pushNewPayment(Payment).then(data=>{
-      console.log('creato',data);
+      console.log('creato',data.key);
       
       this.Utilities.showToast('nuovo tipo di pagamento inserito',' 5000','bottom',toast => {
-        console.log('toasted',toast);
+        this.view.dismiss(data.key); // invio la chiave del pagamento creato al componente chiamante
       });
-      this.view.dismiss();
     })
   }
 

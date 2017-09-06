@@ -24,7 +24,6 @@ export class SuppliersService implements DbLayer {
 
   getElementById(id: string): Observable<any> {
     const url = 'fornitori/' + this.User.getUserUid() + '/' + id;
-    console.log('url', url)
     return this.afDB.list(url);
   }
 

@@ -17,10 +17,9 @@ export class ListItemsComponent {
   @Input() items: Observable<any>
   @Input() filterString: string;
   @Output() selected: EventEmitter<string> = new EventEmitter<string>();
-  text: string;
+  @Input() spinning: boolean;
 
   selectedItem(id: any) {
-    console.log('list-item received event, selected item_key', id);
     this.selected.emit(id);
   }
 
@@ -31,8 +30,6 @@ export class ListItemsComponent {
   constructor(
     public Utilities: UtilitiesService
   ) {
-    console.log('Hello ListItemsComponent Component');
-    this.text = 'Hello World list-item';
   }
 
 }

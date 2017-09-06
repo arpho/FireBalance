@@ -12,6 +12,12 @@
     map: {
       // our app is within the app folder
       'app': 'app',
+      'moment': 'node_modules/moment',
+     
+      'angular2-moment': {
+          main: './index.js',
+          defaultExtension: 'js'
+      },
 
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -38,6 +44,7 @@
           }
         }
       },
+      moment: { defaultExtension: 'js' },
       rxjs: {
         defaultExtension: 'js'
       }

@@ -25,22 +25,35 @@ export class SelectorComponent implements OnInit {
   @Output() selected: EventEmitter<string> = new EventEmitter<string>(); // segnale emesso al componente father in caso di selezione nei componenti figli
   Components: any //oggetto usato per la selezione del popup da visualzzare
   filterString: string;
+  spinning: boolean;
   items: Observable<any> // items visualizzati nella lista
 
   add() {
     console.log('adding');
     let modal = this.modal.create(this.Components[this.db.getComponentType()]);
+    modal.onDidDismiss(data => {
+      this.fieldId = data.key
+      this.selected.emit(data.key);
+    });
     modal.present();
   }
 
+  doFilter(filterString) {
+    this.spinning = true;
+    this.filterString = filterString;
+  }
   ngOnInit() {
+    this.spinning = true;
+    this.db.getElements().subscribe(a => {
+      this.spinning = false;
+    })
     this.items = this.db.getElements();
-    console.log('fieldId in selector oninit', this.fieldId)
 
   }
 
   selectedEvent(id: any) {
     //this.filterString = "";
+    this.fieldId = id;
     this.selected.emit(id);
   }
 
@@ -49,8 +62,8 @@ export class SelectorComponent implements OnInit {
     public modal: ModalController,
     public Utilities: UtilitiesService,
     public Suppliers: SuppliersService) {
-    console.log('fieldId in selector constructor', this.fieldId)
     //this.placeholder = 'seleziona fornitore';
+    this.spinning = false;
     this.Components = { "supplier": CreateSupplierPage, "payment": CreatePaymentPage };
   }
 
