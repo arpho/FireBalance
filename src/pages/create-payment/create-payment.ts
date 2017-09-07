@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl,ReactiveFormsModule } from '@angular/forms';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
-import { PaymentsService} from '../payments/payments.service';
+import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl, ReactiveFormsModule } from '@angular/forms';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { PaymentsService } from '../payments/payments.service';
 import { PaymentsModel } from '../payments/payments.model';
 import { UtilitiesService } from '../../app/utilities.service';
 
@@ -21,32 +21,30 @@ export class CreatePaymentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private Payments: PaymentsService,
     private Utilities: UtilitiesService,
-    fb:FormBuilder,
+    fb: FormBuilder,
     public view: ViewController) {
-      this.paymentForm  = fb.group({
-        addebito: new FormControl(''),
-        nome: new FormControl(''),
-        note: new FormControl('')
-      },
-    Validators.required);
+    this.paymentForm = fb.group({
+      addebito: new FormControl(''),
+      nome: new FormControl(''),
+      note: new FormControl(''),
+      key: new FormControl('')
+    }, Validators.required);
+   
   }
 
   dismiss() {
-    this.view.dismiss();
-  }
-  
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CreatePaymentPage');
-  }
-  createPayment(payment:any) {
-    var Payment = new PaymentsModel(payment.controls);
-    this.Payments.pushNewPayment(Payment).then(data=>{
-      console.log('creato',data.key);
-      
-      this.Utilities.showToast('nuovo tipo di pagamento inserito',' 5000','bottom',toast => {
-        this.view.dismiss(data.key); // invio la chiave del pagamento creato al componente chiamante
-      });
-    })
-  }
+  this.view.dismiss();
+}
 
+ionViewDidLoad() {
+  console.log('ionViewDidLoad CreatePaymentPage');
+}
+createPayment(payment:any) {
+  var Payment = new PaymentsModel(payment.controls);
+  this.Payments.pushNewPayment(Payment).then(data=>{
+    console.log('creato',data.key);
+      this.view.dismiss(data.key);
+});
+
+  }
 }

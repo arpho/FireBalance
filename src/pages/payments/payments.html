@@ -7,8 +7,8 @@
 <ion-header>
 
   <ion-navbar>
-      <ion-icon class="title" name="arrow-back"(click)="goHome()" ></ion-icon>
-    <ion-title class="title">  {{"PAYMENTS"|translate}}</ion-title>
+      
+    <ion-title class="title"> <ion-icon class="title back" name="arrow-back"(click)="goHome()" ></ion-icon> {{"PAYMENTS"|translate}}</ion-title>
     <button md-fab
     (click)="createPayment()">
     <ion-icon name="add"></ion-icon></button>

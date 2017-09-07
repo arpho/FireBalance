@@ -23,7 +23,8 @@ export class ShoppingCartService implements OnInit {
 
   calcolaDataAddebito(pagamento: PaymentsModel,dataContabile:string):string{
     var datacontabile = new Date(dataContabile);
-    return moment(dataContabile).format('DD MMM YYYY');
+    let out = moment(dataContabile).format('MM/DD/YYYY');
+    return out;
   }
 
   getCategories(): Observable<any> {

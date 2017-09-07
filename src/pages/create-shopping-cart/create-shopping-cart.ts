@@ -5,7 +5,8 @@ import { DateTime } from 'ionic-angular/umd';
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { MdNativeDateModule, MdDatepicker, MdDatepickerToggle } from '@angular/material';
-import * as _ from 'lodash';    
+import * as _ from 'lodash';
+import * as moment from 'moment/moment';
 
 /**
  * Generated class for the CreateShoppingCartPage page.
@@ -30,7 +31,7 @@ export class CreateShoppingCartPage implements OnInit {
   fieldIdPagamento: string;
   paymentPlaceholder: string;
   supplierPlaceholder: string;
-  mydate: DateTime;
+  mydate:  DateTime;
   payment:PaymentsModel;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public Payments: PaymentsService,
@@ -39,7 +40,7 @@ export class CreateShoppingCartPage implements OnInit {
     this.title = navParams.get('key') ? "modifica carrello della spesa" : "Nuovo Carrello della spesa";
     this.supplierPlaceholder = "seleziona fornitore";
     this.paymentPlaceholder = "seleziona metodo di pagamento";
-    //this.dataContabile = new Date().toISOString();
+    //this.dataConta = new Date().toISOString();
   }
   dismiss() {
     this.view.dismiss();
@@ -50,11 +51,10 @@ export class CreateShoppingCartPage implements OnInit {
   }
 
   selectedPayment(id) {
-    console.log('got payment', id);
-    this.fieldIdPagamento = id;
+    this.fieldIdPagamento = id;    
     this.Payments.getElementById(id).subscribe(data=>{
-      console.log('pagamento',data);
-      var payment = {};
+      //console.log('pagamento',data);
+      var payment = {};                  
       _.forEach(data[0],item=>{payment[item.$key]=item.$value})
       this.payment = new PaymentsModel().buildPayment(payment)
     })

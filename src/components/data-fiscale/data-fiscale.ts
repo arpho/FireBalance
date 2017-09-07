@@ -17,20 +17,21 @@ export class DataFiscaleComponent implements OnChanges {
   @Input() dataAcquisto: string;
   @Input() payment: PaymentsModel;
   @Output() dataAddebitoCalculated: EventEmitter<string> = new EventEmitter<string>();
-  dataAddebito:string;
+  dataAddebito: string;
   text: string;
 
-  constructor(public Shopping:ShoppingCartService) {
+  constructor(public Shopping: ShoppingCartService) {
     console.log('Hello DataFiscaleComponent Component');
     this.text = 'Hello World';
   }
 
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.dataAcquisto && this.payment){
-      
-      this.dataAddebito = new Date(this.Shopping.calcolaDataAddebito(this.payment,this.dataAcquisto)).toISOString();
-      console.log('calcolato dataAddebito',this.dataAddebito);
+    if (this.dataAcquisto && this.payment) {
+      var date = this.Shopping.calcolaDataAddebito(this.payment, this.dataAcquisto).split('/');
+      this.dataAddebito = new Date(Number(date[2]), Number(date[0]) - 1,// compenso il mese
+        Number(date[1]) + 1 //compenso il timezone offset
+      ).toISOString();
       this.dataAddebitoCalculated.emit(this.dataAddebito);
     }
 

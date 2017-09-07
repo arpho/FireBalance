@@ -128,6 +128,8 @@ import { ListItemsComponent } from '../components/list-items/list-items';
 import { SelectedItemComponent } from '../components/selected-item/selected-item';
 import { DataFiscaleComponent } from '../components/data-fiscale/data-fiscale';
 import { MomentModule } from 'angular2-moment';
+import { PurchasedItemlistComponent } from '../components/purchased-itemlist/purchased-itemlist';
+import { PurchasedItemComponent } from '../components/purchased-item/purchased-item';
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -224,6 +226,8 @@ export const firebaseConfig = {
     ListItemsComponent,
     SelectedItemComponent,
     DataFiscaleComponent,
+    PurchasedItemlistComponent,
+    PurchasedItemComponent,
   ],
   imports: [
     MomentModule,
