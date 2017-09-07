@@ -1,0 +1,35 @@
+<!--
+  Generated template for the CreatePurchasedItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}<ion-icon name="close" class="dismiss" (click)="dismiss()"></ion-icon></ion-title>
+        
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class=" ui form" [formGroup]="itemForm">
+        <label for="descrizione">descrizione</label>
+        <ion-input type="text"  placeholder="descrizione" formControlName="descrizione">
+        </ion-input>
+        <label for="prezzo">prezzo</label>
+        <ion-input type="number"  placeholder="prezzo" formControlName="prezzo">
+        </ion-input>
+        <label for="quantita">quantita</label>
+        <ion-input type="text"  placeholder="quantità" formControlName="quantita">
+        </ion-input>
+        <label for="barcode">barcode</label>
+        <ion-input type="text"  placeholder="barcode" formControlName="barcode">
+        </ion-input>
+        
+    </div><ion-fab bottom right   >
+        <button ion-fab type="submit"(click)="submit(itemForm)" ><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
+</ion-content>

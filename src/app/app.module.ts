@@ -130,6 +130,11 @@ import { DataFiscaleComponent } from '../components/data-fiscale/data-fiscale';
 import { MomentModule } from 'angular2-moment';
 import { PurchasedItemlistComponent } from '../components/purchased-itemlist/purchased-itemlist';
 import { PurchasedItemComponent } from '../components/purchased-item/purchased-item';
+import {ShoppingCartModel} from '../pages/shopping-cart/shoppingCart.model';
+import {ItemModel} from '../pages/shopping-cart/shoppingCart.model';
+import { TooltipsModule } from 'ionic-tooltips';
+import { CreatePurchasedItemPage } from '../pages/create-purchased-item/create-purchased-item'
+
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -157,6 +162,7 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     CreateShoppingCartPage,
+    CreatePurchasedItemPage,
     CategoriesSelectorPage,
     CreateSupplierPage,
     CreatePaymentPage,
@@ -230,6 +236,7 @@ export const firebaseConfig = {
     PurchasedItemComponent,
   ],
   imports: [
+    TooltipsModule,
     MomentModule,
     MdNativeDateModule,
     MdDatepickerModule,        // <----- import(must)
@@ -257,6 +264,7 @@ export const firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    CreatePurchasedItemPage,
     CategoriesSelectorPage,
     CreateShoppingCartPage,
     CreateSupplierPage,
@@ -298,6 +306,8 @@ export const firebaseConfig = {
     VideoPlaylistPage
   ],
   providers: [
+    ItemModel,
+    ShoppingCartModel,
     { provide: "GoogleKey", useValue: googleKey },
     { provide: "FIREBASE_CONFIG", useValue: FIREBASE_CONFIG },
     Subject,

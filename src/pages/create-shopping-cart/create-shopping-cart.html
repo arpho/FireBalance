@@ -33,12 +33,12 @@
   <ion-row>
     <ion-col>
       <label><b> fornitore</b></label>
-      <selector [db]=Suppliers (selected)="selectedSupplier($event)" [fieldId]=fieldIdFornitore [placeholder]=supplierPlaceholder>
+      <selector [db]=Suppliers (selected)="selectedSupplier($event)" [fieldId]=ShoppingCart.fieldIdFornitore [placeholder]=supplierPlaceholder>
       </selector>
     </ion-col>
     <ion-col>
       <label><b> metodo di pagamento</b></label>
-      <selector [db]=Payments (selected)="selectedPayment($event)" [fieldId]=fieldIdPagamento [placeholder]=paymentPlaceholder>
+      <selector [db]=Payments (selected)="selectedPayment($event)" [fieldId]=ShoppingCart.fieldIdPagamento [placeholder]=paymentPlaceholder>
       </selector>
     </ion-col>
   </ion-row>
@@ -47,4 +47,10 @@
     <ion-input type="text" [(ngModel)]="dataFiscale" disabled></ion-input>
   </md-input-container>
 
+  <ion-input type="number" label="totale" [ngModel]="ShoppingCart.totale"></ion-input>
+  <purchased-itemlist [items]="ShoppingCart.items"></purchased-itemlist>
+  <ion-fab middle right color="light"  >
+      <button ion-fab (click)="fab()" ><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+    <!-- Mini -->
 </ion-content>
