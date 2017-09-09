@@ -22,14 +22,19 @@
         <label for="prezzo">prezzo</label>
         <ion-input type="number"  placeholder="prezzo" formControlName="prezzo">
         </ion-input>
-        <label for="quantita">quantita</label>
+        <label for="quantita">Note</label>
         <ion-input type="text"  placeholder="quantità" formControlName="quantita">
         </ion-input>
         <label for="barcode">barcode</label>
         <ion-input type="text"  placeholder="barcode" formControlName="barcode">
         </ion-input>
-        
-    </div><ion-fab bottom right   >
+    </div>
+    <ion-icon name="pricetags" *ngIf="Item.categorieId[1]"></ion-icon> 
+    
+    <ion-fab middle right   >
+      <button ion-fab type="submit"(click)="categoriesSelector()" ><ion-icon name="pricetags"></ion-icon></button>
+    </ion-fab>
+    <ion-fab bottom right   >
         <button ion-fab type="submit"(click)="submit(itemForm)" ><ion-icon name="add"></ion-icon></button>
       </ion-fab>
 </ion-content>

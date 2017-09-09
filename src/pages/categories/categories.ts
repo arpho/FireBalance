@@ -43,7 +43,6 @@ export class CategoriesPage {
   }
 
   categoriesSelector() {
-    console.log('ciao ');
 
     let modal = this.modal.create(CategoriesSelectorPage, this.categories_id);
     modal.onDidDismiss(values => {

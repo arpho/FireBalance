@@ -1,6 +1,11 @@
 <!-- Generated template for the PurchasedItemComponent component -->
 <div>
   <article class="item">
-    <h1>{{item.descrizione}}</h1> <p>{{item.moneta}}{{item.prezzo}}</p>x<p>{{item.quantita}}
+
+      <ion-icon name="pricetags" *ngIf="item.categorieId[1]"></ion-icon> 
+    <h1>{{item.descrizione}}</h1>
+     <p>{{item.moneta}}{{item.prezzo}}</p>
+     Nota<p>{{item.quantita}}
+
   </article>
 </div>

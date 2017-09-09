@@ -11,6 +11,7 @@ import * as moment from 'moment/moment';
 import { ItemModel, ShoppingCartModel } from '../shopping-cart/shoppingCart.model';
 import { CreatePurchasedItemPage } from '../create-purchased-item/create-purchased-item';
 import { TooltipsModule } from 'ionic-tooltips';
+import { ShoppingCartService } from '../shopping-cart/shopping-cart.service.ts'
 
 
 /**
@@ -45,6 +46,7 @@ export class CreateShoppingCartPage implements OnInit {
     public Payments: PaymentsService,
     public Suppliers: SuppliersService,
     public ShoppingCart: ShoppingCartModel,
+    public ShoppingCarts:ShoppingCartService,
     public view: ViewController) {
     this.title = navParams.get('key') ? "modifica carrello della spesa" : "Nuovo Carrello della spesa";
     this.supplierPlaceholder = "seleziona fornitore";
@@ -77,6 +79,7 @@ export class CreateShoppingCartPage implements OnInit {
   }
   pushShoppingCart(cart:ShoppingCartModel){
     console.log('caRRELLO',cart);
+
   }
 
   selectedPayment(id) {

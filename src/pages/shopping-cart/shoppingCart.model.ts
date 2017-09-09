@@ -6,7 +6,7 @@ export class ItemModel {
     nome: string;
     descrizione: string;
     picture: string
-    categorieId: Array<string>;
+    categorieId: [string];
     tassoConversione: number;
     moneta: string;
     key: String;
@@ -16,7 +16,7 @@ export class ItemModel {
         this.barcode =  '';
         this.descrizione = '';
         this.picture =  '';
-        this.categorieId =  [];
+        this.categorieId =  [null];
         this.tassoConversione =  1;
         this.moneta = '€';
         this.key =  '';
@@ -35,7 +35,7 @@ export class ItemModel {
         this.barcode = item && item.barcode || '';
         this.descrizione = item && item.descrizione || '';
         this.picture = item && item.picture || '';
-        this.categorieId = item && item.categorieId || [];
+        this.categorieId = item && item.categorieId || [null];
         this.tassoConversione = item && item.tassoConversione || 1;
         this.moneta = item && item.moneta || '€';
         this.key = item && item.key || '';
