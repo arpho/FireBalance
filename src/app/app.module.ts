@@ -134,6 +134,7 @@ import {ShoppingCartModel} from '../pages/shopping-cart/shoppingCart.model';
 import {ItemModel} from '../pages/shopping-cart/shoppingCart.model';
 import { TooltipsModule } from 'ionic-tooltips';
 import { CreatePurchasedItemPage } from '../pages/create-purchased-item/create-purchased-item'
+import { TotaleComponent } from '../components/totale/totale';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -234,6 +235,7 @@ export const firebaseConfig = {
     DataFiscaleComponent,
     PurchasedItemlistComponent,
     PurchasedItemComponent,
+    TotaleComponent,
   ],
   imports: [
     TooltipsModule,

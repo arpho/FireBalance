@@ -44,7 +44,7 @@ export class CreatePurchasedItemPage {
       "descrizione":item.controls.descrizione.value,
       "barcode":item.controls.barcode.value,
       "prezzo":item.controls.prezzo.value,
-      "tassoConversione":item.controls.tassoConversione.value,
+      "tassoConversione":item.controls.tassoConversione.value||1,
       "picture":item.controls.picture.value,
       "key":item.controls.key.value,
       "categorieId":item.controls.categorieId.value,

@@ -46,6 +46,8 @@ export class ShoppingCartModel {
     fornitoreId: string;
     totale: number;
     pagamentoId: string;
+    moneta:string;
+    tassoConversione;number;
     dataAcquisto: string;
     dataAddebito: string;
     items: Array<ItemModel>;
@@ -53,12 +55,14 @@ export class ShoppingCartModel {
     constructor() {
         this.fornitoreId = "";
         this.pagamentoId = "";
+        this.moneta = "€"
+        this.tassoConversione = Number(1);
         this.dataAcquisto = new Date().toISOString();
         this.dataAddebito = new Date().toISOString();
         this.items = [];
         this.key = "";
     }
-    buildObject(shoppingCart: {
+    build(shoppingCart: {
         fornitoreId: string,
         pagamentoId: string,
         dataAcquisto: string,
