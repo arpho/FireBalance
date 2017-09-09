@@ -1,4 +1,4 @@
-import { Component, Input, Output, SimpleChanges, EventEmitter, OnChanges } from '@angular/core';
+import { Component, Input, Output, SimpleChanges, EventEmitter, OnChanges,OnInit } from '@angular/core';
 import { ItemModel } from '../../pages/shopping-cart/shoppingCart.model';
 import * as _ from 'lodash';
 
@@ -12,18 +12,22 @@ import * as _ from 'lodash';
   selector: 'totale',
   templateUrl: 'totale.html'
 })
-export class TotaleComponent implements OnChanges {
+export class TotaleComponent implements OnChanges,OnInit {
   @Input() items: [ItemModel];
   @Input() moneta: string;
+  @Input() ricalcolaTotale:string;// serve solo com trigger, OnChanges non è attivato aggiungendo elementi ad un array
   @Input() tassoConversione: number;
   @Output() Totale: EventEmitter<number> = new EventEmitter<number>();
   totale: number;
   text: string;
+  ngOnInit(){
+    this.text = 'Totale: '+this.moneta+" ";
+  }
 
   calcolaTotale(): number {
     var totale = 0;
     _.forEach(this.items, element => {
-      totale += element.prezzo;
+    totale += Number(element.prezzo);
     });
     console.log('calcolato totale',totale);
     return totale * this.tassoConversione;
@@ -31,11 +35,12 @@ export class TotaleComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     console.log('changes',changes);
     this.totale = this.calcolaTotale();
+    this.Totale.emit(this.totale);
   }
 
   constructor() {
     console.log('Hello TotaleComponent Component',this.moneta);
-    this.text = 'Totale: '+this.moneta+" ";
+    
   }
 
 }

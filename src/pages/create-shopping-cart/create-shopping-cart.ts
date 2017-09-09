@@ -35,6 +35,7 @@ export class CreateShoppingCartPage implements OnInit {
   fieldIdFornitore: string;
   fieldIdPagamento: string;
   paymentPlaceholder: string;
+  calcolaTotale:string;
   supplierPlaceholder: string;
   mydate: DateTime;
   payment: PaymentsModel;
@@ -63,15 +64,19 @@ export class CreateShoppingCartPage implements OnInit {
     modal.onDidDismiss(d => {
       console.log('pushed item',d);
       this.ShoppingCart.items.push(d);
+      this.calcolaTotale = new Date().toISOString();// trigger per il compnente totale
       this.ShoppingCart.totale = Number(0);
 
-      _.forEach(this.ShoppingCart.items, (it: ItemModel) => {
+     /* _.forEach(this.ShoppingCart.items, (it: ItemModel) => {
         this.ShoppingCart.totale = Number(this.ShoppingCart.totale) + Number(it.prezzo)
         console.log('parziale', this.ShoppingCart.totale);
-      });
+      });*/
       console.log('totale,', this.ShoppingCart.totale);
     })
     modal.present();
+  }
+  pushShoppingCart(cart:ShoppingCartModel){
+    console.log('caRRELLO',cart);
   }
 
   selectedPayment(id) {

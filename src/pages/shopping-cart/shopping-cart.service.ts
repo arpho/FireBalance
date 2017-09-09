@@ -21,7 +21,7 @@ export class ShoppingCartService implements OnInit {
     })
   }
 
-  calcolaDataAddebito(pagamento: PaymentsModel,dataContabile:string):string{
+  calcolaDataAddebito(pagamento: PaymentsModel, dataContabile: string): string {
     var datacontabile = new Date(dataContabile);
     let out = moment(dataContabile).format('MM/DD/YYYY');
     return out;
@@ -36,7 +36,7 @@ export class ShoppingCartService implements OnInit {
     return Promise.reject(error.message || error);
   }
 
-  
+
 
   pushNewShoppingCart(acquisto) {
     this.afDB.list('acquisti/' + this.User.getUserUid()).push(acquisto);
