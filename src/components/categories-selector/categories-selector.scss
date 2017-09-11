@@ -1,11 +1,13 @@
 categories-selector {
     .ok {
-        width: 24em;
+        width: 20em;
         height:3em;
+        float:left;
     }
     .annulla {
-        width: 29em;
+        width: 20em;
         height: 3em;
+        float: right;
     }
 
     #buttons {

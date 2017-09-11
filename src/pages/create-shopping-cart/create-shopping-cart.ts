@@ -46,7 +46,7 @@ export class CreateShoppingCartPage implements OnInit {
     public Payments: PaymentsService,
     public Suppliers: SuppliersService,
     public ShoppingCart: ShoppingCartModel,
-    public ShoppingCarts:ShoppingCartService,
+    //public ShoppingCarts:ShoppingCartService,
     public view: ViewController) {
     this.title = navParams.get('key') ? "modifica carrello della spesa" : "Nuovo Carrello della spesa";
     this.supplierPlaceholder = "seleziona fornitore";

@@ -6,7 +6,7 @@ export class ItemModel {
     nome: string;
     descrizione: string;
     picture: string
-    categorieId: [string];
+    categorieId: string[];
     tassoConversione: number;
     moneta: string;
     key: String;
@@ -16,7 +16,7 @@ export class ItemModel {
         this.barcode =  '';
         this.descrizione = '';
         this.picture =  '';
-        this.categorieId =  [null];
+        this.categorieId =  [];
         this.tassoConversione =  1;
         this.moneta = '€';
         this.key =  '';
@@ -26,7 +26,7 @@ export class ItemModel {
                  barcode:string,
                 descrizione:string,
                 picture:string,
-                categorieId:[string],
+                categorieId:string[],
                 key:string,
                 moneta:string,
                 quantita:string,
@@ -35,11 +35,12 @@ export class ItemModel {
         this.barcode = item && item.barcode || '';
         this.descrizione = item && item.descrizione || '';
         this.picture = item && item.picture || '';
-        this.categorieId = item && item.categorieId || [null];
+        this.categorieId = item && item.categorieId || [];
         this.tassoConversione = item && item.tassoConversione || 1;
         this.moneta = item && item.moneta || '€';
         this.key = item && item.key || '';
         this.quantita = item && item.quantita||'';
+        return this;
     }
 }
 export class ShoppingCartModel {
