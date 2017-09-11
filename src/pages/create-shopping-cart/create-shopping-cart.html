@@ -48,7 +48,7 @@
   </md-input-container>
 
   <!--ion-input type="number" label="totale" [ngModel]="ShoppingCart.totale"></ion-input-->
-  <totale [items]="ShoppingCart.items" [moneta]="ShoppingCart.moneta" [tassoConversione]="ShoppingCart.tassoConversione"[ricalcolaTotale]="calcolaTotale" (Totale)="ShoppingCart.totale=$event"></totale>
+  <totale [items]="ShoppingCart.items" [moneta]="ShoppingCart.moneta" [tassoConversione]="ShoppingCart.tassoConversione" (Totale)="ShoppingCart.totale=$event"></totale>
   <ion-fab bottom left color="light"  >
     <button ion-fab (click)="fab()" ><ion-icon name="add"></ion-icon></button>
   </ion-fab>

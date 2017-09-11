@@ -15,7 +15,6 @@ import * as _ from 'lodash';
 export class TotaleComponent implements OnChanges,OnInit {
   @Input() items: [ItemModel];
   @Input() moneta: string;
-  @Input() ricalcolaTotale:string;// serve solo com trigger, OnChanges non è attivato aggiungendo elementi ad un array
   @Input() tassoConversione: number;
   @Output() Totale: EventEmitter<number> = new EventEmitter<number>();
   totale: number;

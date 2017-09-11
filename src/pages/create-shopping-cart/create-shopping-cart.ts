@@ -65,8 +65,7 @@ export class CreateShoppingCartPage implements OnInit {
     let modal = this.modal.create(CreatePurchasedItemPage);
     modal.onDidDismiss(d => {
       console.log('pushed item',d);
-      this.ShoppingCart.items.push(d);
-      this.calcolaTotale = new Date().toISOString();// trigger per il compnente totale
+       this.ShoppingCart.items = this.ShoppingCart.items.concat([d]); //riassgno l'arrey così che OnChanges rilevi la variazione degli elementi nell'array
       this.ShoppingCart.totale = Number(0);
 
      /* _.forEach(this.ShoppingCart.items, (it: ItemModel) => {
