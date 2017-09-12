@@ -14,6 +14,6 @@
 
 
 <ion-content padding>
-  <categories-selector [categories_id]=categories_id (selectedCategories)="selectedCategories($event)"></categories-selector>
+  <categories-selector [categories_id]=categories_id (selectedCategories)="selectedCategories($event)" (Cancel)="dismiss()"></categories-selector>
 
 </ion-content>

@@ -135,6 +135,8 @@ import {ItemModel} from '../pages/shopping-cart/shoppingCart.model';
 import { TooltipsModule } from 'ionic-tooltips';
 import { CreatePurchasedItemPage } from '../pages/create-purchased-item/create-purchased-item'
 import { TotaleComponent } from '../components/totale/totale';
+import { LettereColorateComponent } from '../components/lettere-colorate/lettere-colorate';
+import { CategoriesSetterComponent } from '../components/categories-setter/categories-setter';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -236,6 +238,8 @@ export const firebaseConfig = {
     PurchasedItemlistComponent,
     PurchasedItemComponent,
     TotaleComponent,
+    LettereColorateComponent,
+    CategoriesSetterComponent,
   ],
   imports: [
     TooltipsModule,

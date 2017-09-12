@@ -19,7 +19,6 @@ import {MdFab} from '@angular/material';
 export class ShoppingCartPage {
 
   createCart(){
-    console.log('new shopping cart')
     let modal = this.modal.create(CreateShoppingCartPage);
     modal.present();
   }

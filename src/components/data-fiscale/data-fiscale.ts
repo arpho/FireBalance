@@ -21,8 +21,6 @@ export class DataFiscaleComponent implements OnChanges {
   text: string;
 
   constructor(public Shopping: ShoppingCartService) {
-    console.log('Hello DataFiscaleComponent Component');
-    this.text = 'Hello World';
   }
 
 

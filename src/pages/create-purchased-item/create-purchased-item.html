@@ -29,7 +29,7 @@
         <ion-input type="text"  placeholder="barcode" formControlName="barcode">
         </ion-input>
     </div>
-    <ion-icon name="pricetags" *ngIf="Item.categorieId[0]"></ion-icon> 
+    <ion-icon name="pricetags" *ngIf="hasCategories()"></ion-icon> 
     
     <ion-fab middle right   >
       <button ion-fab type="submit"(click)="categoriesSelector()" ><ion-icon name="pricetags"></ion-icon></button>

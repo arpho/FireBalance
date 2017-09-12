@@ -15,6 +15,7 @@ import * as _ from 'lodash';
 export class CategoriesSelectorComponent {
   categories: Observable<any>;
   @Input() categories_id: string[];
+  @Output() Cancel:EventEmitter<boolean> = new EventEmitter<boolean>();
   segnaposto: string;
   filterString: string;
   @Output() selectedCategories: EventEmitter<string[]> = new EventEmitter<string[]>();
@@ -34,9 +35,9 @@ export class CategoriesSelectorComponent {
   }
   cancel() {
     console.log("cancel");
+    this.Cancel.emit(true);
   }
   ok() {
-    console.log('ok', this.categories_id);
     this.selectedCategories.emit(this.categories_id)
   }
 

@@ -2,7 +2,7 @@
 import * as _ from 'lodash';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl, ReactiveFormsModule } from '@angular/forms';
-import { IonicPage, NavController, NavParams,ViewController,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
 import { ItemModel } from '../shopping-cart/shoppingCart.model';
 import { CategoriesSelectorPage } from '../categories-selector/categories-selector';
 
@@ -24,13 +24,15 @@ export class CreatePurchasedItemPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     fb: FormBuilder,
-    public modal:ModalController,
+    public modal: ModalController,
     public Item: ItemModel,
     public view: ViewController
-    ) {
+  ) {
+    console.log('create item, nAVPARAMS', navParams);
     this.title = navParams.get('key') ? ` modifica item ${navParams.get('descrizione')}` : "aggiungi Item";
-    console.log('item cat',Item.categorieId.length,Item.categorieId)
-;    this.itemForm = fb.group({
+    this.Item = new ItemModel();
+    //TODO caricare dati item da modificare
+    this.itemForm = fb.group({
       prezzo: new FormControl(navParams.get('prezzo')),
       descrizione: new FormControl(navParams.get("descrizione")),
       barcode: new FormControl(navParams.get('barcode')),
@@ -41,43 +43,47 @@ export class CreatePurchasedItemPage {
       categorieId: new FormControl(navParams.get('categorieId')),
       quantita: new FormControl(navParams.get('quantita'))
     });
+    console.log('new Item', this.Item);
   }
 
+  hasCategories() {
+    return (typeof this.Item.categorieId !== 'undefined' && this.Item.categorieId[0]);
+  }
   categoriesSelector() {
-    
-        let modal = this.modal.create(CategoriesSelectorPage, this.Item.categorieId);
-        modal.onDidDismiss(values => {
-          console.log('modal dismissed', values);
-          this.Item.categorieId = values; 
-          console.log('item',this.Item);
-        })
-        modal.present();
-      }
 
-  submit(item){
-    var obj ={
-      "descrizione":item.controls.descrizione.value,
-      "barcode":item.controls.barcode.value,
-      "prezzo":item.controls.prezzo.value,
-      "tassoConversione":item.controls.tassoConversione.value||1,
-      "picture":item.controls.picture.value,
-      "key":item.controls.key.value,
-      "categorieId":this.Item.categorieId,
-      "quantita":item.controls.quantita.value,
-      "moneta":item.controls.moneta.value
+    let modal = this.modal.create(CategoriesSelectorPage, this.Item.categorieId);
+    modal.onDidDismiss(values => {
+      console.log('categoriesSelector dismissed', values);
+      this.Item.categorieId = values;
+      console.log('added categories to Item', values, this.Item);
+    })
+    modal.present();
+  }
+
+  submit(item) {
+    var obj = {
+      "descrizione": item.controls.descrizione.value,
+      "barcode": item.controls.barcode.value,
+      "prezzo": item.controls.prezzo.value,
+      "tassoConversione": item.controls.tassoConversione.value || 1,
+      "picture": item.controls.picture.value,
+      "key": item.controls.key.value,
+      "categorieId": this.Item.categorieId,
+      "quantita": item.controls.quantita.value,
+      "moneta": item.controls.moneta.value
 
     };
 
-      console.log('item',obj);
-    
+    console.log('item', obj);
+
     let Item = new ItemModel();
     Item.build(obj);
 
     //Item.build({prezz})
-    console.log("submit",Item);
+    console.log("submit", Item);
     this.view.dismiss(Item);
   }
-  dismiss(){
+  dismiss() {
     this.view.dismiss();
   }
 

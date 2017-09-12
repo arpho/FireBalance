@@ -11,8 +11,8 @@ import * as moment from 'moment/moment';
 import { ItemModel, ShoppingCartModel } from '../shopping-cart/shoppingCart.model';
 import { CreatePurchasedItemPage } from '../create-purchased-item/create-purchased-item';
 import { TooltipsModule } from 'ionic-tooltips';
-import { ShoppingCartService } from '../shopping-cart/shopping-cart.service.ts'
-
+import { ShoppingCartService } from '../shopping-cart/shopping-cart.service';// '../shopping-cart/shopping-cart.service.ts'
+import { UtilitiesService } from '../../app/utilities.service'
 
 /**
  * Generated class for the CreateShoppingCartPage page.
@@ -36,22 +36,22 @@ export class CreateShoppingCartPage implements OnInit {
   fieldIdFornitore: string;
   fieldIdPagamento: string;
   paymentPlaceholder: string;
-  calcolaTotale:string;
+  calcolaTotale: string;
   supplierPlaceholder: string;
   mydate: DateTime;
   payment: PaymentsModel;
   constructor(public navCtrl: NavController,
+    public utilities: UtilitiesService,
     public modal: ModalController,
     public navParams: NavParams,
     public Payments: PaymentsService,
     public Suppliers: SuppliersService,
     public ShoppingCart: ShoppingCartModel,
-    //public ShoppingCarts:ShoppingCartService,
+    public ShoppingCarts: ShoppingCartService,
     public view: ViewController) {
     this.title = navParams.get('key') ? "modifica carrello della spesa" : "Nuovo Carrello della spesa";
     this.supplierPlaceholder = "seleziona fornitore";
     this.ShoppingCart = new ShoppingCartModel();
-    console.log('shoppingCart',this.ShoppingCart);
     this.paymentPlaceholder = "seleziona metodo di pagamento";
   }
   dismiss() {
@@ -59,25 +59,42 @@ export class CreateShoppingCartPage implements OnInit {
   }
 
   selectedSupplier(id) {
-    this.fieldIdFornitore = id;
+    this.ShoppingCart.fornitoreId = id;
+  }
+
+  setTotale(totale) {
+    this.ShoppingCart.totale = totale;
   }
   fab() {
     let modal = this.modal.create(CreatePurchasedItemPage);
     modal.onDidDismiss(d => {
-      console.log('pushed item',d);
-       this.ShoppingCart.items = this.ShoppingCart.items.concat([d]); //riassgno l'arrey così che OnChanges rilevi la variazione degli elementi nell'array
+      console.log('pushed item', d);
+      this.ShoppingCart.items = this.ShoppingCart.items.concat([d]); //riassgno l'arrey così che OnChanges rilevi la variazione degli elementi nell'array
       this.ShoppingCart.totale = Number(0);
 
-     /* _.forEach(this.ShoppingCart.items, (it: ItemModel) => {
-        this.ShoppingCart.totale = Number(this.ShoppingCart.totale) + Number(it.prezzo)
-        console.log('parziale', this.ShoppingCart.totale);
-      });*/
+      /* _.forEach(this.ShoppingCart.items, (it: ItemModel) => {
+         this.ShoppingCart.totale = Number(this.ShoppingCart.totale) + Number(it.prezzo)
+         console.log('parziale', this.ShoppingCart.totale);
+       });*/
       console.log('totale,', this.ShoppingCart.totale);
     })
     modal.present();
   }
-  pushShoppingCart(cart:ShoppingCartModel){
-    console.log('caRRELLO',cart);
+  pushShoppingCart(cart: ShoppingCartModel) {
+    console.log('caRRELLO', cart);
+    this.ShoppingCarts.pushNewShoppingCart(cart).then(a => {
+      console.log('added cart', a)
+      this.view.dismiss();// chiudo la finestra modale
+      this.utilities.showToast("lista della spesa caricata", "5000", "top", a => {
+      })
+    }).catch(err => {
+
+      this.view.dismiss();// chiudo la finestra modale
+      this.utilities.showToast("c'è stato un errore", "8000", "top", a => {
+      })
+
+    })
+
 
   }
 

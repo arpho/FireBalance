@@ -39,7 +39,7 @@ export class ShoppingCartService implements OnInit {
 
 
   pushNewShoppingCart(acquisto) {
-    this.afDB.list('acquisti/' + this.User.getUserUid()).push(acquisto);
+   return this.afDB.list('acquisti/' + this.User.getUserUid()).push(acquisto);
   }
   updateShoppingCart(acquisto) {
     this.afDB.list('acquisti/' + this.User.getUserUid()).update(acquisto.$key, acquisto)

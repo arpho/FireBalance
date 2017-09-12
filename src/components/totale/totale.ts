@@ -28,17 +28,14 @@ export class TotaleComponent implements OnChanges,OnInit {
     _.forEach(this.items, element => {
     totale += Number(element.prezzo);
     });
-    console.log('calcolato totale',totale);
     return totale * this.tassoConversione;
   }
   ngOnChanges(changes: SimpleChanges) {
-    console.log('changes',changes);
     this.totale = this.calcolaTotale();
     this.Totale.emit(this.totale);
   }
 
   constructor() {
-    console.log('Hello TotaleComponent Component',this.moneta);
     
   }
 

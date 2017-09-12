@@ -48,16 +48,17 @@
   </md-input-container>
 
   <!--ion-input type="number" label="totale" [ngModel]="ShoppingCart.totale"></ion-input-->
-  <totale [items]="ShoppingCart.items" [moneta]="ShoppingCart.moneta" [tassoConversione]="ShoppingCart.tassoConversione" (Totale)="ShoppingCart.totale=$event"></totale>
-  <ion-fab bottom left color="light"  >
+  <div>
+  <totale [items]="ShoppingCart.items" [moneta]="ShoppingCart.moneta" [tassoConversione]="ShoppingCart.tassoConversione" (Totale)="setTotale($event)"></totale>
+  <ion-fab middle right  color="light"  >
     <button ion-fab (click)="fab()" ><ion-icon name="add"></ion-icon></button>
   </ion-fab>
   <purchased-itemlist [items]="ShoppingCart.items">
     
   </purchased-itemlist>
-  
+  </div>
     <!-- Mini -->
     <ion-fab bottom right   >
-      <button ion-fab (click)="pushShoppingCart(ShoppingCart)" ><ion-icon name="checkmark"></ion-icon></button>
+      <button ion-fab (click)="pushShoppingCart(ShoppingCart)" ><ion-icon name="archive"></ion-icon></button>
     </ion-fab>
 </ion-content>
