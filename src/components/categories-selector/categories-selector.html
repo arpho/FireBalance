@@ -1,7 +1,7 @@
 <!-- Generated template for the CategoriesSelectorComponent component -->
 <div>
     <selected-categories-list [categories]=categories_id
-    (selectedCategories)="deselectedCategories($event)">
+    (selectedCategories)="selectedCategoriesFromList($event)">
 </selected-categories-list>
 <field-filter [placeholder]=segnaposto
 (doFilter)="filterString= $event.filterString"  

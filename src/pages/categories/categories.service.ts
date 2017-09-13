@@ -7,17 +7,18 @@ import { ListingModel } from '../pages/listing/listing.model';
 import { UserService } from '../../app/user.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 @Injectable()
-export class CategoriesService implements OnInit {
+export class CategoriesService {
   constructor(public http: Http,
     private afDB: AngularFireDatabase,
-    //,// produce uno strano errore no peovider for Observable 
-    private User: UserService) { }
+    private User: UserService) {
 
-  ngOnInit() {
-    this.afDB.list('categorie/' + this.User.getUserUid()).subscribe(data => {
-      console.log('categorie', data);
+    this.getCategories().subscribe(data => {
+      this.categories = data;
     })
   }
+  public categories: Observable<any>
+
+
 
   fetchCategoryById(id: string) {
     return this.afDB.list('categorie/' + this.User.getUserUid() + '/' + id);
@@ -42,10 +43,24 @@ export class CategoriesService implements OnInit {
     this.afDB.list('categorie/' + this.User.getUserUid()).remove(categoria.$key).then(e => {
     });
   }
+  pushCategoryIfNotExist(category) {
+    const then = (next: (a:any)=>any) => {
+      const key: string = this.categories.filter(x => x.title == category)[0].$key;
+      next({"key":key});
+    }
+
+
+    if (!this.categories.filter(x => x.title == category)[0]) // la categoria non esiste, la creo
+      return this.pushNewCategory({ "title": category });
+    else
+      return {
+        "then": then
+
+      }
+
+    }
+  }
 
 
 
-
-
-
-}
+  

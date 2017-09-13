@@ -1,4 +1,11 @@
-<!-- Generated template for the CategoriesSetterComponent component -->
 <div>
-  {{text}}
+  <ion-item class="list">
+    <ion-label>Categorie disponibili</ion-label>
+    <ion-select multiple="true">
+      <ion-option *ngFor="let  cat of SelectableCategories|async" value="cat.$key">
+        <selectable-category [category_id]=cat.$key (clicked)="selected(cat.$key)" *ngIf="!isSelected(cat.$key)" [filterString]=filterString>
+        </selectable-category>
+      </ion-option>
+    </ion-select>
+  </ion-item>
 </div>
