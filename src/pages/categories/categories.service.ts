@@ -54,7 +54,8 @@ export class CategoriesService {
       return this.pushNewCategory({ "title": category });
     else
       return {
-        "then": then
+        "then": then /* se la categoria è già presente devo ritornare sua key  devo simulare la stessa signature di pushNewCategory 
+        cioè dovrebbe essere una thenable, mi accontento di questa forma*/
 
       }
 

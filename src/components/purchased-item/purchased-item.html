@@ -1,9 +1,14 @@
 <!-- Generated template for the PurchasedItemComponent component -->
 <div>
-  <article class="item">
+    
+       <ion-icon name="trash" (click)="delete()" ></ion-icon>
+      
+  <article class="item"  (click)="update()">
+      
 
-      <section>
     <h1>{{item.descrizione}}</h1>
+      <section>
+        <label>Prezzo</label>
      <p>{{item.moneta}}{{item.prezzo}}</p>
      Nota<p>{{item.quantita}}</p>
       </section>

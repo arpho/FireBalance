@@ -1,6 +1,7 @@
 
 import { Timestamp } from 'rxjs/Rx';
 export class ItemModel {
+    id:string;
     prezzo: number;
     barcode: string;
     nome: string;
@@ -22,6 +23,7 @@ export class ItemModel {
         this.key =  '';
         this.quantita = '';
     }
+
     build(item: {prezzo:number,
                  barcode:string,
                 descrizione:string,

@@ -12,12 +12,18 @@ import {ItemModel} from '../../pages/shopping-cart/shoppingCart.model';
   templateUrl: 'purchased-itemlist.html'
 })
 export class PurchasedItemlistComponent {
-  @Input()items:[ItemModel];
+  @Input()items:ItemModel[];
+  @Output() deleteItem:EventEmitter<string> = new EventEmitter<string>();
   text: string;
 
   constructor() {
     console.log('Hello PurchasedItemlistComponent Component');
     this.text = 'Hello World';
+  }
+  delete(id){
+    console.log('item id  to delete',id)
+    //this.items = this.items.filter(x=>x.id!=id)
+    this.deleteItem.emit(id);
   }
 
 }

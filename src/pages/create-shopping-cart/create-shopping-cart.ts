@@ -52,7 +52,6 @@ export class CreateShoppingCartPage implements OnInit {
     this.title = navParams.get('key') ? "modifica carrello della spesa" : "Nuovo Carrello della spesa";
     this.supplierPlaceholder = "seleziona fornitore";
     this.ShoppingCart = new ShoppingCartModel();
-    this.paymentPlaceholder = "seleziona metodo di pagamento";
   }
   dismiss() {
     this.view.dismiss();
@@ -66,11 +65,18 @@ export class CreateShoppingCartPage implements OnInit {
     this.ShoppingCart.totale = totale;
   }
   fab() {
-    let modal = this.modal.create(CreatePurchasedItemPage);
+    const item = new ItemModel();
+    item.moneta = this.ShoppingCart.moneta;
+    item.tassoConversione = this.ShoppingCart.tassoConversione;
+    let modal = this.modal.create(CreatePurchasedItemPage, item);
     modal.onDidDismiss(d => {
       console.log('pushed item', d);
-      this.ShoppingCart.items = this.ShoppingCart.items.concat([d]); //riassgno l'arrey così che OnChanges rilevi la variazione degli elementi nell'array
-      this.ShoppingCart.totale = Number(0);
+      if (d){
+        d.id = new Date().valueOf().toString()
+
+        this.ShoppingCart.items = this.ShoppingCart.items.concat([d]); //riassgno l'arrey cosicchè OnChanges rilevi la variazione degli elementi nell'array
+        this.ShoppingCart.totale = Number(0);
+      }
 
       /* _.forEach(this.ShoppingCart.items, (it: ItemModel) => {
          this.ShoppingCart.totale = Number(this.ShoppingCart.totale) + Number(it.prezzo)
@@ -79,6 +85,10 @@ export class CreateShoppingCartPage implements OnInit {
       console.log('totale,', this.ShoppingCart.totale);
     })
     modal.present();
+  }
+  deleteItem(id){
+    console.log("item to delete",id);
+    this.ShoppingCart.items = this.ShoppingCart.items.filter(x=>x.id!= id)// elimino l'item selezionato
   }
   pushShoppingCart(cart: ShoppingCartModel) {
     console.log('caRRELLO', cart);

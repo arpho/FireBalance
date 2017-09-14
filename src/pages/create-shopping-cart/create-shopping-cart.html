@@ -53,12 +53,12 @@
   <ion-fab middle right  color="light"  >
     <button ion-fab (click)="fab()" ><ion-icon name="add"></ion-icon></button>
   </ion-fab>
-  <purchased-itemlist [items]="ShoppingCart.items">
+  <purchased-itemlist [(items)]="ShoppingCart.items" (deleteItem)="deleteItem($event)">
     
   </purchased-itemlist>
   </div>
     <!-- Mini -->
     <ion-fab bottom right   >
-      <button ion-fab (click)="pushShoppingCart(ShoppingCart)" ><ion-icon name="archive"></ion-icon></button>
+      <button ion-fab (click)="pushShoppingCart(ShoppingCart)"><ion-icon name="archive"></ion-icon></button>
     </ion-fab>
 </ion-content>

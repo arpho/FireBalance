@@ -42,11 +42,14 @@ export class CategoriesSelectorComponent {
     this.Cancel.emit(true);
   }
   ok() {
-    this.Categories.pushCategoryIfNotExist(this.filterString).then(a => {
-      console.log('push if not exist', a)
-      this.categories_id.push(a.key);
-      this.selectedCategories.emit(this.categories_id); // comunico al componente padre la selezione});
-    })
+    if(this.filterString) //ho cercato una categoria che forse non esiste
+      this.Categories.pushCategoryIfNotExist(this.filterString).then(a => {
+        console.log('push if not exist', a)
+        this.categories_id.push(a.key);
+        this.selectedCategories.emit(this.categories_id); // comunico al componente padre la selezione});
+      })
+      else // non ho cercato categorie
+        this.selectedCategories.emit(this.categories_id); // comunico al componente padre la selezione});
     /*this.Categories.getCategories().subscribe(cats=>{
       console.log('categories',cats);
       this.categories = cats;

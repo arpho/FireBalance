@@ -29,19 +29,19 @@ export class CreatePurchasedItemPage {
     public view: ViewController
   ) {
     console.log('create item, nAVPARAMS', navParams);
-    this.title = navParams.get('key') ? ` modifica item ${navParams.get('descrizione')}` : "aggiungi Item";
-    this.Item = new ItemModel();
+    this.title = this.Item.key ? ` modifica item ${this.Item.descrizione}` : "aggiungi Item";
+    this.Item = new ItemModel().build(navParams.data);
     //TODO caricare dati item da modificare
     this.itemForm = fb.group({
-      prezzo: new FormControl(navParams.get('prezzo')),
-      descrizione: new FormControl(navParams.get("descrizione")),
-      barcode: new FormControl(navParams.get('barcode')),
-      tassoConversione: new FormControl(navParams.get('tassoConversione')),
-      moneta: new FormControl(navParams.get("moneta")),
-      key: new FormControl(navParams.get('key')),
-      picture: new FormControl(navParams.get('picture')),
-      categorieId: new FormControl(navParams.get('categorieId')),
-      quantita: new FormControl(navParams.get('quantita'))
+      prezzo: new FormControl(this.Item.prezzo),
+      descrizione: new FormControl(this.Item.descrizione),
+      barcode: new FormControl(this.Item.barcode),
+      tassoConversione: new FormControl(this.Item.tassoConversione),
+      moneta: new FormControl(this.Item.moneta),
+      key: new FormControl(this.Item.key),
+      picture: new FormControl(this.Item.picture),
+      categorieId: new FormControl(this.Item.categorieId),
+      quantita: new FormControl(this.Item.quantita)
     });
     console.log('new Item', this.Item);
   }
