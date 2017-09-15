@@ -1,0 +1,10 @@
+<!-- Generated template for the ShoppingCartListComponent component -->
+<div>
+  <ion-list>
+    <ion-item *ngFor="let shoppingCart of ShoppingCarts|async" >
+       <shopping-cart-itemlist [shoppingCart]="shoppingCart"></shopping-cart-itemlist>
+      
+    </ion-item>
+    </ion-list>
+
+</div>

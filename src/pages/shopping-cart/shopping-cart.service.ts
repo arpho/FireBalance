@@ -27,7 +27,7 @@ export class ShoppingCartService implements OnInit {
     return out;
   }
 
-  getCategories(): Observable<any> {
+  getShoppingCarts(): Observable<any> {
     return this.afDB.list('acquisti/' + this.User.getUserUid());
   }
 

@@ -137,6 +137,9 @@ import { CreatePurchasedItemPage } from '../pages/create-purchased-item/create-p
 import { TotaleComponent } from '../components/totale/totale';
 import { LettereColorateComponent } from '../components/lettere-colorate/lettere-colorate';
 import { CategoriesSetterComponent } from '../components/categories-setter/categories-setter';
+import { ShoppingCartListComponent } from '../components/shopping-cart-list/shopping-cart-list';
+import { ShoppingCartItemlistComponent } from '../components/shopping-cart-itemlist/shopping-cart-itemlist';
+//import { ShoppingCartItemList } from '../components/shopping-cart-item/shopping-cart-item';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -240,6 +243,9 @@ export const firebaseConfig = {
     TotaleComponent,
     LettereColorateComponent,
     CategoriesSetterComponent,
+    ShoppingCartListComponent,
+    ShoppingCartItemComponent,
+    ShoppingCartItemlistComponent,
   ],
   imports: [
     TooltipsModule,
