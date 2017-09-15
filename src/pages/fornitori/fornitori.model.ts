@@ -24,4 +24,14 @@ export class SupplierModel {
         this.longitudine = fornitore && fornitore.longitudine.value || "";
         this.onLine = fornitore && fornitore.onLine.value || false;
     }
+    build(fornitore:any){
+        this.key = fornitore && fornitore.key || "";
+        this.nome = fornitore && fornitore.nome || "";
+        this.note = fornitore && fornitore.note || "";
+        this.indirizzo = fornitore && fornitore.indirizzo || "";
+        this.latitudine = fornitore && fornitore.latitudine || "";
+        this.longitudine = fornitore && fornitore.longitudine || "";
+        this.onLine = fornitore && fornitore.onLine || false;
+        return this;
+    }
 }

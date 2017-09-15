@@ -139,6 +139,7 @@ import { LettereColorateComponent } from '../components/lettere-colorate/lettere
 import { CategoriesSetterComponent } from '../components/categories-setter/categories-setter';
 import { ShoppingCartListComponent } from '../components/shopping-cart-list/shopping-cart-list';
 import { ShoppingCartItemlistComponent } from '../components/shopping-cart-itemlist/shopping-cart-itemlist';
+import { SuppliersNameComponent } from '../components/suppliers-name/suppliers-name';
 //import { ShoppingCartItemList } from '../components/shopping-cart-item/shopping-cart-item';
 
 export function createTranslateLoader(http: Http) {
@@ -246,6 +247,7 @@ export const firebaseConfig = {
     ShoppingCartListComponent,
     ShoppingCartItemComponent,
     ShoppingCartItemlistComponent,
+    SuppliersNameComponent,
   ],
   imports: [
     TooltipsModule,

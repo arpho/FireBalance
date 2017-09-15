@@ -3,7 +3,12 @@
   <article>
     <header>
 
-  {{shoppingCart.fornitoreId}}{{shoppingCart.dataAcquisto|date:' dd-MMM-yyyy':'+01'}}
+
+  <suppliers-name [supplierId]="shoppingCart.fornitoreId"></suppliers-name>
     </header>
+    <section><ion-col>
+      <ion-label>data acquisto</ion-label> {{shoppingCart.dataAcquisto|date:' dd-MMM-yyyy':'+01'}}</ion-col><ion-col>
+        <ion-label>data addebito</ion-label> {{shoppingCart.dataAddebito|date:' dd-MMM-yyyy':'+01'}}</ion-col>
+    </section>
   </article>
 </div>

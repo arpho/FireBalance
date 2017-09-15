@@ -19,7 +19,6 @@ export class ShoppingCartItemlistComponent {
   constructor(
     @Input() ShoppingCart:ShoppingCartModel
   ) {
-    console.log('Hello ShoppingCartItemlistComponent Component');
     this.text = 'Hello World cart item';
   }
 

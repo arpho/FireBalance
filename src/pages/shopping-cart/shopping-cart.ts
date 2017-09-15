@@ -34,7 +34,6 @@ export class ShoppingCartPage implements OnInit {
 
   ngOnInit() {
     this.ShoppingCarts = this.ShoppingCartsService.getShoppingCarts()
-    console.log(this.ShoppingCarts,'shpping')
   }
 
   ionViewDidLoad() {

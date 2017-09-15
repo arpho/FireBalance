@@ -1,3 +1,4 @@
+import { ShoppingCart } from '../../pages/listing/listing.model';
 
 import { Component, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
@@ -15,6 +16,9 @@ import { ShoppingCartModel } from '../../pages/shopping-cart/shoppingCart.model'
 })
 export class ShoppingCartListComponent {
   @Input() ShoppingCarts: Observable<[ShoppingCartModel]>
+  open(ShoppingCart){
+    console.log('open',ShoppingCart);
+  }
 
   constructor() {
     console.log('Hello ShoppingCartListComponent Component');
