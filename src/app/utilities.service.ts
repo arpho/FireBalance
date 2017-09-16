@@ -34,6 +34,15 @@ export class UtilitiesService {
 
     }
 
+    convertArray2Object(arr){
+        /*cercando un item per id firebase ritorna un array di oggetti questo metodo ricostruisce l'item*/
+        let obj={};
+        _.forEach(arr,element => {
+            obj[element.$key] = element.$value
+        });
+        return obj; 
+    }
+
 
 
     isAndroid(): boolean {

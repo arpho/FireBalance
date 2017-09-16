@@ -6,10 +6,10 @@
   <article class="item"  (click)="update()">
       
 
-    <h1>{{item.descrizione}}</h1>
+    <h1>{{getDescrizione()}}</h1>
       <section>
         <label>Prezzo</label>
-     <p>{{item.moneta}}{{item.prezzo}}</p>
+     <p>{{getMoneta()}}{{getPrezzo()}}</p>
      Nota<p>{{item.quantita}}</p>
       </section>
   </article>

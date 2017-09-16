@@ -5,10 +5,13 @@
 
 
   <suppliers-name [supplierId]="shoppingCart.fornitoreId"></suppliers-name>
+  <h3>{{text4Switch()}}</h3>
     </header>
     <section><ion-col>
+
       <ion-label>data acquisto</ion-label> {{shoppingCart.dataAcquisto|date:' dd-MMM-yyyy':'+01'}}</ion-col><ion-col>
         <ion-label>data addebito</ion-label> {{shoppingCart.dataAddebito|date:' dd-MMM-yyyy':'+01'}}</ion-col>
+        <span class="price"><label>Totale: </label>{{getPrice()}}</span>
     </section>
   </article>
 </div>

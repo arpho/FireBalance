@@ -1,10 +1,17 @@
 <!-- Generated template for the ShoppingCartListComponent component -->
 <div>
   <ion-list>
-    <ion-item *ngFor="let shoppingCart of ShoppingCarts|async" >
-       <shopping-cart-itemlist [shoppingCart]="shoppingCart"(click)="open(shoppingCart)"></shopping-cart-itemlist>
-      
-    </ion-item>
+    <ion-item-sliding *ngFor="let shoppingCart of ShoppingCarts|async" #item>
+      <ion-item>
+       <shopping-cart-itemlist [shoppingCart]="shoppingCart"></shopping-cart-itemlist>
+      </ion-item>
+      <ion-item-options side="left">
+          <button ion-button (click)="edit(shoppingCart)"><ion-icon name="create"></ion-icon>Modifica</button>
+        </ion-item-options>
+        <ion-item-options side="right" (ionSwipe)="swiped(shoppingCart)" (ionDrag)="logDrag($event)">
+          <button ion-button  color="danger" (click)="trash(shoppingCart)"><ion-icon name="trash"></ion-icon>Cancella</button>
+        </ion-item-options>
+    </ion-item-sliding>
     </ion-list>
 
 </div>

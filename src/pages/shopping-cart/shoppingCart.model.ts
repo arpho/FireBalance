@@ -52,7 +52,7 @@ export class ShoppingCartModel {
     moneta:string;
     tassoConversione;number;
     dataAcquisto: string;
-    onLine: boolean;
+    online: boolean;
     dataAddebito: string;
     items: Array<ItemModel>;
     key: string;
@@ -60,7 +60,7 @@ export class ShoppingCartModel {
         this.fornitoreId = "";
         this.pagamentoId = "";
         this.moneta = "€"
-        this.onLine = false;
+        this.online = false;
         this.tassoConversione = Number(1);
         this.dataAcquisto = new Date().toISOString();
         this.dataAddebito = new Date().toISOString();
@@ -82,7 +82,7 @@ export class ShoppingCartModel {
         this.dataAcquisto = shoppingCart.dataAcquisto || new Date().toISOString();
         this.dataAddebito = shoppingCart.dataAddebito || new Date().toISOString();
         this.totale = shoppingCart.totale|| 0;
-        this.onLine = shoppingCart.online;
+        this.online = shoppingCart.online || false;
         this.items = shoppingCart.items || [];
         this.key = shoppingCart.key || "";
         return this;

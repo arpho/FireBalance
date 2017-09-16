@@ -20,6 +20,10 @@
 <ion-content padding>
   <md-input-container>
     <ion-item>
+      <ion-label>{{text4Switch()}}</ion-label>
+    <ion-toggle [(ngModel)]="ShoppingCart.online"></ion-toggle>
+  </ion-item>
+    <ion-item>
       <ion-label>Data Acquisto</ion-label>
       <ion-datetime  [(ngModel)]="dataAcquisto">
       </ion-datetime>
@@ -33,12 +37,12 @@
   <ion-row>
     <ion-col>
       <label><b> fornitore</b></label>
-      <selector [db]=Suppliers (selected)="selectedSupplier($event)" [fieldId]=ShoppingCart.fieldIdFornitore [placeholder]=supplierPlaceholder>
+      <selector [db]=Suppliers (selected)="selectedSupplier($event)" [fieldId]=ShoppingCart.fornitoreId [placeholder]=supplierPlaceholder>
       </selector>
     </ion-col>
     <ion-col>
       <label><b> metodo di pagamento</b></label>
-      <selector [db]=Payments (selected)="selectedPayment($event)" [fieldId]=ShoppingCart.fieldIdPagamento [placeholder]=paymentPlaceholder>
+      <selector [db]=Payments (selected)="selectedPayment($event)" [fieldId]=ShoppingCart.pagamentoId [placeholder]=paymentPlaceholder>
       </selector>
     </ion-col>
   </ion-row>
@@ -46,19 +50,25 @@
   <md-input-container>
     <ion-input type="text" [(ngModel)]="dataFiscale" disabled></ion-input>
   </md-input-container>
-
   <!--ion-input type="number" label="totale" [ngModel]="ShoppingCart.totale"></ion-input-->
   <div>
   <totale [items]="ShoppingCart.items" [moneta]="ShoppingCart.moneta" [tassoConversione]="ShoppingCart.tassoConversione" (Totale)="setTotale($event)"></totale>
   <ion-fab middle right  color="light"  >
-    <button ion-fab (click)="fab()" ><ion-icon name="add"></ion-icon></button>
+    <button ion-fab (click)="addItem()" ><ion-icon name="add"></ion-icon></button>
   </ion-fab>
   <purchased-itemlist [(items)]="ShoppingCart.items" (deleteItem)="deleteItem($event)">
     
   </purchased-itemlist>
   </div>
     <!-- Mini -->
+    <div *ngIf="createMode">
     <ion-fab bottom right   >
-      <button ion-fab (click)="pushShoppingCart(ShoppingCart)"><ion-icon name="archive"></ion-icon></button>
-    </ion-fab>
+        <button ion-fab (click)="pushShoppingCart(ShoppingCart)"><ion-icon name="archive"></ion-icon></button>
+      </ion-fab>
+    </div> 
+    <div *ngIf="updateMode">
+      <ion-fab bottom right   >
+        <button ion-fab (click)="updateShoppingCart(ShoppingCart)"><ion-icon name="archive"></ion-icon></button>
+      </ion-fab>
+    </div> 
 </ion-content>

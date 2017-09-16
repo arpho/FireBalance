@@ -44,10 +44,13 @@ export class SelectorComponent implements OnInit {
   }
   ngOnInit() {
     this.spinning = true;
+    console.log('fieldId in selector',this.fieldId);
     this.db.getElements().subscribe(a => {
       this.spinning = false;
     })
     this.items = this.db.getElements();
+    if (this.fieldId)
+    null
 
   }
 

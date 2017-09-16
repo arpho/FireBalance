@@ -14,16 +14,16 @@ import { ShoppingCartService } from '../../pages/shopping-cart/shopping-cart.ser
 export class ShoppingCartWudItemComponent {
 
 
-  constructor(private Acquisti:ShoppingCartService) {
+  constructor(private Acquisti: ShoppingCartService) {
   }
 
   update(supplier) {
     this.Acquisti.updateShoppingCart(supplier);
-    
+
   }
-  trash(supplier) {
-    this.Acquisti.trashShoppingCart(supplier);
-    
+  trash(supplier, key) {
+    this.Acquisti.trashShoppingCart(supplier, key);
+
   }
 
 }

@@ -28,12 +28,32 @@ export class PurchasedItemComponent {
     this.deleteItem.emit(this.item.id);
 
   }
+
+  getDescrizione() {
+    if (this.item && this.item.descrizione)
+    return this.item.descrizione
+    else "n.d.";
+}
+getMoneta() {
+  if (this.item && this.item.moneta)
+  return this.item.moneta
+  else " n.d.";
+}
+
+getPrezzo() {
+  if (this.item && this.item.prezzo)
+  return this.item.prezzo
+  else "n.d.";
+}
+
   update() {
     console.log('updating', this.item);
     let modal = this.modal.create(CreatePurchasedItemPage, this.item);
     modal.onDidDismiss(item => {
       console.log('updated item', item);
-      this.item = item
+      if (item)
+        //se item è nullo ho annullato l'operazione
+        this.item = item
     })
     modal.present();
   }
