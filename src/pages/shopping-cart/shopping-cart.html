@@ -7,16 +7,18 @@
 <ion-header class="login-header auth-header">
 
   <ion-navbar>
-    <ion-title><ion-icon name="arrow-back"(click)="goHome()" ></ion-icon>  {{'ShoppingCartPage'| translate}}</ion-title>
+    <ion-title><ion-icon name="arrow-back"(click)="goHome()" ></ion-icon> <span> {{'ShoppingCartPage'| translate}}</span></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content class="listing-content">
+  <ion-fab top right>
+        <button ion-fab  (click)="createCart()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+</ion-fab>
 
 
-          <button md-fab class="md-mini-fab" label="FAB" (click)="createCart()">
-            <ion-icon name="add"></ion-icon>
-            </button>
             <shopping-cart-list [ShoppingCarts]="ShoppingCarts"></shopping-cart-list>
 </ion-content>

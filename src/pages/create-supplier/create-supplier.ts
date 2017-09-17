@@ -43,9 +43,15 @@ export class CreateSupplierPage {
       Validators.required);
 
   }
+
+  getButtonTitle(){
+    return this.buttonText;
+  }
+
   text4Switch() {
     return this.Utilities.text4Switch("Fornitore On-line", "fornitore tradizionale", this.supplierForm.controls.onLine.value);
   }
+  
   geolocalize() {
     this.busy = true;
     console.log('localizing');

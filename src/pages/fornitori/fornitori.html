@@ -10,13 +10,17 @@
     <ion-title>
       <ion-icon name="arrow-back" (click)="goHome()"></ion-icon> fornitori</ion-title>
     <div id="SupplierForm">
-      <button md-fab (click)="createSupplier()">
-        <ion-icon name="add"></ion-icon></button>
+      
       <field-filter [placeholder]='segnaposto' (doFilter)="filterFornitore= $event.filterString"></field-filter>
     </div>
   </ion-navbar>
 
 
+  <ion-fab top right>
+      <button button ion-fab (click)="createSupplier()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+  </ion-fab>
 </ion-header>
 
 
