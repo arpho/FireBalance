@@ -14,8 +14,7 @@
     </ion-col>
 
     <div id="categoriesForm">
-      <button md-fab (click)="createCategory()">
-      <ion-icon name="add"></ion-icon></button>
+
       <field-filter [placeholder]=segnaposto (doFilter)="newCategory= $event.filterString"></field-filter>
     </div>
   </ion-navbar>
@@ -39,6 +38,10 @@
 
 
 
-
+  <ion-fab bottom right>
+      <button  ion-fab (click)="createCategory()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-fab>
 
 </ion-content>

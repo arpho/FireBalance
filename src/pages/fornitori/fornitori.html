@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-title>
-      <ion-icon name="arrow-back" (click)="goHome()"></ion-icon> fornitori</ion-title>
+     <span> <ion-icon name="arrow-back" (click)="goHome()"></ion-icon> </span>fornitori</ion-title>
     <div id="SupplierForm">
       
       <field-filter [placeholder]='segnaposto' (doFilter)="filterFornitore= $event.filterString"></field-filter>
@@ -16,16 +16,14 @@
   </ion-navbar>
 
 
-  <ion-fab top right>
-      <button button ion-fab (click)="createSupplier()">
-          <ion-icon name="add"></ion-icon>
-        </button>
-  </ion-fab>
+  
 </ion-header>
 
 
 
 <ion-content class="listing-content">
+    
+   
     <selector [db]=Suppliers (selected)="selectedEvent($event)" [db]=Suppliers [component]=component [fieldId]=fieldId>
       </selector>
   <h4 class="categories-title">{{'BROWSE_SUPPLIERS' | translate}}</h4>
@@ -36,5 +34,9 @@
     </ion-col>
   </article>
   <hr>
-
+  <ion-fab bottom right>
+      <button  ion-fab (click)="createSupplier()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-fab>
 </ion-content>
