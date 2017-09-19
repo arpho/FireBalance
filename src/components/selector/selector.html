@@ -3,7 +3,6 @@
   </selected-item>
   <field-filter [placeholder]=placeholder (doFilter)="doFilter($event.filterString)">
   </field-filter>
-  <ion-icon name="add-circle" (click)="add()"></ion-icon>
 </div>
 <div class="list elenco">
   <list-items [items]=items (selected)="selectedEvent($event) " [filterString]=filterString *ngIf="filterString">
@@ -16,4 +15,9 @@
       <div id="loader"></div>
       <div id="loader"></div>
   </div>
+  <ion-fab top right>
+    <button  ion-fab mini color="primary" (click)="add()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
 </div>

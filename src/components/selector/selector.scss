@@ -10,4 +10,10 @@ selector {
         overflow-x: scroll;
     }
 
+    ion-fab {
+        button.fab.fab-md.fab-md-primary {
+            background-color:aqua;
+        }
+    }
+
 }
