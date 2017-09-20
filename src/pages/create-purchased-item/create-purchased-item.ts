@@ -54,7 +54,8 @@ export class CreatePurchasedItemPage {
     let modal = this.modal.create(CategoriesSelectorPage, this.Item.categorieId);
     modal.onDidDismiss(values => {
       console.log('categoriesSelector dismissed', values);
-      this.Item.categorieId = values;
+      if ( values.ok)
+      this.Item.categorieId = values.categories;
       console.log('added categories to Item', values, this.Item);
     })
     modal.present();

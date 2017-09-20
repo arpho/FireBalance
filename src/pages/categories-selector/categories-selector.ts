@@ -28,7 +28,8 @@ export class CategoriesSelectorPage {
   ionViewDidLoad() {
   }
   selectedCategories(cats) {
-    this.view.dismiss(cats);
+    const out = {ok:true,categories:cats}
+    this.view.dismiss(out);
   }
 
   dismiss() {
