@@ -1,6 +1,13 @@
 <!-- Generated template for the PurchasedItemlistComponent component -->
 <div class="list">
-  <ion-item class="item" *ngFor="let item of items.slice().reverse()">
+  <ion-list>
+  <ion-item-sliding class="item" *ngFor="let item of items.slice().reverse()">
+    <ion-item>
     <purchased-item [item]="item" (deleteItem)="delete($event)" (updatedItem)="updatedItem($event)"></purchased-item>
   </ion-item>
+  <ion-item-options side="left">
+      <button ion-button color="danger" (click)="delete(item.id)">Cancella</button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
 </div>
