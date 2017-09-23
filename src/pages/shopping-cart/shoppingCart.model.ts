@@ -30,6 +30,7 @@ export class ItemModel {
                 picture:string,
                 categorieId:string[],
                 key:string,
+                id:string,
                 moneta:string,
                 quantita:string,
                 tassoConversione:number}) {
@@ -41,6 +42,7 @@ export class ItemModel {
         this.tassoConversione = item && item.tassoConversione || 1;
         this.moneta = item && item.moneta || '€';
         this.key = item && item.key || '';
+        this.id = item && item.id
         this.quantita = item && item.quantita||'';
         return this;
     }

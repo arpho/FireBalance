@@ -1,4 +1,4 @@
-import { Component, Input, Output, SimpleChanges, EventEmitter, OnChanges,OnInit } from '@angular/core';
+import { Component, Input, Output, SimpleChanges, EventEmitter, OnChanges,OnInit,KeyValueDiffers,DoCheck } from '@angular/core';
 import { ItemModel } from '../../pages/shopping-cart/shoppingCart.model';
 import * as _ from 'lodash';
 
@@ -23,19 +23,24 @@ export class TotaleComponent implements OnChanges,OnInit {
     this.text = 'Totale: '+this.moneta+" ";
   }
 
+  
   calcolaTotale(): number {
+    console.log('calcolo totale')
     var totale = 0;
     _.forEach(this.items, element => {
     totale += Number(element.prezzo);
     });
+    console.log('calcolato totale',totale * this.tassoConversione)
     return totale * this.tassoConversione;
   }
   ngOnChanges(changes: SimpleChanges) {
+   
+    console.log('cambio');
     this.totale = this.calcolaTotale();
     this.Totale.emit(this.totale);
   }
 
-  constructor() {
+  constructor(public differs:  KeyValueDiffers) {
     
   }
 

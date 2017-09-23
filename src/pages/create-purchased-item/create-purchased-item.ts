@@ -39,6 +39,7 @@ export class CreatePurchasedItemPage {
       tassoConversione: new FormControl(this.Item.tassoConversione),
       moneta: new FormControl(this.Item.moneta),
       key: new FormControl(this.Item.key),
+      id: new FormControl(this.Item.id),
       picture: new FormControl(this.Item.picture),
       categorieId: new FormControl(this.Item.categorieId),
       quantita: new FormControl(this.Item.quantita)
@@ -53,10 +54,8 @@ export class CreatePurchasedItemPage {
 
     let modal = this.modal.create(CategoriesSelectorPage, this.Item.categorieId);
     modal.onDidDismiss(values => {
-      console.log('categoriesSelector dismissed', values);
       if ( values.ok)
       this.Item.categorieId = values.categories;
-      console.log('added categories to Item', values, this.Item);
     })
     modal.present();
   }
@@ -69,6 +68,7 @@ export class CreatePurchasedItemPage {
       "tassoConversione": item.controls.tassoConversione.value || 1,
       "picture": item.controls.picture.value,
       "key": item.controls.key.value,
+      "id": item.controls.id.value,
       "categorieId": this.Item.categorieId,
       "quantita": item.controls.quantita.value,
       "moneta": item.controls.moneta.value

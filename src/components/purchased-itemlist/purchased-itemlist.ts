@@ -14,6 +14,7 @@ import {ItemModel} from '../../pages/shopping-cart/shoppingCart.model';
 export class PurchasedItemlistComponent {
   @Input()items:ItemModel[];
   @Output() deleteItem:EventEmitter<string> = new EventEmitter<string>();
+  @Output() UpdatedItem:EventEmitter<ItemModel> = new EventEmitter<ItemModel>();
   text: string;
 
   constructor() {
@@ -24,6 +25,10 @@ export class PurchasedItemlistComponent {
     console.log('item id  to delete',id)
     //this.items = this.items.filter(x=>x.id!=id)
     this.deleteItem.emit(id);
+  }
+
+  updatedItem(id){
+    this.UpdatedItem.emit(id);
   }
 
 }

@@ -52,11 +52,11 @@
   </md-input-container>
   <!--ion-input type="number" label="totale" [ngModel]="ShoppingCart.totale"></ion-input-->
   <div>
-  <totale [items]="ShoppingCart.items" [moneta]="ShoppingCart.moneta" [tassoConversione]="ShoppingCart.tassoConversione" (Totale)="setTotale($event)"></totale>
+  <totale [items]="ShoppingCart.items" [moneta]="ShoppingCart.moneta" [tassoConversione]="ShoppingCart.tassoConversione" (Totale)="setTotale($event)" ></totale>
   <ion-fab middle right  color="light"  >
     <button ion-fab (click)="addItem()" ><ion-icon name="add"></ion-icon></button>
   </ion-fab>
-  <purchased-itemlist [(items)]="ShoppingCart.items" (deleteItem)="deleteItem($event)">
+  <purchased-itemlist [(items)]="ShoppingCart.items" (deleteItem)="deleteItem($event)" (UpdatedItem)="UpdatedItem($event)">
     
   </purchased-itemlist>
   </div>

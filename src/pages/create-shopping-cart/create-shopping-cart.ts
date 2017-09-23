@@ -38,7 +38,6 @@ export class CreateShoppingCartPage implements OnInit {
   fieldIdFornitore: string;
   fieldIdPagamento: string;
   paymentPlaceholder: string;
-  calcolaTotale: string;
   supplierPlaceholder: string;
   mydate: DateTime;
   payment: PaymentsModel;
@@ -89,15 +88,25 @@ export class CreateShoppingCartPage implements OnInit {
   setTotale(totale) {
     this.ShoppingCart.totale = totale;
   }
+  UpdatedItem(item){
+    this.ShoppingCart.items = this.ShoppingCart.items.map(x=>{ // aggiorno completamente la lista degli item
+      if (x.id!= item.id)
+        return x; 
+      else
+        return item;// modifico  l'item modificato
+    })
+
+  }
   addItem() {
     const item = new ItemModel();
     item.moneta = this.ShoppingCart.moneta;
+    item.id = new Date().valueOf().toString() // creo un'identificatore unico per gli item
     item.tassoConversione = this.ShoppingCart.tassoConversione;
     let modal = this.modal.create(CreatePurchasedItemPage, item);
     modal.onDidDismiss(d => {
       console.log('pushed item', d);
       if (d) {
-        d.id = new Date().valueOf().toString() // creo un'identificatore unico per gli item
+        //d.id = new Date().valueOf().toString() // creo un'identificatore unico per gli item
         console.log('item acquistato', d)
         this.ShoppingCart.items = this.ShoppingCart.items.concat([d]); //riassegno l'array cosicchè OnChanges rilevi la variazione degli elementi nell'array
         this.ShoppingCart.totale = Number(0);

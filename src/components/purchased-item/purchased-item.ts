@@ -17,6 +17,7 @@ import { CreatePurchasedItemPage } from '../../pages/create-purchased-item/creat
 export class PurchasedItemComponent {
   @Input() item: ItemModel;
   @Output() deleteItem: EventEmitter<string> = new EventEmitter<string>();
+  @Output() updatedItem: EventEmitter<ItemModel> = new EventEmitter<ItemModel>();
   constructor(
     navParams: NavParams,
     public modal: ModalController
@@ -54,6 +55,7 @@ getPrezzo() {
       if (item)
         //se item è nullo ho annullato l'operazione
         this.item = item
+        this.updatedItem.emit(this.item);
     })
     modal.present();
   }
