@@ -21,6 +21,7 @@ import { CreateShoppingCartPage } from '../create-shopping-cart/create-shopping-
 })
 export class ShoppingCartPage implements OnInit {
   ShoppingCarts: Observable<ShoppingCartModel>;
+  showSpinner: boolean;
   createCart() {
     let modal = this.modal.create(CreateShoppingCartPage);
     modal.present();
@@ -33,7 +34,9 @@ export class ShoppingCartPage implements OnInit {
   }
 
   ngOnInit() {
+    this.showSpinner = true;
     this.ShoppingCarts = this.ShoppingCartsService.getShoppingCarts()
+    this.ShoppingCartsService.getShoppingCarts().subscribe(items => this.showSpinner = false)
   }
 
   ionViewDidLoad() {

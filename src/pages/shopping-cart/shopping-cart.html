@@ -13,12 +13,18 @@
 </ion-header>
 
 <ion-content class="listing-content">
+   
   <ion-fab bottom right>
         <button ion-fab  (click)="createCart()">
         <ion-icon name="add"></ion-icon>
       </button>
 </ion-fab>
+<div *ngIf="showSpinner"  class="loader-wrapper" id="loader-1">
+    <div id="loader"></div>
+</div>
 
 
-            <shopping-cart-list [ShoppingCarts]="ShoppingCarts"></shopping-cart-list>
+            <shopping-cart-list [ShoppingCarts]="ShoppingCarts">
+                
+            </shopping-cart-list>
 </ion-content>

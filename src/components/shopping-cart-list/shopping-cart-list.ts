@@ -26,6 +26,9 @@ export class ShoppingCartListComponent {
   swiped(it) {
     console.log('swiped', it)
   }
+  logDrag(ev){
+    console.log('dragged',ev);
+  }
   trash(item) {
     let alert = this.alertCtrl.create({
       title: "sei sicuro di voler cancellare questo carrello?",
