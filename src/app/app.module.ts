@@ -85,6 +85,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Toast } from '@ionic-native/toast';
 
 // Functionalities
+//import { Camera } from '@ionic-native/camera';
+//import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { FunctionalitiesPage } from '../pages/functionalities/functionalities';
 import { MapsPage } from '../pages/maps/maps';
 import { FacebookLoginPage } from '../pages/facebook-login/facebook-login';
@@ -146,6 +148,7 @@ export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 const googleKey = "AIzaSyATOf9HX67HaKlMQU0V7qUvrCe0McNSo40";
+const outpanKey = "7b756067bae876191fd0af70e3978589";
 const FIREBASE_CONFIG = {
   apiKey: "AIzaSyCo8vHpRDMa_JsS5J6_vmLTbVNv8eMamgU",
   authDomain: "fir-6062c.firebaseapp.com",
@@ -154,6 +157,7 @@ const FIREBASE_CONFIG = {
   storageBucket: "fir-6062c.appspot.com",
   messagingSenderId: "84418489236"
 };
+
 export const firebaseConfig = {
   apiKey: "AIzaSyCo8vHpRDMa_JsS5J6_vmLTbVNv8eMamgU",
   authDomain: "fir-6062c.firebaseapp.com",
@@ -321,10 +325,13 @@ export const firebaseConfig = {
     VideoPlaylistPage
   ],
   providers: [
+    //Camera,
+    //BarcodeScanner,
     ItemModel,
     ShoppingCartModel,
     { provide: "GoogleKey", useValue: googleKey },
     { provide: "FIREBASE_CONFIG", useValue: FIREBASE_CONFIG },
+    { provide: "OutpanKey",useValue: outpanKey},
     Subject,
     MdFab,
     MdSpinner,

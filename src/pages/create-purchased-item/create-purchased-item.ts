@@ -3,8 +3,10 @@ import * as _ from 'lodash';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { IonicPage, NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
+//import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { ItemModel } from '../shopping-cart/shoppingCart.model';
 import { CategoriesSelectorPage } from '../categories-selector/categories-selector';
+import { UtilitiesService} from '../../app/utilities.service';
 
 
 /**
@@ -24,6 +26,8 @@ export class CreatePurchasedItemPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     fb: FormBuilder,
+    public Utilities:UtilitiesService,
+    //public scanner:BarcodeScanner,
     public modal: ModalController,
     public Item: ItemModel,
     public view: ViewController
@@ -60,6 +64,10 @@ export class CreatePurchasedItemPage {
     modal.present();
   }
 
+  scan(){
+    console.log('scanning');
+   // this.scanner.scan().then(code=>this.Utilities.showToast('Barcode '+ code,'5000','top',a=>console.log('done'+code)));
+  }
   submit(item) {
     var obj = {
       "descrizione": item.controls.descrizione.value,

@@ -30,6 +30,7 @@
         </ion-input>
     </div>
     <ion-icon name="pricetags" *ngIf="hasCategories()"></ion-icon> 
+    <ion-button (click)="scan()"><ion-icon name="barcode"></ion-icon></ion-button>
     
     <ion-fab middle right   >
       <button ion-fab type="submit"(click)="categoriesSelector()" ><ion-icon name="pricetags"></ion-icon></button>
