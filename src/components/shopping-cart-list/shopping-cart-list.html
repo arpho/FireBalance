@@ -1,7 +1,7 @@
 <!-- Generated template for the ShoppingCartListComponent component -->
 <div>
   <ion-list>
-    <ion-item-sliding *ngFor="let shoppingCart of ShoppingCarts|async" #item>
+    <ion-item-sliding *ngFor="let shoppingCart of ShoppingCarts|async|reverse" #item>
       <ion-item>
        <shopping-cart-itemlist [shoppingCart]="shoppingCart"></shopping-cart-itemlist>
       </ion-item>

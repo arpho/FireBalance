@@ -66,6 +66,7 @@ export class LoginPage {
     })
     .catch(err=>{
       console.log('login no ok',err);
+      this.logging = false;
     //  if(this.plt.is('android')){
         this.utilities.showToast(`problemi di autenticazione`, '5000', 'center',toast => {
           console.log(toast);
@@ -73,6 +74,7 @@ export class LoginPage {
     
     
     })
+
   }
 
 

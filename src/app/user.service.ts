@@ -1,3 +1,4 @@
+import { UtilitiesService } from './utilities.service';
 import {UserModel } from '../pages/profile/profile.model';
 import { Injectable,Inject } from '@angular/core';
 import * as firebase from 'firebase/app';
@@ -8,6 +9,7 @@ export class UserService {
   constructor(
     @Inject('FIREBASE_CONFIG') private FirebaseConfig,
   private user: UserModel,
+  public Utilities:UtilitiesService,
   // stream che pubblica nuovi messaggi solo una volta
   public currentUser: Subject<UserModel> 
 ){

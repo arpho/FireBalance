@@ -143,6 +143,7 @@ import { ShoppingCartListComponent } from '../components/shopping-cart-list/shop
 import { ShoppingCartItemlistComponent } from '../components/shopping-cart-itemlist/shopping-cart-itemlist';
 import { SuppliersNameComponent } from '../components/suppliers-name/suppliers-name';
 //import { ShoppingCreversertItemList } from '../components/shopping-cart-item/shopping-cart-item';
+import { ReversePipe} from '../components/shopping-cart-list/reverse.pipe';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -172,7 +173,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    
+    ReversePipe,
     CreateShoppingCartPage,
     CreatePurchasedItemPage,
     CategoriesSelectorPage,

@@ -39,3 +39,5 @@ package-lock\.json
 src/components/hello-material/
 
 src/components/shopping-cart-item-to remove/
+
+packcage\.old\.json
